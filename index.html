@@ -4781,6 +4781,66 @@ body.lesson-active main.panel{
 }
 </style>
 
+
+<style id="madeQuizFontEnlargedPatch">
+/* Soal Jepang tetap satu baris, tetapi memenuhi area soal semaksimal mungkin. */
+#questionText.question,
+#questionText.question.small{
+  width:100%!important;
+  max-width:100%!important;
+  white-space:nowrap!important;
+  word-break:keep-all!important;
+  overflow-wrap:normal!important;
+  overflow:hidden!important;
+  text-overflow:clip!important;
+  line-height:1!important;
+  text-align:center!important;
+}
+
+/* Teks pilihan jawaban diperbesar sekitar 40%, badge tetap proporsional. */
+.option{
+  line-height:1.2!important;
+}
+
+.option > span:not(.badge){
+  display:block!important;
+  min-width:0!important;
+  font-size:1.4em!important;
+  line-height:1.15!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:clip!important;
+}
+
+/* Beri ruang tambahan agar font besar tidak terasa sesak. */
+@media (min-width:701px){
+  .option{
+    min-height:72px!important;
+    padding:14px 16px!important;
+    gap:13px!important;
+  }
+
+  .badge{
+    width:42px!important;
+    height:42px!important;
+    border-radius:13px!important;
+    font-size:18px!important;
+  }
+}
+
+@media (max-width:700px){
+  .option{
+    min-height:58px!important;
+    padding:11px 12px!important;
+    gap:10px!important;
+  }
+
+  .option > span:not(.badge){
+    font-size:1.4em!important;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -7799,10 +7859,8 @@ renderLevels();
     var maxHeight=Math.max(48,copy.clientHeight-reservedHeight);
     var mobile=window.matchMedia&&window.matchMedia("(max-width:700px)").matches;
 
-    var low=20;
-    var high=question.classList.contains("small")
-      ? (mobile?72:116)
-      : (mobile?84:154);
+    var low=18;
+    var high=mobile?150:230;
     var best=low;
 
     question.style.setProperty("font-size",high+"px","important");
@@ -7826,7 +7884,7 @@ renderLevels();
 
     question.style.setProperty(
       "font-size",
-      Math.max(20,best-1)+"px",
+      Math.max(18,best-1)+"px",
       "important"
     );
   }
