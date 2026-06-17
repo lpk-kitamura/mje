@@ -4422,6 +4422,205 @@ body.lesson-active main.panel{
 }
 </style>
 
+
+<style id="madeDetailFlowAndNavClickPatch">
+/* =========================================================
+   DETAIL KOSAKATA DESKTOP:
+   setiap bagian mempunyai tinggi otomatis dan tidak bertumpuk
+   ========================================================= */
+@media (min-width:701px){
+  #lessonCardScreen .lesson-detail-panel{
+    min-height:0!important;
+    overflow:hidden!important;
+  }
+
+  #lessonCardScreen .lesson-detail-content:not(.hidden){
+    display:flex!important;
+    flex-direction:column!important;
+    min-height:0!important;
+    height:100%!important;
+    max-height:100%!important;
+    overflow:hidden!important;
+  }
+
+  #lessonCardScreen .lesson-detail-grid{
+    display:grid!important;
+    grid-template-columns:minmax(125px,.28fr) minmax(0,1fr)!important;
+    grid-auto-rows:max-content!important;
+    align-content:start!important;
+    align-items:stretch!important;
+    column-gap:9px!important;
+    row-gap:9px!important;
+    min-height:0!important;
+    height:auto!important;
+    max-height:100%!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+    overscroll-behavior:contain!important;
+    padding:0 7px 8px 0!important;
+    scrollbar-gutter:stable!important;
+  }
+
+  #lessonCardScreen .lesson-label,
+  #lessonCardScreen .lesson-value{
+    position:relative!important;
+    align-self:stretch!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:54px!important;
+    max-height:none!important;
+    margin:0!important;
+    overflow:visible!important;
+  }
+
+  #lessonCardScreen .lesson-label{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+  }
+
+  #lessonCardScreen .lesson-value:not(.lesson-list){
+    display:flex!important;
+    align-items:center!important;
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+    word-break:normal!important;
+  }
+
+  #lessonApplications,
+  #lessonSentences{
+    display:block!important;
+    height:auto!important;
+    min-height:54px!important;
+    max-height:none!important;
+    overflow:visible!important;
+    align-self:start!important;
+  }
+
+  #lessonApplications .lesson-list-item,
+  #lessonSentences .lesson-list-item{
+    position:relative!important;
+    display:block!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    margin:0!important;
+    padding:9px 0!important;
+    overflow:visible!important;
+    white-space:normal!important;
+    line-height:1.45!important;
+  }
+
+  #lessonApplications .lesson-list-item + .lesson-list-item,
+  #lessonSentences .lesson-list-item + .lesson-list-item{
+    border-top:1px solid rgba(255,255,255,.065)!important;
+  }
+
+  #lessonApplications .lesson-list-item > div,
+  #lessonSentences .lesson-list-item > div{
+    position:static!important;
+    display:block!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    margin:0!important;
+    white-space:normal!important;
+    overflow:visible!important;
+    overflow-wrap:anywhere!important;
+    word-break:normal!important;
+  }
+
+  #lessonApplications .lesson-list-item .translation,
+  #lessonSentences .lesson-list-item .translation{
+    margin-top:5px!important;
+    line-height:1.45!important;
+  }
+
+  #lessonSentences .sentence-jp{
+    display:block!important;
+    padding-top:.58em!important;
+    padding-bottom:.18em!important;
+    line-height:2!important;
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+    word-break:normal!important;
+  }
+
+  #lessonSentences ruby{
+    ruby-position:over!important;
+    ruby-align:center!important;
+  }
+
+  #lessonSentences rt{
+    line-height:1!important;
+  }
+
+  #lessonCardScreen #hideMeaningBtn{
+    flex:0 0 auto!important;
+    position:relative!important;
+    z-index:5!important;
+    margin:8px auto 0!important;
+  }
+}
+
+/* =========================================================
+   PREVIOUS / NEXT:
+   normal dan hover tetap clean; glow hanya sesaat ketika diklik
+   ========================================================= */
+#lessonPrev,
+#lessonNext{
+  animation:none!important;
+  filter:none!important;
+  outline:none!important;
+  box-shadow:none!important;
+  transition:
+    border-color .16s ease,
+    background .16s ease,
+    color .16s ease,
+    box-shadow .16s ease!important;
+}
+
+#lessonPrev:hover,
+#lessonNext:hover,
+#lessonPrev:focus,
+#lessonNext:focus,
+#lessonPrev:focus-visible,
+#lessonNext:focus-visible{
+  animation:none!important;
+  filter:none!important;
+  transform:none!important;
+  outline:none!important;
+  border-color:rgba(0,234,255,.65)!important;
+  background:rgba(3,17,35,.76)!important;
+  box-shadow:none!important;
+}
+
+#lessonPrev.nav-click-glow,
+#lessonNext.nav-click-glow,
+#lessonPrev:active,
+#lessonNext:active{
+  animation:lessonNavClickPulse .28s ease-out 1!important;
+}
+
+@keyframes lessonNavClickPulse{
+  0%{
+    box-shadow:
+      0 0 0 1px rgba(0,234,255,.28),
+      0 0 8px rgba(0,212,255,.18)!important;
+  }
+  45%{
+    box-shadow:
+      0 0 0 2px rgba(0,234,255,.78),
+      0 0 24px rgba(0,212,255,.55),
+      0 0 34px rgba(255,122,0,.14)!important;
+  }
+  100%{
+    box-shadow:none!important;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -7549,6 +7748,39 @@ renderLevels();
     scheduleLessonFit();
     scheduleQuestionFit();
   });
+})();
+</script>
+
+
+<script id="madeDetailFlowAndNavClickRuntime">
+(function(){
+  "use strict";
+
+  function bindClickGlow(id){
+    var button=document.getElementById(id);
+    if(!button)return;
+
+    button.addEventListener("click",function(){
+      button.classList.remove("nav-click-glow");
+      void button.offsetWidth;
+      button.classList.add("nav-click-glow");
+
+      window.setTimeout(function(){
+        button.classList.remove("nav-click-glow");
+      },300);
+    },true);
+  }
+
+  function initialize(){
+    bindClickGlow("lessonPrev");
+    bindClickGlow("lessonNext");
+  }
+
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",initialize,{once:true});
+  }else{
+    initialize();
+  }
 })();
 </script>
 
