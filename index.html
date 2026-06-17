@@ -4621,6 +4621,166 @@ body.lesson-active main.panel{
 }
 </style>
 
+
+<style id="madeDetailRowsFinalPatch">
+/* =========================================================
+   DETAIL KOSAKATA:
+   pasangan label + isi dibuat sebagai baris mandiri.
+   Ini mencegah isi Kosakata Jepang masuk ke Contoh Kalimat.
+   ========================================================= */
+@media (min-width:701px){
+  #lessonCardScreen .lesson-detail-content:not(.hidden){
+    display:grid!important;
+    grid-template-rows:minmax(0,1fr) auto!important;
+    min-height:0!important;
+    height:100%!important;
+    max-height:100%!important;
+    overflow:hidden!important;
+  }
+
+  #lessonCardScreen .lesson-detail-grid.detail-flow-layout{
+    display:block!important;
+    min-height:0!important;
+    height:100%!important;
+    max-height:100%!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+    padding:0 8px 8px 0!important;
+    scrollbar-gutter:stable!important;
+    overscroll-behavior:contain!important;
+  }
+
+  #lessonCardScreen .lesson-detail-row{
+    display:grid!important;
+    grid-template-columns:minmax(125px,.28fr) minmax(0,1fr)!important;
+    column-gap:9px!important;
+    align-items:stretch!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    margin:0 0 9px!important;
+    overflow:visible!important;
+  }
+
+  #lessonCardScreen .lesson-detail-row:last-child{
+    margin-bottom:0!important;
+  }
+
+  #lessonCardScreen .lesson-detail-row > .lesson-label,
+  #lessonCardScreen .lesson-detail-row > .lesson-value{
+    position:static!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:54px!important;
+    max-height:none!important;
+    margin:0!important;
+    overflow:visible!important;
+  }
+
+  #lessonCardScreen .lesson-detail-row > .lesson-label{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    align-self:stretch!important;
+  }
+
+  #lessonCardScreen .lesson-detail-row > .lesson-value{
+    align-self:start!important;
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+    word-break:normal!important;
+  }
+
+  #lessonApplications,
+  #lessonSentences{
+    display:block!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:54px!important;
+    max-height:none!important;
+    overflow:visible!important;
+  }
+
+  #lessonApplications .lesson-list-item,
+  #lessonSentences .lesson-list-item{
+    position:static!important;
+    display:block!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    padding:10px 0!important;
+    margin:0!important;
+    overflow:visible!important;
+    white-space:normal!important;
+    line-height:1.5!important;
+  }
+
+  #lessonApplications .lesson-list-item + .lesson-list-item,
+  #lessonSentences .lesson-list-item + .lesson-list-item{
+    border-top:1px solid rgba(255,255,255,.075)!important;
+  }
+
+  #lessonApplications .lesson-list-item > div,
+  #lessonSentences .lesson-list-item > div{
+    position:static!important;
+    display:block!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    margin:0!important;
+    overflow:visible!important;
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+    word-break:normal!important;
+  }
+
+  #lessonApplications .translation,
+  #lessonSentences .translation{
+    display:block!important;
+    margin-top:5px!important;
+    line-height:1.5!important;
+  }
+
+  #lessonSentences .sentence-jp{
+    display:block!important;
+    min-height:0!important;
+    padding:.55em 0 .18em!important;
+    line-height:1.9!important;
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+    word-break:normal!important;
+  }
+
+  #lessonSentences ruby{
+    ruby-position:over!important;
+    ruby-align:center!important;
+  }
+
+  #lessonSentences rt{
+    font-size:.52em!important;
+    line-height:1!important;
+  }
+
+  #lessonCardScreen #hideMeaningBtn{
+    position:relative!important;
+    z-index:5!important;
+    flex:0 0 auto!important;
+    margin:8px auto 0!important;
+  }
+}
+
+/* Mobile mempertahankan susunan grid lama.
+   Wrapper dibuat transparan terhadap layout dengan display:contents. */
+@media (max-width:700px){
+  #lessonCardScreen .lesson-detail-row{
+    display:contents!important;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -7778,6 +7938,68 @@ renderLevels();
 
   if(document.readyState==="loading"){
     document.addEventListener("DOMContentLoaded",initialize,{once:true});
+  }else{
+    initialize();
+  }
+})();
+</script>
+
+
+<script id="madeDetailRowsFinalRuntime">
+(function(){
+  "use strict";
+
+  function buildRows(){
+    var grid=document.querySelector(
+      "#lessonCardScreen .lesson-detail-grid"
+    );
+
+    if(!grid || grid.classList.contains("detail-flow-layout"))return;
+
+    var children=Array.prototype.slice.call(grid.children);
+    if(children.length<2)return;
+
+    var fragment=document.createDocumentFragment();
+
+    for(var i=0;i<children.length;i+=2){
+      var label=children[i];
+      var value=children[i+1];
+
+      if(!label || !value)continue;
+
+      var row=document.createElement("div");
+      row.className="lesson-detail-row";
+
+      row.appendChild(label);
+      row.appendChild(value);
+      fragment.appendChild(row);
+    }
+
+    grid.innerHTML="";
+    grid.appendChild(fragment);
+    grid.classList.add("detail-flow-layout");
+  }
+
+  function initialize(){
+    buildRows();
+
+    var content=document.getElementById("lessonDetailContent");
+    if(content){
+      new MutationObserver(function(){
+        buildRows();
+      }).observe(content,{
+        childList:true,
+        subtree:false
+      });
+    }
+  }
+
+  if(document.readyState==="loading"){
+    document.addEventListener(
+      "DOMContentLoaded",
+      initialize,
+      {once:true}
+    );
   }else{
     initialize();
   }
