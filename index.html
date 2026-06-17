@@ -3250,6 +3250,504 @@ main.panel > section.hidden{
 }
 </style>
 
+
+<style id="madeLessonViewportMobileOverlayPatch">
+/* =========================================================
+   LESSON VIEWPORT: tidak terpotong, nav selalu terlihat
+   ========================================================= */
+#lessonView,
+#lessonView *{
+  box-sizing:border-box;
+}
+
+#lessonView:not(.hidden){
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  max-height:100%!important;
+  overflow:hidden!important;
+}
+
+#lessonCardScreen:not(.hidden){
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  max-height:100%!important;
+  padding:6px!important;
+  display:grid!important;
+  grid-template-rows:auto minmax(0,1fr) auto!important;
+  gap:7px!important;
+  overflow:hidden!important;
+}
+
+#lessonCardScreen .lesson-toolbar{
+  min-height:52px!important;
+  padding:4px 6px!important;
+  flex:0 0 auto!important;
+}
+
+#lessonCardScreen .lesson-card-shell{
+  position:relative!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  max-height:100%!important;
+  gap:8px!important;
+  overflow:hidden!important;
+}
+
+#lessonCardScreen .lesson-kanji-panel,
+#lessonCardScreen .lesson-detail-panel{
+  min-height:0!important;
+  height:100%!important;
+  max-height:100%!important;
+  overflow:hidden!important;
+}
+
+#lessonCardScreen .lesson-detail-panel{
+  padding:12px!important;
+}
+
+#lessonCardScreen .lesson-detail-head{
+  min-height:34px!important;
+  padding-bottom:7px!important;
+  flex:0 0 auto!important;
+}
+
+#lessonCardScreen .lesson-detail-content{
+  min-height:0!important;
+  max-height:100%!important;
+  overflow:auto!important;
+  overscroll-behavior:contain!important;
+  scrollbar-gutter:stable!important;
+}
+
+#lessonCardScreen .lesson-detail-grid{
+  min-height:0!important;
+  gap:7px!important;
+}
+
+#lessonCardScreen .lesson-label,
+#lessonCardScreen .lesson-value{
+  min-height:0!important;
+  padding:9px 11px!important;
+}
+
+#lessonCardScreen .lesson-nav{
+  position:relative!important;
+  z-index:120!important;
+  min-height:52px!important;
+  height:52px!important;
+  flex:0 0 52px!important;
+  align-items:center!important;
+  padding:2px 0 max(2px,env(safe-area-inset-bottom))!important;
+  overflow:visible!important;
+}
+
+#lessonCardScreen .lesson-nav-btn.text-nav{
+  height:46px!important;
+  min-height:46px!important;
+  padding:0 24px!important;
+}
+
+/* =========================================================
+   CARA PENULISAN: tombol selalu menerima klik
+   ========================================================= */
+.lesson-kanji-panel{
+  position:relative!important;
+  isolation:isolate!important;
+}
+
+#strokeGuideBtn.stroke-guide-open{
+  position:absolute!important;
+  z-index:1000!important;
+  pointer-events:auto!important;
+  touch-action:manipulation!important;
+  user-select:none!important;
+  cursor:pointer!important;
+}
+
+.lesson-kanji-panel .kanji-grid,
+.lesson-kanji-panel .stroke-canvas,
+.lesson-kanji-panel .lesson-word-fallback,
+.lesson-kanji-panel .lesson-reading,
+.lesson-kanji-panel::before,
+.lesson-kanji-panel::after{
+  pointer-events:none!important;
+}
+
+.stroke-guide-modal{
+  position:fixed!important;
+  inset:0!important;
+  z-index:2147483000!important;
+  width:100vw!important;
+  height:100dvh!important;
+  padding:max(8px,env(safe-area-inset-top)) 8px max(8px,env(safe-area-inset-bottom))!important;
+  align-items:center!important;
+  justify-content:center!important;
+  background:rgba(1,7,18,.94)!important;
+  backdrop-filter:blur(10px)!important;
+  overflow:hidden!important;
+}
+
+.stroke-guide-modal:not(.hidden){
+  display:flex!important;
+}
+
+.stroke-guide-dialog{
+  width:min(1180px,100%)!important;
+  height:min(92dvh,900px)!important;
+  max-height:100%!important;
+  display:grid!important;
+  grid-template-rows:auto minmax(0,1fr)!important;
+  overflow:hidden!important;
+}
+
+.stroke-guide-head{
+  position:relative!important;
+  z-index:2!important;
+  flex:0 0 auto!important;
+}
+
+.stroke-guide-body{
+  min-height:0!important;
+  height:100%!important;
+  max-height:none!important;
+  overflow:auto!important;
+  overscroll-behavior:contain!important;
+}
+
+/* =========================================================
+   DESKTOP: dua panel muat dalam satu layar
+   ========================================================= */
+@media (min-width:701px){
+  #lessonCardScreen .lesson-card-shell{
+    grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr)!important;
+  }
+
+  #lessonCardScreen .lesson-kanji-panel{
+    min-height:0!important;
+  }
+
+  #lessonCardScreen .lesson-detail-content{
+    display:flex!important;
+    flex-direction:column!important;
+  }
+
+  #lessonCardScreen .lesson-detail-grid{
+    flex:1 1 auto!important;
+    overflow:auto!important;
+  }
+
+  #lessonCardScreen .hide-meaning-btn{
+    flex:0 0 auto!important;
+    margin-top:7px!important;
+  }
+}
+
+/* =========================================================
+   MOBILE: detail arti menjadi overlay, bukan menambah tinggi
+   ========================================================= */
+@media (max-width:700px){
+  html,
+  body{
+    min-height:100%!important;
+  }
+
+  body.lesson-active{
+    width:100%!important;
+    height:100dvh!important;
+    min-height:100dvh!important;
+    overflow:hidden!important;
+    overscroll-behavior:none!important;
+  }
+
+  body.lesson-active .app{
+    width:100%!important;
+    height:100dvh!important;
+    min-height:0!important;
+    max-height:100dvh!important;
+    padding-bottom:max(3px,env(safe-area-inset-bottom))!important;
+    grid-template-rows:auto minmax(0,1fr)!important;
+    overflow:hidden!important;
+  }
+
+  body.lesson-active main.panel{
+    height:100%!important;
+    min-height:0!important;
+    max-height:100%!important;
+    overflow:hidden!important;
+  }
+
+  #lessonView:not(.hidden){
+    position:absolute!important;
+    inset:0!important;
+  }
+
+  #lessonCardScreen:not(.hidden){
+    padding:4px!important;
+    gap:5px!important;
+    grid-template-rows:48px minmax(0,1fr) 54px!important;
+  }
+
+  #lessonCardScreen .lesson-toolbar{
+    min-height:48px!important;
+    height:48px!important;
+    padding:2px 3px!important;
+  }
+
+  #lessonCardScreen .lesson-card-shell{
+    display:block!important;
+    position:relative!important;
+    min-height:0!important;
+    height:100%!important;
+    overflow:hidden!important;
+  }
+
+  #lessonCardScreen .lesson-kanji-panel{
+    width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+    border-radius:18px!important;
+  }
+
+  #lessonCardScreen .kanji-grid{
+    inset:5% 4% 27%!important;
+  }
+
+  #lessonCardScreen .lesson-word-fallback{
+    top:15%!important;
+    bottom:29%!important;
+  }
+
+  #lessonCardScreen .lesson-reading{
+    bottom:8%!important;
+    font-size:clamp(25px,8vw,38px)!important;
+  }
+
+  #strokeGuideBtn.stroke-guide-open{
+    top:10px!important;
+    min-width:min(245px,76vw)!important;
+    height:45px!important;
+    min-height:45px!important;
+    padding:0 16px!important;
+    font-size:14px!important;
+  }
+
+  /* Kondisi awal: detail hanya menjadi tombol Tampilkan Arti
+     yang mengambang di bawah kartu kanji. */
+  #lessonCardScreen:not(.mobile-detail-open) .lesson-detail-panel{
+    position:absolute!important;
+    z-index:50!important;
+    left:8px!important;
+    right:8px!important;
+    bottom:8px!important;
+    width:auto!important;
+    height:auto!important;
+    min-height:0!important;
+    padding:0!important;
+    border:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    overflow:visible!important;
+    pointer-events:none!important;
+  }
+
+  #lessonCardScreen:not(.mobile-detail-open) .lesson-detail-head{
+    display:none!important;
+  }
+
+  #lessonCardScreen:not(.mobile-detail-open) .lesson-reveal-cover{
+    min-height:0!important;
+    padding:0!important;
+    border:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    pointer-events:none!important;
+  }
+
+  #lessonCardScreen:not(.mobile-detail-open) .lesson-reveal-cover .reveal-eye,
+  #lessonCardScreen:not(.mobile-detail-open) .lesson-reveal-cover p{
+    display:none!important;
+  }
+
+  #lessonCardScreen:not(.mobile-detail-open) #showMeaningBtn{
+    width:min(310px,82vw)!important;
+    min-height:46px!important;
+    margin:0 auto!important;
+    pointer-events:auto!important;
+    position:relative!important;
+    z-index:60!important;
+  }
+
+  /* Setelah Tampilkan Arti: panel menimpa isi kartu.
+     Toolbar dan tombol Previous/Next tetap terlihat. */
+  #lessonCardScreen.mobile-detail-open .lesson-detail-panel{
+    position:absolute!important;
+    z-index:3000!important;
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+    padding:9px!important;
+    display:grid!important;
+    grid-template-rows:auto minmax(0,1fr)!important;
+    border-radius:18px!important;
+    background:
+      radial-gradient(circle at 12% 5%,rgba(0,212,255,.10),transparent 30%),
+      radial-gradient(circle at 90% 95%,rgba(255,122,0,.08),transparent 28%),
+      #091528!important;
+    box-shadow:0 0 0 1px rgba(0,234,255,.18),0 20px 60px rgba(0,0,0,.55)!important;
+    overflow:hidden!important;
+  }
+
+  #lessonCardScreen.mobile-detail-open .lesson-detail-head{
+    display:flex!important;
+    min-height:30px!important;
+    padding:1px 3px 6px!important;
+  }
+
+  #lessonCardScreen.mobile-detail-open .lesson-detail-content{
+    display:grid!important;
+    grid-template-rows:minmax(0,1fr) auto!important;
+    min-height:0!important;
+    height:100%!important;
+    overflow:hidden!important;
+  }
+
+  #lessonCardScreen.mobile-detail-open .lesson-detail-grid{
+    min-height:0!important;
+    height:100%!important;
+    grid-template-columns:105px minmax(0,1fr)!important;
+    gap:6px!important;
+    overflow:auto!important;
+    padding:0 2px 4px!important;
+    overscroll-behavior:contain!important;
+  }
+
+  #lessonCardScreen.mobile-detail-open .lesson-label{
+    padding:8px!important;
+    font-size:11px!important;
+    border-radius:12px!important;
+  }
+
+  #lessonCardScreen.mobile-detail-open .lesson-value{
+    padding:8px 10px!important;
+    font-size:13px!important;
+    line-height:1.38!important;
+    border-radius:12px!important;
+  }
+
+  #lessonCardScreen.mobile-detail-open .sentence-jp{
+    font-size:14px!important;
+  }
+
+  #lessonCardScreen.mobile-detail-open .sentence-id{
+    font-size:11px!important;
+  }
+
+  #lessonCardScreen.mobile-detail-open #hideMeaningBtn{
+    position:relative!important;
+    z-index:2!important;
+    width:min(310px,82vw)!important;
+    min-height:43px!important;
+    margin:7px auto 0!important;
+    flex:0 0 auto!important;
+  }
+
+  #lessonCardScreen .lesson-nav{
+    height:54px!important;
+    min-height:54px!important;
+    padding:2px 0 max(3px,env(safe-area-inset-bottom))!important;
+    gap:14px!important;
+  }
+
+  #lessonCardScreen .lesson-nav-btn.text-nav{
+    min-width:0!important;
+    width:min(42vw,220px)!important;
+    height:46px!important;
+    min-height:46px!important;
+    padding:0 10px!important;
+    font-size:15px!important;
+  }
+
+  .stroke-guide-dialog{
+    width:100%!important;
+    height:100%!important;
+    max-height:100%!important;
+    border-radius:18px!important;
+  }
+
+  .stroke-guide-head{
+    padding:11px 12px!important;
+  }
+
+  .stroke-guide-head h2{
+    font-size:23px!important;
+    margin:3px 0!important;
+  }
+
+  .stroke-guide-head p{
+    font-size:10px!important;
+    line-height:1.3!important;
+  }
+
+  .stroke-guide-body{
+    padding:8px!important;
+  }
+
+  .stroke-step-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:7px!important;
+  }
+
+  .stroke-step-card{
+    min-height:126px!important;
+    padding:7px!important;
+  }
+
+  .stroke-step-card svg{
+    height:108px!important;
+  }
+}
+
+/* HP pendek: kompres sedikit tanpa memotong tombol bawah. */
+@media (max-width:700px) and (max-height:700px){
+  #lessonCardScreen:not(.hidden){
+    grid-template-rows:44px minmax(0,1fr) 50px!important;
+  }
+
+  #lessonCardScreen .lesson-toolbar{
+    min-height:44px!important;
+    height:44px!important;
+  }
+
+  #lessonCardScreen .lesson-nav{
+    min-height:50px!important;
+    height:50px!important;
+  }
+
+  #lessonCardScreen .lesson-nav-btn.text-nav{
+    min-height:42px!important;
+    height:42px!important;
+  }
+
+  #strokeGuideBtn.stroke-guide-open{
+    height:41px!important;
+    min-height:41px!important;
+  }
+
+  #lessonCardScreen.mobile-detail-open .lesson-label{
+    padding:6px!important;
+  }
+
+  #lessonCardScreen.mobile-detail-open .lesson-value{
+    padding:6px 8px!important;
+    font-size:12px!important;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -5010,8 +5508,29 @@ function openCard(){
 }
 function setReveal(v){
   state.detailsVisible=!!v;
-  if(v){hide(byId("lessonRevealCover"));reveal(byId("lessonDetailContent"))}
-  else{reveal(byId("lessonRevealCover"));hide(byId("lessonDetailContent"))}
+
+  var cover=byId("lessonRevealCover");
+  var content=byId("lessonDetailContent");
+  var cardScreen=byId("lessonCardScreen");
+
+  if(v){
+    hide(cover);
+    reveal(content);
+  }else{
+    reveal(cover);
+    hide(content);
+  }
+
+  if(cardScreen){
+    cardScreen.classList.toggle("mobile-detail-open",!!v);
+  }
+
+  if(window.matchMedia&&window.matchMedia("(max-width:700px)").matches){
+    try{
+      var scrollTarget=v?content:byId("lessonCardScreen");
+      if(scrollTarget)scrollTarget.scrollTop=0;
+    }catch(_){}
+  }
 }
 function getApplications(item){
   var chars=Array.from(item.kanji||"").filter(isKanji);
@@ -6009,6 +6528,74 @@ renderLevels();
   }else{
     initialize();
   }
+})();
+</script>
+
+
+<script id="madeLessonViewportMobileOverlayRuntime">
+(function(){
+  "use strict";
+
+  function q(id){
+    return document.getElementById(id);
+  }
+
+  function syncLessonState(){
+    var lesson=q("lessonView");
+    var active=!!lesson&&!lesson.classList.contains("hidden");
+    document.body.classList.toggle("lesson-active",active);
+
+    if(!active){
+      var card=q("lessonCardScreen");
+      if(card)card.classList.remove("mobile-detail-open");
+    }
+  }
+
+  function forceStrokeButtonBinding(event){
+    var target=event.target&&event.target.closest
+      ?event.target.closest("#strokeGuideBtn")
+      :null;
+
+    if(!target)return;
+
+    /* Panggil handler modal yang sudah ada secara langsung.
+       Capture phase membuat tombol tetap bekerja walau handler lama tertimpa. */
+    if(typeof target.onclick==="function"){
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      target.onclick.call(target,event);
+    }
+  }
+
+  function initialize(){
+    var lesson=q("lessonView");
+    var button=q("strokeGuideBtn");
+
+    if(lesson){
+      new MutationObserver(syncLessonState).observe(lesson,{
+        attributes:true,
+        attributeFilter:["class"]
+      });
+    }
+
+    if(button){
+      button.disabled=false;
+      button.style.pointerEvents="auto";
+      button.setAttribute("aria-haspopup","dialog");
+      button.setAttribute("aria-controls","strokeGuideModal");
+    }
+
+    document.addEventListener("click",forceStrokeButtonBinding,true);
+    syncLessonState();
+  }
+
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",initialize,{once:true});
+  }else{
+    initialize();
+  }
+
+  window.addEventListener("pageshow",syncLessonState);
 })();
 </script>
 
