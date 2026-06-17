@@ -4299,6 +4299,129 @@ body.lesson-active main.panel{
 }
 </style>
 
+
+<style id="madeDesktopLessonQuizMeaningFinalPatch">
+/* =========================================================
+   1. Detail lesson benar-benar tersembunyi sebelum diklik
+   ========================================================= */
+#lessonCardScreen .lesson-detail-content.hidden{
+  display:none!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+
+#lessonCardScreen .lesson-detail-content:not(.hidden){
+  visibility:visible!important;
+}
+
+/* =========================================================
+   2. Kosakata kuning desktop wajib berada di dalam grid
+   ========================================================= */
+@media (min-width:701px){
+  #lessonCardScreen .lesson-kanji-panel{
+    position:relative!important;
+    overflow:hidden!important;
+  }
+
+  #lessonCardScreen .kanji-grid{
+    overflow:hidden!important;
+  }
+
+  #lessonCardScreen .lesson-word-fallback{
+    position:absolute!important;
+    max-width:none!important;
+    min-width:0!important;
+    white-space:nowrap!important;
+    flex-wrap:nowrap!important;
+    overflow:hidden!important;
+    text-align:center!important;
+    line-height:1!important;
+    letter-spacing:-.035em!important;
+    transform:none!important;
+    z-index:3!important;
+  }
+
+  #lessonCardScreen .lesson-word-fallback .kanji,
+  #lessonCardScreen .lesson-word-fallback .kana{
+    flex:0 0 auto!important;
+    display:inline-block!important;
+    font-size:1em!important;
+    line-height:1!important;
+  }
+}
+
+/* =========================================================
+   3. Soal kuis Jepang selalu satu baris
+   ========================================================= */
+.question-copy{
+  min-width:0!important;
+  overflow:hidden!important;
+}
+
+#questionText.question{
+  display:block!important;
+  width:100%!important;
+  max-width:100%!important;
+  white-space:nowrap!important;
+  word-break:keep-all!important;
+  overflow-wrap:normal!important;
+  line-break:strict!important;
+  overflow:hidden!important;
+  text-overflow:clip!important;
+  line-height:1!important;
+  writing-mode:horizontal-tb!important;
+}
+
+/* =========================================================
+   4. Warna tombol arti lembut dan tetap terbaca
+   ========================================================= */
+.show-meaning-btn{
+  color:#f1fff7!important;
+  border-color:rgba(74,222,128,.62)!important;
+  background:
+    linear-gradient(135deg,rgba(34,197,94,.22),rgba(16,185,129,.11))!important;
+  box-shadow:
+    0 0 0 1px rgba(74,222,128,.08),
+    0 0 18px rgba(34,197,94,.12)!important;
+}
+
+.show-meaning-btn span{
+  color:#75efaa!important;
+}
+
+.hide-meaning-btn{
+  color:#fff4f5!important;
+  border-color:rgba(248,113,113,.62)!important;
+  background:
+    linear-gradient(135deg,rgba(239,68,68,.21),rgba(190,24,93,.10))!important;
+  box-shadow:
+    0 0 0 1px rgba(248,113,113,.07),
+    0 0 18px rgba(239,68,68,.11)!important;
+}
+
+@media (hover:hover) and (pointer:fine){
+  .show-meaning-btn:hover,
+  .show-meaning-btn:focus-visible{
+    background:
+      linear-gradient(135deg,rgba(34,197,94,.29),rgba(16,185,129,.16))!important;
+    border-color:rgba(110,231,183,.82)!important;
+    box-shadow:
+      0 0 0 1px rgba(110,231,183,.13),
+      0 0 23px rgba(34,197,94,.18)!important;
+  }
+
+  .hide-meaning-btn:hover,
+  .hide-meaning-btn:focus-visible{
+    background:
+      linear-gradient(135deg,rgba(239,68,68,.28),rgba(190,24,93,.15))!important;
+    border-color:rgba(252,165,165,.82)!important;
+    box-shadow:
+      0 0 0 1px rgba(252,165,165,.12),
+      0 0 23px rgba(239,68,68,.17)!important;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -7202,6 +7325,230 @@ renderLevels();
   }
 
   window.addEventListener("pageshow",syncLayoutState);
+})();
+</script>
+
+
+<script id="madeDesktopLessonQuizMeaningFinalRuntime">
+(function(){
+  "use strict";
+
+  function q(id){
+    return document.getElementById(id);
+  }
+
+  function isDesktopLesson(){
+    return !!(window.matchMedia && window.matchMedia("(min-width:701px)").matches);
+  }
+
+  function fitDesktopLessonWord(){
+    if(!isDesktopLesson())return;
+
+    var lesson=q("lessonView");
+    var card=q("lessonCardScreen");
+    var box=q("lessonWordFallback");
+    var panel=box&&box.closest(".lesson-kanji-panel");
+    var grid=panel&&panel.querySelector(".kanji-grid");
+
+    if(
+      !lesson||
+      lesson.classList.contains("hidden")||
+      !card||
+      card.classList.contains("hidden")||
+      !box||
+      !panel||
+      !grid
+    )return;
+
+    var panelRect=panel.getBoundingClientRect();
+    var gridRect=grid.getBoundingClientRect();
+
+    if(gridRect.width<40||gridRect.height<40)return;
+
+    var gridLeft=gridRect.left-panelRect.left;
+    var gridTop=gridRect.top-panelRect.top;
+
+    /* Sisakan ruang tombol Cara Penulisan di atas. */
+    var topReserve=Math.max(66,Math.min(92,gridRect.height*.20));
+    var sideGap=Math.max(12,Math.min(22,gridRect.width*.035));
+    var bottomGap=Math.max(10,Math.min(18,gridRect.height*.04));
+
+    var availableWidth=Math.max(60,gridRect.width-(sideGap*2));
+    var availableHeight=Math.max(
+      54,
+      gridRect.height-topReserve-bottomGap
+    );
+
+    box.style.setProperty("left",(gridLeft+sideGap)+"px","important");
+    box.style.setProperty("right","auto","important");
+    box.style.setProperty("top",(gridTop+topReserve)+"px","important");
+    box.style.setProperty("bottom","auto","important");
+    box.style.setProperty("width",availableWidth+"px","important");
+    box.style.setProperty("height",availableHeight+"px","important");
+    box.style.setProperty("display","flex","important");
+    box.style.setProperty("align-items","center","important");
+    box.style.setProperty("justify-content","center","important");
+    box.style.setProperty("overflow","hidden","important");
+    box.style.setProperty("white-space","nowrap","important");
+
+    var low=18;
+    var high=Math.max(
+      36,
+      Math.min(330,Math.floor(availableHeight*.94))
+    );
+    var best=low;
+
+    while(low<=high){
+      var mid=Math.floor((low+high)/2);
+      box.style.setProperty("font-size",mid+"px","important");
+
+      var fitsWidth=box.scrollWidth<=availableWidth+1;
+      var fitsHeight=box.scrollHeight<=availableHeight+1;
+
+      if(fitsWidth&&fitsHeight){
+        best=mid;
+        low=mid+1;
+      }else{
+        high=mid-1;
+      }
+    }
+
+    box.style.setProperty(
+      "font-size",
+      Math.max(18,best-2)+"px",
+      "important"
+    );
+  }
+
+  function fitQuizQuestion(){
+    var question=q("questionText");
+    var copy=question&&question.closest(".question-copy");
+
+    if(
+      !question||
+      !copy||
+      !q("gameView")||
+      q("gameView").classList.contains("hidden")
+    )return;
+
+    var meaning=q("meaningHint");
+    var copyWidth=Math.max(90,copy.clientWidth-8);
+    var reservedHeight=(
+      meaning&&!meaning.classList.contains("hidden")
+    ) ? meaning.offsetHeight+16 : 10;
+
+    var maxHeight=Math.max(48,copy.clientHeight-reservedHeight);
+    var mobile=window.matchMedia&&window.matchMedia("(max-width:700px)").matches;
+
+    var low=20;
+    var high=question.classList.contains("small")
+      ? (mobile?72:116)
+      : (mobile?84:154);
+    var best=low;
+
+    question.style.setProperty("font-size",high+"px","important");
+    question.style.setProperty("white-space","nowrap","important");
+    question.style.setProperty("line-height","1","important");
+
+    while(low<=high){
+      var mid=Math.floor((low+high)/2);
+      question.style.setProperty("font-size",mid+"px","important");
+
+      var fitsWidth=question.scrollWidth<=copyWidth+1;
+      var fitsHeight=question.scrollHeight<=maxHeight+1;
+
+      if(fitsWidth&&fitsHeight){
+        best=mid;
+        low=mid+1;
+      }else{
+        high=mid-1;
+      }
+    }
+
+    question.style.setProperty(
+      "font-size",
+      Math.max(20,best-1)+"px",
+      "important"
+    );
+  }
+
+  function scheduleLessonFit(){
+    requestAnimationFrame(function(){
+      requestAnimationFrame(fitDesktopLessonWord);
+    });
+    setTimeout(fitDesktopLessonWord,80);
+    setTimeout(fitDesktopLessonWord,230);
+  }
+
+  function scheduleQuestionFit(){
+    requestAnimationFrame(function(){
+      requestAnimationFrame(fitQuizQuestion);
+    });
+    setTimeout(fitQuizQuestion,60);
+    setTimeout(fitQuizQuestion,180);
+  }
+
+  function initialize(){
+    var word=q("lessonWordFallback");
+    var question=q("questionText");
+
+    if(word){
+      new MutationObserver(scheduleLessonFit).observe(word,{
+        childList:true,
+        subtree:true,
+        characterData:true
+      });
+    }
+
+    if(question){
+      new MutationObserver(scheduleQuestionFit).observe(question,{
+        childList:true,
+        characterData:true,
+        attributes:true,
+        attributeFilter:["class"]
+      });
+    }
+
+    ["lessonPrev","lessonNext"].forEach(function(id){
+      var button=q(id);
+      if(button){
+        button.addEventListener("click",function(){
+          setTimeout(scheduleLessonFit,190);
+        },true);
+      }
+    });
+
+    var next=q("nextBtn");
+    if(next){
+      next.addEventListener("click",function(){
+        setTimeout(scheduleQuestionFit,70);
+      },true);
+    }
+
+    window.addEventListener("resize",function(){
+      scheduleLessonFit();
+      scheduleQuestionFit();
+    });
+
+    window.addEventListener("orientationchange",function(){
+      setTimeout(scheduleLessonFit,180);
+      setTimeout(scheduleQuestionFit,180);
+    });
+
+    scheduleLessonFit();
+    scheduleQuestionFit();
+  }
+
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",initialize,{once:true});
+  }else{
+    initialize();
+  }
+
+  window.addEventListener("pageshow",function(){
+    scheduleLessonFit();
+    scheduleQuestionFit();
+  });
 })();
 </script>
 
