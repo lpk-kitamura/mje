@@ -5590,45 +5590,572 @@ body.lesson-active main.panel{
 }
 </style>
 
+
+<style id="madeMenuInsidePanelNeonPatch">
+/* =========================================================
+   MENU HAMBURGER DIPINDAHKAN KE DALAM PANEL UTAMA
+   ========================================================= */
+
+/* Header lama tidak lagi memakai ruang layar. */
+.header{
+  display:none!important;
+}
+
+/* App hanya memakai satu baris: panel memenuhi tinggi layar. */
+.app,
+body.lesson-active .app{
+  width:100%!important;
+  height:100dvh!important;
+  min-height:0!important;
+  max-height:100dvh!important;
+  padding:4px!important;
+  display:grid!important;
+  grid-template-rows:minmax(0,1fr)!important;
+  gap:0!important;
+  overflow:hidden!important;
+}
+
+main.panel{
+  position:relative!important;
+  grid-row:1!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  max-height:100%!important;
+  overflow:hidden!important;
+}
+
+/* Menu berada di dalam bingkai panel, pojok kanan atas. */
+main.panel > #userbar{
+  position:absolute!important;
+  top:10px!important;
+  right:10px!important;
+  z-index:2147482000!important;
+  width:auto!important;
+  height:auto!important;
+  margin:0!important;
+  padding:0!important;
+  display:flex!important;
+  align-items:flex-start!important;
+  justify-content:flex-end!important;
+  pointer-events:none!important;
+}
+
+main.panel > #userbar.hidden{
+  display:none!important;
+}
+
+main.panel > #userbar .app-menu-wrap{
+  position:relative!important;
+  z-index:1!important;
+  pointer-events:auto!important;
+}
+
+/* Tombol neon berwarna, tetapi tetap clean dan mudah dibaca. */
+main.panel #appMenuBtn{
+  position:relative!important;
+  width:46px!important;
+  height:46px!important;
+  min-width:46px!important;
+  min-height:46px!important;
+  padding:0!important;
+  border:1.5px solid transparent!important;
+  border-radius:14px!important;
+  background:
+    linear-gradient(145deg,rgba(4,18,38,.96),rgba(8,34,60,.96)) padding-box,
+    linear-gradient(
+      135deg,
+      #00eaff 0%,
+      #0782ff 34%,
+      #ff7a00 68%,
+      #ffd84d 86%,
+      #00eaff 100%
+    ) border-box!important;
+  box-shadow:
+    0 0 0 1px rgba(0,234,255,.10),
+    0 0 13px rgba(0,212,255,.24),
+    0 0 22px rgba(255,122,0,.10),
+    inset 0 0 14px rgba(0,212,255,.07)!important;
+  overflow:hidden!important;
+  animation:panelMenuNeonBreath 2.8s ease-in-out infinite!important;
+  transform:none!important;
+}
+
+/* Kilatan lembut bergerak di permukaan tombol. */
+main.panel #appMenuBtn::before{
+  content:""!important;
+  position:absolute!important;
+  inset:-60% -85%!important;
+  z-index:0!important;
+  background:linear-gradient(
+    110deg,
+    transparent 38%,
+    rgba(255,255,255,.28) 49%,
+    transparent 60%
+  )!important;
+  transform:translateX(-55%) rotate(8deg)!important;
+  animation:panelMenuShine 3.6s linear infinite!important;
+  pointer-events:none!important;
+}
+
+main.panel #appMenuBtn .hamburger-lines{
+  position:relative!important;
+  z-index:2!important;
+  width:24px!important;
+  height:18px!important;
+}
+
+main.panel #appMenuBtn .hamburger-lines i{
+  height:2px!important;
+  border-radius:999px!important;
+  box-shadow:0 0 8px currentColor!important;
+}
+
+main.panel #appMenuBtn .hamburger-lines i:nth-child(1){
+  color:#6ef5ff!important;
+  background:linear-gradient(90deg,#00eaff,#a5f8ff)!important;
+}
+
+main.panel #appMenuBtn .hamburger-lines i:nth-child(2){
+  color:#8bbcff!important;
+  background:linear-gradient(90deg,#0782ff,#8bd8ff)!important;
+}
+
+main.panel #appMenuBtn .hamburger-lines i:nth-child(3){
+  color:#ffbb69!important;
+  background:linear-gradient(90deg,#ff7a00,#ffd84d)!important;
+}
+
+main.panel #appMenuBtn:hover,
+main.panel #appMenuBtn:focus-visible,
+main.panel #appMenuBtn[aria-expanded="true"]{
+  border-color:transparent!important;
+  outline:none!important;
+  animation:none!important;
+  box-shadow:
+    0 0 0 2px rgba(0,234,255,.18),
+    0 0 19px rgba(0,212,255,.48),
+    0 0 31px rgba(255,122,0,.22),
+    inset 0 0 18px rgba(0,212,255,.11)!important;
+}
+
+/* Dropdown tetap berada di dalam panel dan tidak keluar layar. */
+main.panel .app-menu-dropdown{
+  position:absolute!important;
+  top:calc(100% + 8px)!important;
+  right:0!important;
+  left:auto!important;
+  z-index:2147482100!important;
+  width:min(290px,calc(100vw - 28px))!important;
+  max-height:calc(100dvh - 84px)!important;
+  overflow:auto!important;
+  border-color:rgba(0,234,255,.42)!important;
+  background:
+    radial-gradient(circle at 90% 4%,rgba(255,122,0,.12),transparent 32%),
+    radial-gradient(circle at 10% 94%,rgba(0,212,255,.12),transparent 34%),
+    linear-gradient(145deg,rgba(7,25,49,.99),rgba(3,12,29,.99))!important;
+  box-shadow:
+    0 22px 65px rgba(0,0,0,.58),
+    0 0 30px rgba(0,212,255,.15),
+    0 0 20px rgba(255,122,0,.08)!important;
+}
+
+/* Sisakan ruang kecil hanya pada baris kontrol atas yang berpotensi tertimpa. */
+.quiz-topbar,
+.lesson-toolbar,
+.stage-toolbar{
+  padding-right:58px!important;
+}
+
+/* Dashboard dan halaman umum tetap punya ruang aman di pojok kanan atas. */
+.dashboard-hero,
+.quest-mode-heading,
+#levelView .hero{
+  padding-right:max(24px,68px)!important;
+}
+
+@keyframes panelMenuNeonBreath{
+  0%,100%{
+    filter:
+      drop-shadow(0 0 2px rgba(0,234,255,.38))
+      drop-shadow(0 0 4px rgba(255,122,0,.10));
+  }
+  50%{
+    filter:
+      drop-shadow(0 0 7px rgba(0,234,255,.58))
+      drop-shadow(0 0 8px rgba(255,122,0,.22));
+  }
+}
+
+@keyframes panelMenuShine{
+  0%{transform:translateX(-70%) rotate(8deg)}
+  58%,100%{transform:translateX(70%) rotate(8deg)}
+}
+
+@media(max-width:700px){
+  .app,
+  body.lesson-active .app{
+    padding:3px!important;
+  }
+
+  main.panel > #userbar{
+    top:7px!important;
+    right:7px!important;
+  }
+
+  main.panel #appMenuBtn{
+    width:42px!important;
+    height:42px!important;
+    min-width:42px!important;
+    min-height:42px!important;
+    border-radius:13px!important;
+  }
+
+  main.panel #appMenuBtn .hamburger-lines{
+    width:22px!important;
+    height:17px!important;
+  }
+
+  .quiz-topbar,
+  .lesson-toolbar,
+  .stage-toolbar{
+    padding-right:51px!important;
+  }
+}
+
+@media(max-width:430px){
+  main.panel > #userbar{
+    top:5px!important;
+    right:5px!important;
+  }
+
+  main.panel #appMenuBtn{
+    width:38px!important;
+    height:38px!important;
+    min-width:38px!important;
+    min-height:38px!important;
+    border-radius:12px!important;
+  }
+
+  main.panel #appMenuBtn .hamburger-lines{
+    width:20px!important;
+    height:16px!important;
+  }
+
+  .quiz-topbar,
+  .lesson-toolbar,
+  .stage-toolbar{
+    padding-right:46px!important;
+  }
+}
+</style>
+
+
+<style id="madeFeedbackMobileBulletsEmojiFinalPatch">
+/* =========================================================
+   BULLET PROGRES: lebih besar dan hasil terisi penuh
+   ========================================================= */
+.quiz-bullets{
+  gap:clamp(8px,.9vw,14px)!important;
+}
+
+#quizBullets .quiz-bullet{
+  width:clamp(22px,1.7vw,30px)!important;
+  min-width:22px!important;
+  border-width:2px!important;
+  background:transparent!important;
+}
+
+#quizBullets .quiz-bullet.correct{
+  border-color:#25d96f!important;
+  background:#25d96f!important;
+  box-shadow:
+    0 0 0 1px rgba(37,217,111,.22),
+    0 0 15px rgba(37,217,111,.48)!important;
+}
+
+#quizBullets .quiz-bullet.wrong{
+  border-color:#ff405e!important;
+  background:#ff405e!important;
+  box-shadow:
+    0 0 0 1px rgba(255,64,94,.20),
+    0 0 15px rgba(255,64,94,.45)!important;
+}
+
+#quizBullets .quiz-bullet.current{
+  background:transparent!important;
+  border-color:#55e9ff!important;
+}
+
+/* =========================================================
+   EMOJI HASIL BESAR DI LAYER PALING BELAKANG
+   ========================================================= */
+.quiz-feedback-panel{
+  isolation:isolate!important;
+}
+
+.quiz-feedback-panel::before{
+  content:attr(data-bg-emoji);
+  position:absolute;
+  z-index:0;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif!important;
+  font-size:clamp(300px,48vw,760px);
+  line-height:1;
+  opacity:.075;
+  filter:
+    saturate(.9)
+    drop-shadow(0 0 45px rgba(255,255,255,.07));
+  pointer-events:none;
+  user-select:none;
+  white-space:nowrap;
+}
+
+.quiz-feedback-panel.correct::before{
+  opacity:.075;
+}
+
+.quiz-feedback-panel.wrong::before{
+  opacity:.085;
+}
+
+.quiz-feedback-panel.timeout::before{
+  opacity:.09;
+}
+
+.quiz-feedback-heading,
+.quiz-correct-summary,
+.quiz-option-breakdown,
+.quiz-next-btn,
+.quiz-feedback-confetti{
+  position:relative!important;
+  z-index:2!important;
+}
+
+/* Emoji kecil di atas dihilangkan agar ekspresi utama menjadi background besar. */
+.quiz-feedback-emoji{
+  display:none!important;
+}
+
+/* =========================================================
+   DESKTOP: kartu jawaban benar dibuat lebih dark
+   ========================================================= */
+@media(min-width:701px){
+  .quiz-breakdown-card.correct{
+    border-color:#32df78!important;
+    background:
+      radial-gradient(circle at 88% 10%,rgba(46,213,116,.08),transparent 32%),
+      linear-gradient(145deg,#061d1a,#04131b 70%,#03101a)!important;
+    box-shadow:
+      inset 0 0 0 1px rgba(50,223,120,.05),
+      0 0 16px rgba(50,223,120,.06)!important;
+  }
+
+  .quiz-breakdown-card.correct .quiz-breakdown-status{
+    color:#67f09a!important;
+    text-shadow:0 0 8px rgba(103,240,154,.22);
+  }
+
+  .quiz-breakdown-card.correct .quiz-breakdown-letter{
+    background:#24c96b!important;
+    color:#03140a!important;
+  }
+}
+
+/* =========================================================
+   MOBILE: kartu breakdown tinggi otomatis, tidak bertumpuk
+   ========================================================= */
+@media(max-width:700px){
+  .quiz-bullets{
+    gap:6px!important;
+  }
+
+  #quizBullets .quiz-bullet{
+    width:18px!important;
+    min-width:18px!important;
+    border-width:1.8px!important;
+  }
+
+  .quiz-feedback-panel{
+    height:100%!important;
+    min-height:0!important;
+    max-height:100%!important;
+    grid-template-rows:auto auto minmax(0,1fr) auto!important;
+    overflow:hidden!important;
+  }
+
+  .quiz-feedback-panel::before{
+    font-size:clamp(280px,115vw,520px)!important;
+    opacity:.065;
+  }
+
+  .quiz-option-breakdown{
+    position:relative!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    justify-content:flex-start!important;
+    gap:10px!important;
+    min-height:0!important;
+    height:100%!important;
+    max-height:100%!important;
+    padding:1px 4px 12px 0!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+    overscroll-behavior:contain!important;
+    -webkit-overflow-scrolling:touch!important;
+    scrollbar-gutter:stable!important;
+  }
+
+  .quiz-breakdown-card,
+  .quiz-breakdown-card.correct,
+  .quiz-breakdown-card.selected-wrong,
+  .quiz-breakdown-card.neutral{
+    position:relative!important;
+    display:block!important;
+    flex:0 0 auto!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:max-content!important;
+    max-height:none!important;
+    margin:0!important;
+    padding:11px!important;
+    overflow:visible!important;
+    contain:none!important;
+    box-sizing:border-box!important;
+  }
+
+  .quiz-breakdown-top{
+    position:static!important;
+    display:grid!important;
+    grid-template-columns:auto minmax(0,1fr) auto!important;
+    align-items:center!important;
+    gap:8px!important;
+    width:100%!important;
+    min-height:36px!important;
+  }
+
+  .quiz-breakdown-option{
+    min-width:0!important;
+    white-space:normal!important;
+    overflow:visible!important;
+    overflow-wrap:anywhere!important;
+    word-break:normal!important;
+  }
+
+  .quiz-breakdown-status{
+    white-space:normal!important;
+    text-align:right!important;
+    line-height:1.25!important;
+  }
+
+  .quiz-breakdown-word{
+    position:static!important;
+    display:flex!important;
+    flex-wrap:wrap!important;
+    align-items:baseline!important;
+    gap:5px!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    margin-top:10px!important;
+    padding-bottom:8px!important;
+    overflow:visible!important;
+  }
+
+  .quiz-breakdown-meaning,
+  .quiz-breakdown-card p{
+    position:static!important;
+    display:block!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    overflow:visible!important;
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+    word-break:normal!important;
+  }
+
+  .quiz-breakdown-meaning{
+    margin-top:9px!important;
+    line-height:1.55!important;
+  }
+
+  .quiz-breakdown-card p{
+    margin-top:10px!important;
+    line-height:1.58!important;
+  }
+
+  .quiz-next-btn{
+    position:relative!important;
+    z-index:3!important;
+    flex:0 0 auto!important;
+    width:100%!important;
+    margin:0!important;
+  }
+}
+
+@media(max-width:430px){
+  .quiz-bullets{
+    gap:5px!important;
+  }
+
+  #quizBullets .quiz-bullet{
+    width:16px!important;
+    min-width:16px!important;
+  }
+
+  .quiz-breakdown-card,
+  .quiz-breakdown-card.correct,
+  .quiz-breakdown-card.selected-wrong,
+  .quiz-breakdown-card.neutral{
+    padding:10px!important;
+  }
+}
+</style>
+
 </head>
 <body>
 
 <div class="app">
-<header class="header">
-  
-  <div id="userbar" class="userbar hidden">
-    <div class="app-menu-wrap">
-      <button id="appMenuBtn" class="btn secondary icon-btn app-menu-btn" aria-label="Buka menu" aria-expanded="false">
-        <span class="hamburger-lines"><i></i><i></i><i></i></span>
-      </button>
-      <div id="appMenuDropdown" class="app-menu-dropdown hidden" role="menu">
-        <button id="menuHomeBtn" class="app-menu-item" role="menuitem">
-          <span class="menu-symbol home-symbol">⌂</span>
-          <span><b>Home</b><small>Dashboard utama</small></span>
-        </button>
-        <button id="menuLessonBtn" class="app-menu-item" role="menuitem">
-          <span class="menu-symbol lesson-symbol">字</span>
-          <span><b>Kanji Lesson</b><small>Belajar kosakata dan cara baca</small></span>
-        </button>
-        <button id="menuQuestBtn" class="app-menu-item" role="menuitem">
-          <span class="menu-symbol quest-symbol">▶</span>
-          <span><b>Kanji Quest</b><small>Latihan test per stage</small></span>
-        </button>
-        <div class="app-menu-separator"></div>
-        <div class="app-menu-account">
-          <span class="menu-symbol account-symbol">＠</span>
-          <span><b>Akun</b><small id="userEmail" class="menu-account-email"></small></span>
-        </div>
-        <button id="logoutBtn" class="app-menu-item app-menu-logout" role="menuitem">
-          <span class="menu-symbol logout-symbol">↪</span>
-          <span><b>Logout</b><small>Keluar dari akun</small></span>
-        </button>
-      </div>
-    </div>
-  </div>
-</header>
+
 
 <main class="panel">
+<div class="userbar hidden" id="userbar">
+<div class="app-menu-wrap">
+<button aria-expanded="false" aria-label="Buka menu" class="btn secondary icon-btn app-menu-btn" id="appMenuBtn">
+<span class="hamburger-lines"><i></i><i></i><i></i></span>
+</button>
+<div class="app-menu-dropdown hidden" id="appMenuDropdown" role="menu">
+<button class="app-menu-item" id="menuHomeBtn" role="menuitem">
+<span class="menu-symbol home-symbol">⌂</span>
+<span><b>Home</b><small>Dashboard utama</small></span>
+</button>
+<button class="app-menu-item" id="menuLessonBtn" role="menuitem">
+<span class="menu-symbol lesson-symbol">字</span>
+<span><b>Kanji Lesson</b><small>Belajar kosakata dan cara baca</small></span>
+</button>
+<button class="app-menu-item" id="menuQuestBtn" role="menuitem">
+<span class="menu-symbol quest-symbol">▶</span>
+<span><b>Kanji Quest</b><small>Latihan test per stage</small></span>
+</button>
+<div class="app-menu-separator"></div>
+<div class="app-menu-account">
+<span class="menu-symbol account-symbol">＠</span>
+<span><b>Akun</b><small class="menu-account-email" id="userEmail"></small></span>
+</div>
+<button class="app-menu-item app-menu-logout" id="logoutBtn" role="menuitem">
+<span class="menu-symbol logout-symbol">↪</span>
+<span><b>Logout</b><small>Keluar dari akun</small></span>
+</button>
+</div>
+</div>
+</div>
 
 <section id="authView" class="auth public-home-view">
   <div id="publicLanding" class="public-landing" aria-label="Halaman utama">
@@ -6853,6 +7380,10 @@ function showQuizFeedback(kind){
   var isTimeout=kind==="timeout";
 
   panel.className="quiz-feedback-panel "+kind;
+  panel.setAttribute(
+    "data-bg-emoji",
+    isCorrect?"😆":isTimeout?"⏰":"🥲"
+  );
   el("quizFeedbackEmoji").textContent=isCorrect?"😆":isTimeout?"⏰":"🥲";
   el("quizFeedbackTitle").textContent=isCorrect?"正解！":isTimeout?"時間切れ！":"残念…";
   el("quizFeedbackMessage").textContent=isCorrect
