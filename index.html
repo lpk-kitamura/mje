@@ -6119,6 +6119,285 @@ main.panel .app-menu-dropdown{
 }
 </style>
 
+
+<style id="madePendingStageBackFeedbackFinalPatch">
+.page-back-btn{
+  position:relative!important;
+  min-height:46px!important;
+  padding:0 20px!important;
+  border:1.5px solid transparent!important;
+  border-radius:14px!important;
+  color:#eefcff!important;
+  background:
+    linear-gradient(145deg,rgba(4,18,38,.96),rgba(8,34,60,.96)) padding-box,
+    linear-gradient(135deg,#00eaff 0%,#0782ff 35%,#ff7a00 70%,#ffd84d 86%,#00eaff 100%) border-box!important;
+  box-shadow:
+    0 0 0 1px rgba(0,234,255,.08),
+    0 0 12px rgba(0,212,255,.20),
+    0 0 18px rgba(255,122,0,.08),
+    inset 0 0 14px rgba(0,212,255,.055)!important;
+  text-shadow:0 0 8px rgba(0,234,255,.18)!important;
+  overflow:hidden!important;
+  isolation:isolate!important;
+}
+
+.page-back-btn::before{
+  content:""!important;
+  position:absolute!important;
+  z-index:-1!important;
+  inset:-80% -55%!important;
+  background:linear-gradient(112deg,transparent 38%,rgba(255,255,255,.20) 49%,transparent 60%)!important;
+  transform:translateX(-70%) rotate(8deg)!important;
+  opacity:.45!important;
+  transition:transform .35s ease,opacity .2s ease!important;
+  pointer-events:none!important;
+}
+
+.page-back-btn:hover,
+.page-back-btn:focus-visible{
+  outline:none!important;
+  transform:none!important;
+  box-shadow:
+    0 0 0 2px rgba(0,234,255,.14),
+    0 0 19px rgba(0,212,255,.42),
+    0 0 27px rgba(255,122,0,.18),
+    inset 0 0 17px rgba(0,212,255,.09)!important;
+}
+
+.page-back-btn:hover::before,
+.page-back-btn:focus-visible::before{
+  transform:translateX(70%) rotate(8deg)!important;
+  opacity:.75!important;
+}
+
+.page-back-btn:active{
+  box-shadow:
+    0 0 0 2px rgba(0,234,255,.20),
+    0 0 24px rgba(0,212,255,.55),
+    0 0 30px rgba(255,122,0,.22)!important;
+}
+
+.stage-card{
+  position:relative!important;
+  overflow:hidden!important;
+}
+
+.stage-card.last-played{
+  border:1.5px solid transparent!important;
+  background:
+    linear-gradient(145deg,rgba(7,24,47,.98),rgba(4,17,35,.98)) padding-box,
+    linear-gradient(135deg,#00eaff,#0782ff 46%,#ff7a00 78%,#ffd84d) border-box!important;
+  box-shadow:
+    0 0 0 2px rgba(0,234,255,.13),
+    0 0 17px rgba(0,212,255,.50),
+    0 0 28px rgba(255,122,0,.13),
+    inset 0 0 22px rgba(0,212,255,.07)!important;
+}
+
+.stage-card.last-played::after{
+  content:""!important;
+  position:absolute!important;
+  inset:-110% -40%!important;
+  background:linear-gradient(112deg,transparent 41%,rgba(255,255,255,.20) 50%,transparent 59%)!important;
+  transform:translateX(-66%) rotate(9deg)!important;
+  animation:lastStageShine 4.2s linear infinite!important;
+  pointer-events:none!important;
+}
+
+.stage-card.last-played .stage-row,
+.stage-card.last-played .stage-meta,
+.stage-card.last-played .stage-last-badge{
+  position:relative!important;
+  z-index:2!important;
+}
+
+.stage-last-badge{
+  width:max-content!important;
+  max-width:100%!important;
+  padding:4px 8px!important;
+  border-radius:999px!important;
+  border:1px solid rgba(78,235,255,.55)!important;
+  background:rgba(0,212,255,.09)!important;
+  color:#84f4ff!important;
+  font-size:8px!important;
+  line-height:1!important;
+  letter-spacing:.13em!important;
+  white-space:nowrap!important;
+  text-shadow:0 0 8px rgba(0,234,255,.36)!important;
+}
+
+.stage-card.last-played .stage-name{
+  color:#eaffff!important;
+  text-shadow:0 0 9px rgba(0,234,255,.35)!important;
+}
+
+.stage-card.last-played .stage-meta{
+  color:#92eaf5!important;
+}
+
+.stage-card.last-played .stage-play-icon{
+  filter:drop-shadow(0 0 6px rgba(0,212,255,.48)) drop-shadow(0 0 5px rgba(255,122,0,.20));
+}
+
+@keyframes lastStageShine{
+  0%{transform:translateX(-70%) rotate(9deg)}
+  58%,100%{transform:translateX(70%) rotate(9deg)}
+}
+
+.stage-card:not(.last-played):hover{
+  border-color:rgba(0,234,255,.46)!important;
+  box-shadow:0 0 13px rgba(0,212,255,.13)!important;
+}
+
+.quiz-correct-summary{
+  display:none!important;
+}
+
+.quiz-feedback-panel{
+  grid-template-rows:auto minmax(0,1fr) auto!important;
+}
+
+.quiz-feedback-panel.correct .quiz-feedback-heading h2{
+  color:#2fbf71!important;
+  text-shadow:0 0 10px rgba(47,191,113,.18)!important;
+}
+
+.quiz-option-breakdown{
+  gap:12px!important;
+}
+
+.quiz-breakdown-card{
+  padding:15px!important;
+}
+
+.quiz-breakdown-letter{
+  width:40px!important;
+  height:40px!important;
+  border-radius:12px!important;
+  font-size:17px!important;
+}
+
+.quiz-breakdown-option{
+  font-size:clamp(26px,2.25vw,34px)!important;
+}
+
+.quiz-breakdown-status{
+  font-size:11px!important;
+}
+
+.quiz-breakdown-word{
+  margin-top:12px!important;
+  padding-bottom:10px!important;
+  gap:8px!important;
+}
+
+.quiz-breakdown-word b{
+  font-size:clamp(25px,2.2vw,34px)!important;
+}
+
+.quiz-breakdown-word span{
+  font-size:15px!important;
+}
+
+.quiz-breakdown-meaning{
+  margin-top:11px!important;
+  font-size:15px!important;
+  line-height:1.55!important;
+}
+
+.quiz-breakdown-card p{
+  margin-top:12px!important;
+  font-size:14px!important;
+  line-height:1.58!important;
+}
+
+@media(max-width:700px){
+  .page-back-btn{
+    min-height:42px!important;
+    padding:0 14px!important;
+    border-radius:13px!important;
+    font-size:13px!important;
+  }
+
+  .stage-last-badge{
+    font-size:7px!important;
+    padding:4px 7px!important;
+  }
+
+  .quiz-feedback-panel{
+    grid-template-rows:auto minmax(0,1fr) auto!important;
+  }
+
+  .quiz-option-breakdown{
+    display:flex!important;
+    flex-direction:column!important;
+    gap:10px!important;
+    min-height:0!important;
+    height:100%!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+    padding:1px 4px 13px 0!important;
+  }
+
+  .quiz-breakdown-card,
+  .quiz-breakdown-card.correct,
+  .quiz-breakdown-card.selected-wrong,
+  .quiz-breakdown-card.neutral{
+    display:block!important;
+    flex:0 0 auto!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:fit-content!important;
+    max-height:none!important;
+    padding:12px!important;
+    overflow:visible!important;
+  }
+
+  .quiz-breakdown-letter{
+    width:36px!important;
+    height:36px!important;
+    font-size:15px!important;
+  }
+
+  .quiz-breakdown-option{
+    font-size:23px!important;
+    white-space:normal!important;
+  }
+
+  .quiz-breakdown-status{
+    font-size:9px!important;
+    white-space:normal!important;
+    text-align:right!important;
+  }
+
+  .quiz-breakdown-word{
+    margin-top:10px!important;
+    padding-bottom:8px!important;
+    flex-wrap:wrap!important;
+  }
+
+  .quiz-breakdown-word b{
+    font-size:23px!important;
+  }
+
+  .quiz-breakdown-word span{
+    font-size:13px!important;
+  }
+
+  .quiz-breakdown-meaning{
+    margin-top:9px!important;
+    font-size:13px!important;
+    line-height:1.55!important;
+  }
+
+  .quiz-breakdown-card p{
+    margin-top:10px!important;
+    font-size:12px!important;
+    line-height:1.58!important;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -6681,21 +6960,64 @@ function renderStages(){
   var list=el("stageList");
   list.innerHTML="";
 
+  var lastPlayed=null;
+
+  try{
+    var saved=localStorage.getItem("mugendai_last_stage_v1");
+    if(saved){
+      var parsed=JSON.parse(saved);
+      if(parsed&&parsed.level&&parsed.stage){
+        lastPlayed=parsed;
+      }
+    }
+
+    if(!lastPlayed){
+      var legacy=localStorage.getItem("mugendai_last_quest")||"";
+      var match=legacy.match(/^(N[1-5])\s*·\s*Stage\s*(\d+)$/i);
+
+      if(match){
+        lastPlayed={
+          level:match[1].toUpperCase(),
+          stage:parseInt(match[2],10)
+        };
+      }
+    }
+  }catch(_){
+    lastPlayed=null;
+  }
+
   for(var i=1;i<=BANK[state.level].length;i++){
     var progress=state.progress[i]||null;
+    var isLast=!!(
+      lastPlayed&&
+      lastPlayed.level===state.level&&
+      Number(lastPlayed.stage)===i
+    );
     var card=document.createElement("div");
 
-    card.className="stage-card"+(progress&&progress.passed?" passed":"");
+    card.className=
+      "stage-card"+
+      (progress&&progress.passed?" passed":"")+
+      (isLast?" last-played":"");
+
+    card.setAttribute("data-stage-number",String(i));
 
     var icon=progress&&progress.passed?"✅":"▶️";
-    var meta=progress
+    var normalMeta=progress
       ?"Best "+progress.best_score+"/10 · "+progress.attempts+"x percobaan"
       :"Terbuka · Belum dimainkan";
 
+    var meta=isLast
+      ?"Terakhir dimainkan · "+normalMeta
+      :normalMeta;
+
     card.innerHTML=
+      (isLast
+        ?'<div class="stage-last-badge">TERAKHIR DIMAINKAN</div>'
+        :"")+
       '<div class="stage-row">'+
         '<div class="stage-name">Stage '+i+'</div>'+
-        '<div>'+icon+'</div>'+
+        '<div class="stage-play-icon">'+icon+'</div>'+
       '</div>'+
       '<div class="stage-meta">'+meta+'</div>';
 
@@ -7188,7 +7510,17 @@ function drawTimer(ms){
 function startStage(n){
   unlockAudio();
   state.currentStage=n;
-  try{localStorage.setItem("mugendai_last_quest",state.level+" · Stage "+n)}catch(_){}
+  try{
+    localStorage.setItem("mugendai_last_quest",state.level+" · Stage "+n);
+    localStorage.setItem(
+      "mugendai_last_stage_v1",
+      JSON.stringify({
+        level:state.level,
+        stage:Number(n),
+        played_at:Date.now()
+      })
+    );
+  }catch(_){}
   state.questions=buildQuestions(n);
   state.qIndex=0;
   state.score=0;
