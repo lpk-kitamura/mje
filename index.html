@@ -7145,6 +7145,539 @@ main.panel .app-menu-dropdown{
 }
 </style>
 
+
+<style id="madeExampleMatchKanjiFinalPatch">
+.quiz-breakdown-example{
+  background:rgba(255,255,255,.018)!important;
+  border-radius:12px!important;
+  padding:10px 11px!important;
+}
+
+.quiz-example-title::after{
+  content:" sesuai kosakata";
+  opacity:.72;
+}
+
+.quiz-example-jp{
+  word-break:keep-all!important;
+  overflow-wrap:anywhere!important;
+}
+</style>
+
+
+<style id="madeCreatorOpeningModalPatch">
+/* =========================================================
+   CREATOR INTRO BUTTON ABOVE MULAI
+   ========================================================= */
+.creator-intro-frame{
+  position:relative;
+  width:min(720px,88vw);
+  padding:2px;
+  border-radius:20px;
+  overflow:hidden;
+  isolation:isolate;
+  box-shadow:
+    0 0 12px rgba(0,234,255,.12),
+    0 0 24px rgba(255,122,0,.05);
+}
+
+.creator-intro-frame::before{
+  content:"";
+  position:absolute;
+  inset:-220%;
+  z-index:-2;
+  background:conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(0,234,255,.92) 56deg,
+    transparent 112deg,
+    transparent 205deg,
+    rgba(255,122,0,.9) 260deg,
+    rgba(255,216,77,.82) 300deg,
+    transparent 354deg
+  );
+  animation:publicNeonOrbit 5.4s linear infinite;
+}
+
+.creator-intro-frame::after{
+  content:"";
+  position:absolute;
+  inset:2px;
+  z-index:-1;
+  border-radius:18px;
+  background:
+    radial-gradient(circle at 18% 10%,rgba(0,234,255,.10),transparent 42%),
+    linear-gradient(145deg,rgba(4,18,38,.96),rgba(8,18,34,.98) 55%,rgba(16,13,18,.98));
+}
+
+.creator-intro-button{
+  width:100%;
+  min-height:48px;
+  border:0;
+  border-radius:18px;
+  background:transparent;
+  color:#eafbff;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:10px;
+  padding:0 18px;
+  font-size:clamp(12px,1.15vw,16px);
+  letter-spacing:.15em;
+  font-weight:600;
+  cursor:pointer;
+  text-transform:uppercase;
+  text-shadow:0 0 12px rgba(0,234,255,.22);
+}
+
+.creator-intro-button:hover,
+.creator-intro-button:focus-visible{
+  outline:none;
+  color:#ffffff;
+  text-shadow:
+    0 0 12px rgba(0,234,255,.45),
+    0 0 24px rgba(255,122,0,.14);
+}
+
+.intro-pulse-dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#00eaff;
+  box-shadow:0 0 12px rgba(0,234,255,.78);
+  animation:introDotPulse 1.4s ease-in-out infinite;
+}
+
+.intro-arrow{
+  color:#ffd84d;
+  font-size:18px;
+}
+
+@keyframes introDotPulse{
+  0%,100%{transform:scale(.82);opacity:.72}
+  50%{transform:scale(1.22);opacity:1}
+}
+
+/* =========================================================
+   CREATOR INTRO MODAL
+   ========================================================= */
+.creator-modal.hidden{
+  display:none!important;
+}
+
+.creator-modal{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  display:grid;
+  place-items:center;
+  padding:18px;
+}
+
+.creator-modal-backdrop{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 30% 10%,rgba(0,234,255,.14),transparent 32%),
+    radial-gradient(circle at 78% 85%,rgba(255,122,0,.13),transparent 30%),
+    rgba(0,5,14,.78);
+  backdrop-filter:blur(14px);
+}
+
+.creator-modal-card{
+  position:relative;
+  z-index:1;
+  width:min(1040px,94vw);
+  max-height:min(86dvh,850px);
+  display:grid;
+  grid-template-rows:auto minmax(0,1fr);
+  border-radius:28px;
+  border:1px solid rgba(0,234,255,.25);
+  background:
+    radial-gradient(circle at 12% 0%,rgba(0,234,255,.13),transparent 36%),
+    radial-gradient(circle at 91% 16%,rgba(255,122,0,.11),transparent 34%),
+    linear-gradient(145deg,rgba(10,24,46,.98),rgba(8,15,31,.99) 52%,rgba(13,13,22,.99));
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.06),
+    0 0 44px rgba(0,234,255,.16),
+    0 0 74px rgba(255,122,0,.08);
+  overflow:hidden;
+}
+
+.creator-modal-card::before{
+  content:"∞";
+  position:absolute;
+  right:-18px;
+  top:-54px;
+  font-size:260px;
+  line-height:1;
+  color:rgba(0,234,255,.035);
+  pointer-events:none;
+}
+
+.creator-modal-close{
+  position:absolute;
+  top:14px;
+  right:14px;
+  width:46px;
+  height:46px;
+  border-radius:15px;
+  border:1.5px solid transparent;
+  color:#fff;
+  font-size:31px;
+  line-height:1;
+  cursor:pointer;
+  background:
+    linear-gradient(145deg,rgba(4,18,38,.94),rgba(8,34,60,.94)) padding-box,
+    linear-gradient(135deg,#00eaff,#0782ff 40%,#ff7a00 75%,#ffd84d) border-box;
+  box-shadow:
+    0 0 16px rgba(0,234,255,.28),
+    0 0 22px rgba(255,122,0,.10);
+  z-index:5;
+}
+
+.creator-modal-close:hover,
+.creator-modal-close:focus-visible{
+  outline:none;
+  box-shadow:
+    0 0 0 2px rgba(0,234,255,.18),
+    0 0 28px rgba(0,234,255,.46),
+    0 0 34px rgba(255,122,0,.16);
+}
+
+.creator-modal-hero{
+  padding:30px 76px 18px 30px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.creator-hero-kicker,
+.creator-section-title{
+  color:#72efff;
+  letter-spacing:.18em;
+  font-size:11px;
+}
+
+.creator-modal-hero h2{
+  margin:8px 0 8px;
+  font-size:clamp(34px,4.4vw,66px);
+  line-height:1;
+  font-weight:400;
+  letter-spacing:-.035em;
+  color:#f7fbff;
+}
+
+.creator-modal-hero p,
+.creator-modal p{
+  color:#b8c7dc;
+  font-size:clamp(14px,1.05vw,18px);
+  line-height:1.62;
+  margin:0;
+}
+
+.creator-modal mark{
+  background:linear-gradient(90deg,rgba(0,234,255,.18),rgba(255,216,77,.15));
+  color:#ffe483;
+  border-radius:8px;
+  padding:.03em .28em;
+}
+
+.creator-modal-scroll{
+  min-height:0;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  padding:18px 28px 28px;
+  display:grid;
+  gap:14px;
+  scrollbar-gutter:stable;
+}
+
+.creator-lead-card,
+.creator-warning-card,
+.creator-note-card,
+.creator-closing-card{
+  border:1px solid rgba(0,234,255,.16);
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 0% 0%,rgba(0,234,255,.08),transparent 38%),
+    linear-gradient(145deg,rgba(7,24,48,.86),rgba(5,13,28,.88));
+  padding:18px;
+}
+
+.creator-lead-card{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:15px;
+  align-items:start;
+}
+
+.creator-lead-icon,
+.creator-warning-icon{
+  width:54px;
+  height:54px;
+  border-radius:17px;
+  display:grid;
+  place-items:center;
+  background:rgba(0,212,255,.09);
+  border:1px solid rgba(0,234,255,.22);
+  font-size:28px;
+}
+
+.creator-lead-card h3,
+.creator-warning-card h3,
+.creator-note-card h3{
+  margin:0 0 6px;
+  color:#ffffff;
+  font-size:clamp(19px,1.5vw,28px);
+  font-weight:500;
+}
+
+.creator-section{
+  display:grid;
+  gap:10px;
+}
+
+.creator-section-title{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  color:#72efff;
+  text-transform:uppercase;
+}
+
+.creator-section-title span{
+  font-size:18px;
+  letter-spacing:0;
+}
+
+.creator-value-grid,
+.creator-basic-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+}
+
+.creator-value-card,
+.creator-basic-card,
+.creator-atm-card{
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:18px;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+  padding:13px;
+  min-width:0;
+}
+
+.creator-value-card b,
+.creator-basic-card b,
+.creator-atm-card b{
+  display:block;
+  color:#ffffff;
+  font-size:clamp(20px,1.55vw,29px);
+  font-weight:500;
+  line-height:1.15;
+}
+
+.creator-value-card small,
+.creator-basic-card small{
+  display:block;
+  color:#73eaff;
+  margin:4px 0 7px;
+  font-size:12px;
+}
+
+.creator-value-card p,
+.creator-basic-card p,
+.creator-atm-card p,
+.creator-note-card p,
+.creator-closing-card p{
+  font-size:13px;
+  line-height:1.5;
+}
+
+.creator-warning-card{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:14px;
+  border-color:rgba(255,122,0,.26);
+  background:
+    radial-gradient(circle at 0% 10%,rgba(255,122,0,.10),transparent 38%),
+    linear-gradient(145deg,rgba(48,23,16,.64),rgba(5,13,28,.88));
+}
+
+.creator-mini-phrase{
+  margin-top:8px;
+  display:grid;
+  grid-template-columns:minmax(0,.82fr) minmax(0,1fr);
+  align-items:center;
+  gap:10px;
+  border:1px solid rgba(255,255,255,.075);
+  border-radius:13px;
+  padding:8px 10px;
+  background:rgba(0,0,0,.12);
+}
+
+.creator-mini-phrase span{
+  color:#ffffff;
+  font-family:"UD Digi Kyokasho N-R","Yu Mincho","Noto Serif JP",serif;
+  font-size:16px;
+}
+
+.creator-mini-phrase small{
+  color:#aebed4;
+  font-size:12px;
+}
+
+.creator-basic-card span{
+  display:inline-grid;
+  place-items:center;
+  width:34px;
+  height:26px;
+  margin-bottom:9px;
+  border-radius:999px;
+  color:#08172a;
+  background:linear-gradient(135deg,#00eaff,#ffd84d);
+  font-size:11px;
+  font-weight:800;
+}
+
+.creator-two-column{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.creator-square-card{
+  border-color:rgba(255,216,77,.22);
+  background:
+    radial-gradient(circle at 0% 0%,rgba(255,216,77,.11),transparent 38%),
+    linear-gradient(145deg,rgba(35,25,8,.45),rgba(5,13,28,.88));
+}
+
+.creator-atm-grid{
+  display:grid;
+  grid-template-columns:1fr auto 1fr auto 1fr;
+  gap:9px;
+  align-items:stretch;
+}
+
+.creator-atm-arrow{
+  display:grid;
+  place-items:center;
+  color:#ffd84d;
+  font-size:25px;
+}
+
+.creator-closing-card{
+  border-color:rgba(0,234,255,.25);
+}
+
+.creator-closing-card p+p{
+  margin-top:8px;
+}
+
+.creator-regards{
+  margin-top:16px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:3px;
+}
+
+.creator-regards span{
+  color:#aebed4;
+}
+
+.creator-regards b{
+  color:#ffffff;
+  font-size:18px;
+  letter-spacing:.05em;
+}
+
+body.creator-modal-open{
+  overflow:hidden!important;
+}
+
+@media(max-width:800px){
+  .creator-modal{
+    padding:10px;
+  }
+
+  .creator-modal-card{
+    width:96vw;
+    max-height:88dvh;
+    border-radius:22px;
+  }
+
+  .creator-modal-hero{
+    padding:24px 62px 15px 18px;
+  }
+
+  .creator-modal-scroll{
+    padding:14px 14px 20px;
+    gap:12px;
+  }
+
+  .creator-lead-card,
+  .creator-warning-card{
+    grid-template-columns:1fr;
+  }
+
+  .creator-value-grid,
+  .creator-basic-grid,
+  .creator-two-column{
+    grid-template-columns:1fr;
+  }
+
+  .creator-atm-grid{
+    grid-template-columns:1fr;
+  }
+
+  .creator-atm-arrow{
+    transform:rotate(90deg);
+    min-height:20px;
+  }
+
+  .creator-mini-phrase{
+    grid-template-columns:1fr;
+    gap:3px;
+  }
+}
+
+@media(max-width:700px){
+  .creator-intro-frame{
+    width:min(92vw,580px);
+    border-radius:18px;
+  }
+
+  .creator-intro-frame::after,
+  .creator-intro-button{
+    border-radius:16px;
+  }
+
+  .creator-intro-button{
+    min-height:43px;
+    padding:0 13px;
+    letter-spacing:.09em;
+    font-size:11px;
+  }
+
+  .creator-modal-close{
+    top:11px;
+    right:11px;
+    width:42px;
+    height:42px;
+    border-radius:13px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .creator-intro-frame::before,
+  .intro-pulse-dot{
+    animation:none!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <div class="app">
@@ -7185,6 +7718,14 @@ main.panel .app-menu-dropdown{
 </div>
 <section class="auth public-home-view" id="authView">
 <div aria-label="Halaman utama" class="public-landing" id="publicLanding">
+
+<div class="creator-intro-frame">
+  <button class="creator-intro-button" id="creatorIntroOpenBtn" type="button">
+    <span class="intro-pulse-dot" aria-hidden="true"></span>
+    <span>WAJIB BACA SEBELUM MULAI</span>
+    <span class="intro-arrow" aria-hidden="true">→</span>
+  </button>
+</div>
 <div class="public-start-frame">
 <button class="public-start-button" id="publicStartBtn" type="button">Mulai</button>
 </div>
@@ -8473,24 +9014,91 @@ function quizLearningDescription(item,isCorrect){
 }
 
 function quizExampleFor(item){
-  var fallback={
-    jp:"これは大切な言葉です。",
-    id:"Ini adalah kosakata yang penting."
-  };
+  function textOnly(htmlText){
+    return String(htmlText||"")
+      .replace(/<rt>.*?<\/rt>/g,"")
+      .replace(/<[^>]+>/g,"")
+      .replace(/\s+/g,"");
+  }
 
-  if(!item)return fallback;
+  function coreWord(raw){
+    var value=String(raw||"")
+      .replace(/[（）()・\s]/g,"");
 
-  try{
-    if(typeof levelSentences==="function"){
-      var examples=levelSentences(item,state.level)||[];
-      if(examples&&examples.length){
-        return {
-          jp:String(examples[0].jp||fallback.jp),
-          id:String(examples[0].id||fallback.id)
-        };
-      }
+    var kanjiOnly=value.replace(/[\u3040-\u309f\u30a0-\u30ffー]/g,"");
+    if(kanjiOnly)return kanjiOnly;
+
+    return value;
+  }
+
+  function exampleMatches(example,item){
+    if(!example||!item)return false;
+
+    var jp=textOnly(example.jp);
+    var word=String(item.kanji||item.reading||"").replace(/[（）()・\s]/g,"");
+    var core=coreWord(word);
+
+    if(!jp)return false;
+    if(core&&jp.indexOf(core)>=0)return true;
+    if(word&&jp.indexOf(word)>=0)return true;
+
+    return false;
+  }
+
+  function safeRuby(word,reading){
+    try{
+      if(typeof targetRuby==="function")return targetRuby(word,reading||"");
+    }catch(_){}
+
+    return escapeText(word||"—");
+  }
+
+  function fallbackExample(item){
+    if(!item){
+      return {
+        jp:"例文を確認します。",
+        id:"Saya memeriksa contoh kalimat."
+      };
     }
-  }catch(_){}
+
+    var word=String(item.kanji||item.reading||"この言葉");
+    var reading=String(item.reading||"");
+    var ruby=safeRuby(word,reading);
+    var id=quizCleanMeaning(item);
+    var english=quizCleanEnglish(item);
+
+    var isVerb=/[\u3040-\u309f]$/.test(word) && !/[いな]$/.test(word);
+    var isIAdj=/い$/.test(word) && !isVerb;
+    var isNaAdj=/的$/.test(word)||/大切|便利|有名|静か|簡単|複雑|必要|重要|安全|危険/.test(word);
+
+    if(isVerb){
+      return {
+        jp:ruby+"ことができます。",
+        id:"Saya bisa "+id+"."
+      };
+    }
+
+    if(isIAdj){
+      return {
+        jp:"これは"+ruby+"です。",
+        id:"Ini "+id+"."
+      };
+    }
+
+    if(isNaAdj){
+      return {
+        jp:ruby+"なことです。",
+        id:"Ini hal yang "+id+"."
+      };
+    }
+
+    return {
+      jp:ruby+"を覚えます。",
+      id:"Saya mengingat "+id+(english&&english!=="Meaning unavailable"?" / "+english:"")+"."
+    };
+  }
+
+  if(!item)return fallbackExample(item);
 
   var key=String(item.kanji||"")+"|"+String(item.reading||"");
   var map={
@@ -8509,7 +9117,24 @@ function quizExampleFor(item){
     "巧妙|こうみょう":{jp:"彼は巧妙な方法を考えました。",id:"Dia memikirkan cara yang cerdik."}
   };
 
-  return map[key]||fallback;
+  if(map[key]&&exampleMatches(map[key],item))return map[key];
+
+  try{
+    if(typeof levelSentences==="function"){
+      var examples=levelSentences(item,state.level)||[];
+
+      for(var i=0;i<examples.length;i++){
+        if(exampleMatches(examples[i],item)){
+          return {
+            jp:String(examples[i].jp||""),
+            id:String(examples[i].id||"")
+          };
+        }
+      }
+    }
+  }catch(_){}
+
+  return fallbackExample(item);
 }
 
 function optionExplanation(q,opt,item,isCorrect){
@@ -11294,6 +11919,183 @@ renderLevels();
     document.addEventListener("DOMContentLoaded",initialize,{once:true});
   }else{
     initialize();
+  }
+})();
+</script>
+
+
+<div class="creator-modal hidden" id="creatorIntroModal" role="dialog" aria-modal="true" aria-labelledby="creatorIntroTitle">
+  <div class="creator-modal-backdrop" id="creatorIntroBackdrop"></div>
+  <article class="creator-modal-card">
+    <button class="creator-modal-close" id="creatorIntroCloseBtn" type="button" aria-label="Tutup pembukaan">×</button>
+
+    <header class="creator-modal-hero">
+      <div class="creator-hero-kicker">✨ MUGENDAI STARTER MESSAGE</div>
+      <h2 id="creatorIntroTitle">Pembukaan dari Tim Creator</h2>
+      <p>Sebelum belajar bahasa Jepang, pahami dulu: bahasa adalah alat <mark>KOMUNIKASI</mark>. Website ini dibuat karena kami melihat semangat belajar, rasa ingin tahu, mental pejuang, keberanian berbicara, dan kemampuan berdiskusi siswa perlu dibangunkan lagi.</p>
+    </header>
+
+    <div class="creator-modal-scroll">
+      <section class="creator-lead-card">
+        <div class="creator-lead-icon">🗣️</div>
+        <div>
+          <h3>KOMUNIKASI bukan sekadar kalimat benar</h3>
+          <p>Belajar huruf, kosakata, kanji, pola kalimat, dan sertifikat itu penting. Tapi tujuan akhirnya adalah <mark>saling memahami</mark>: menyampaikan pikiran, perasaan, keinginan, masalah, dan memahami lawan bicara.</p>
+        </div>
+      </section>
+
+      <section class="creator-section">
+        <div class="creator-section-title"><span>🔥</span><b>Sikap Dasar Siswa Kitamura</b></div>
+        <div class="creator-value-grid">
+          <div class="creator-value-card"><b>勇気</b><small>ゆうき</small><p>Keberanian berbicara walaupun belum sempurna.</p></div>
+          <div class="creator-value-card"><b>想像</b><small>そうぞう</small><p>Imajinasi untuk membayangkan maksud dan cara menyampaikan sesuatu.</p></div>
+          <div class="creator-value-card"><b>空気を読む</b><small>くうきをよむ</small><p>Membaca situasi, ekspresi, waktu, dan suasana.</p></div>
+          <div class="creator-value-card"><b>ファイターの気持ち</b><small>mental pejuang</small><p>Tidak mudah menyerah saat belum bisa.</p></div>
+          <div class="creator-value-card"><b>限界を超える</b><small>げんかいをこえる</small><p>Melampaui malu, takut salah, dan rasa tidak percaya diri.</p></div>
+          <div class="creator-value-card"><b>馬鹿でも、話す</b><small>walau salah, tetap bicara</small><p>Orang yang berani salah akan lebih cepat berkembang.</p></div>
+        </div>
+      </section>
+
+      <section class="creator-warning-card">
+        <div class="creator-warning-icon">⚠️</div>
+        <div>
+          <h3>Jangan diam.</h3>
+          <p>Jika paham, katakan paham. Jika tidak paham, katakan tidak paham. Jika sedang berpikir, katakan sedang berpikir. <mark>Diam terlalu lama bisa menimbulkan salah paham</mark>, terutama di lingkungan Jepang.</p>
+          <div class="creator-mini-phrase"><span>分かりました。</span><small>Saya mengerti.</small></div>
+          <div class="creator-mini-phrase"><span>分かりません。</span><small>Saya tidak mengerti.</small></div>
+          <div class="creator-mini-phrase"><span>もう一度お願いします。</span><small>Tolong sekali lagi.</small></div>
+          <div class="creator-mini-phrase"><span>ゆっくりお願いします。</span><small>Tolong pelan-pelan.</small></div>
+        </div>
+      </section>
+
+      <section class="creator-section">
+        <div class="creator-section-title"><span>🧩</span><b>4 Dasar KOMUNIKASI</b></div>
+        <div class="creator-basic-grid">
+          <div class="creator-basic-card"><span>01</span><b>挨拶</b><small>あいさつ・Salam</small><p>Pintu pertama komunikasi. Menunjukkan sikap, rasa hormat, dan kesiapan belajar.</p></div>
+          <div class="creator-basic-card"><span>02</span><b>相槌</b><small>あいづち・Respons kecil</small><p>はい、そうですか、なるほど. Tanda bahwa kita hadir dalam percakapan.</p></div>
+          <div class="creator-basic-card"><span>03</span><b>反応</b><small>はんのう・Reaksi</small><p>Jika paham, tunjukkan paham. Jika bingung, jangan pura-pura mengerti.</p></div>
+          <div class="creator-basic-card"><span>04</span><b>確認</b><small>かくにん・Memastikan</small><p>Jika belum yakin, tanya dan pastikan ulang agar tidak terjadi salah paham.</p></div>
+        </div>
+      </section>
+
+      <section class="creator-two-column">
+        <div class="creator-note-card">
+          <h3>⏱️ 3秒ルール</h3>
+          <p>Jangan diam lebih dari 3 detik. Kalau sedang berpikir, beri sinyal.</p>
+          <div class="creator-mini-phrase"><span>少し考えています。</span><small>Saya sedang berpikir sebentar.</small></div>
+          <div class="creator-mini-phrase"><span>少し考えさせてください。</span><small>Izinkan saya berpikir sebentar.</small></div>
+        </div>
+        <div class="creator-note-card">
+          <h3>📝 メモを取る習慣</h3>
+          <p>Mencatat bukan menulis semua omongan. Catat inti, hal yang tidak dimengerti, kosakata baru, angka, tanggal, instruksi, larangan, dan hal yang perlu dikonfirmasi.</p>
+        </div>
+      </section>
+
+      <section class="creator-lead-card creator-square-card">
+        <div class="creator-lead-icon">🧠</div>
+        <div>
+          <h3>PINTAR KUADRAT = CERDAS mencari cara</h3>
+          <p>Jika tidak tahu satu kosakata, jangan langsung berhenti. Gunakan kata sederhana, gerakan tangan, gambar, contoh, fungsi benda, atau cara lain agar lawan bicara tetap mengerti. Yang penting bukan sempurna, tapi <mark>maksud tersampaikan</mark>.</p>
+        </div>
+      </section>
+
+      <section class="creator-section">
+        <div class="creator-section-title"><span>🚀</span><b>Metode ATM Kitamura</b></div>
+        <div class="creator-atm-grid">
+          <div class="creator-atm-card"><b>Amati</b><p>Perhatikan cara guru atau orang Jepang berbicara, berekspresi, bertanya, menjawab, mencatat, dan memastikan ulang.</p></div>
+          <div class="creator-atm-arrow">→</div>
+          <div class="creator-atm-card"><b>Tiru</b><p>Ikuti contoh yang benar. Mulai dari respons kecil, salam jelas, dan keberanian untuk tidak diam.</p></div>
+          <div class="creator-atm-arrow">→</div>
+          <div class="creator-atm-card"><b>Modifikasi</b><p>Ubah sesuai situasi nyata. Komunikasi bisa dimulai dari kalimat pendek dan keberanian berbicara.</p></div>
+        </div>
+      </section>
+
+      <section class="creator-closing-card">
+        <p>Bahasa Jepang bukan hanya pelajaran. Bahasa Jepang adalah jembatan untuk menyampaikan isi hati, membangun hubungan, bekerja, bertanya, meminta bantuan, dan hidup bersama orang Jepang.</p>
+        <p><mark>Tidak harus sempurna dari awal.</mark> Yang penting berani mencoba, berani salah, berani bertanya, berani memberi respons, dan berani berbicara.</p>
+        <div class="creator-regards">
+          <span>Regards,</span>
+          <b>Creator Team</b>
+        </div>
+      </section>
+    </div>
+  </article>
+</div>
+
+
+<script id="madeCreatorOpeningModalRuntime">
+(function(){
+  "use strict";
+
+  function byId(id){return document.getElementById(id)}
+
+  function openCreatorIntro(){
+    var modal=byId("creatorIntroModal");
+    if(!modal)return;
+
+    modal.classList.remove("hidden");
+    document.body.classList.add("creator-modal-open");
+
+    var close=byId("creatorIntroCloseBtn");
+    setTimeout(function(){
+      try{close&&close.focus()}catch(_){}
+    },30);
+  }
+
+  function closeCreatorIntro(){
+    var modal=byId("creatorIntroModal");
+    if(!modal)return;
+
+    modal.classList.add("hidden");
+    document.body.classList.remove("creator-modal-open");
+
+    var opener=byId("creatorIntroOpenBtn");
+    try{opener&&opener.focus()}catch(_){}
+  }
+
+  function installCreatorIntro(){
+    var opener=byId("creatorIntroOpenBtn");
+    var close=byId("creatorIntroCloseBtn");
+    var backdrop=byId("creatorIntroBackdrop");
+
+    if(opener&&!opener.dataset.boundCreatorIntro){
+      opener.dataset.boundCreatorIntro="1";
+      opener.addEventListener("click",function(event){
+        event.preventDefault();
+        event.stopPropagation();
+        openCreatorIntro();
+      });
+    }
+
+    if(close&&!close.dataset.boundCreatorIntro){
+      close.dataset.boundCreatorIntro="1";
+      close.addEventListener("click",function(event){
+        event.preventDefault();
+        closeCreatorIntro();
+      });
+    }
+
+    if(backdrop&&!backdrop.dataset.boundCreatorIntro){
+      backdrop.dataset.boundCreatorIntro="1";
+      backdrop.addEventListener("click",function(){
+        closeCreatorIntro();
+      });
+    }
+
+    document.addEventListener("keydown",function(event){
+      if(event.key==="Escape"){
+        var modal=byId("creatorIntroModal");
+        if(modal&&!modal.classList.contains("hidden")){
+          closeCreatorIntro();
+        }
+      }
+    });
+  }
+
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",installCreatorIntro,{once:true});
+  }else{
+    installCreatorIntro();
   }
 })();
 </script>
