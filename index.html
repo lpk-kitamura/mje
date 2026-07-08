@@ -8417,6 +8417,535 @@ body.creator-modal-open{
 }
 </style>
 
+
+<style id="mjeFinalRequestedRevisions">
+/* =========================
+   Final requested visual revisions
+   ========================= */
+
+/* Home dashboard: more futuristic, original DNA preserved */
+#dashboardView.dashboard-view{
+  background:
+    radial-gradient(circle at 12% 18%, rgba(0,212,255,.10), transparent 28%),
+    radial-gradient(circle at 72% 14%, rgba(255,202,92,.08), transparent 24%),
+    linear-gradient(180deg, rgba(5,14,27,.92), rgba(4,12,24,.98))!important;
+  position:relative!important;
+  overflow:hidden!important;
+}
+#dashboardView.dashboard-view::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.24;
+  background:
+    linear-gradient(rgba(124,236,255,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,236,255,.08) 1px, transparent 1px);
+  background-size:64px 64px;
+  mask-image:linear-gradient(to bottom, transparent 0, #000 14%, #000 70%, transparent 100%);
+}
+.dashboard-hero{
+  position:relative!important;
+  isolation:isolate!important;
+  border-color:rgba(124,236,255,.18)!important;
+  background:
+    radial-gradient(circle at 6% 0%, rgba(0,212,255,.19), transparent 34%),
+    radial-gradient(circle at 92% 18%, rgba(255,202,92,.12), transparent 28%),
+    linear-gradient(135deg, rgba(17,36,56,.74), rgba(48,31,31,.60))!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 20px 70px rgba(0,0,0,.24),
+    0 0 32px rgba(0,212,255,.05)!important;
+  backdrop-filter:blur(14px)!important;
+}
+.dashboard-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+  background:linear-gradient(110deg, transparent, rgba(255,255,255,.08), transparent);
+  transform:translateX(-120%);
+  animation:mjeHeroSweep 7s ease-in-out infinite;
+  z-index:-1;
+}
+@keyframes mjeHeroSweep{
+  0%,60%{transform:translateX(-120%)}
+  84%,100%{transform:translateX(120%)}
+}
+.dashboard-card{
+  position:relative!important;
+  overflow:hidden!important;
+  border-color:rgba(124,236,255,.18)!important;
+  background:
+    radial-gradient(circle at 9% 12%, rgba(0,212,255,.10), transparent 38%),
+    linear-gradient(145deg, rgba(7,25,45,.72), rgba(4,12,25,.78))!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.07),
+    0 18px 58px rgba(0,0,0,.20)!important;
+  backdrop-filter:blur(10px)!important;
+  transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease, background .18s ease!important;
+}
+.dashboard-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg, rgba(124,236,255,.10), transparent 30%, transparent 70%, rgba(255,202,92,.06)),
+    linear-gradient(rgba(255,255,255,.055), transparent 34%);
+  opacity:.65;
+}
+.dashboard-card:hover{
+  transform:translateY(-3px)!important;
+  border-color:rgba(0,212,255,.46)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.10),
+    0 24px 72px rgba(0,0,0,.28),
+    0 0 26px rgba(0,212,255,.12)!important;
+}
+.dashboard-card:hover .dashboard-arrow{
+  transform:translateX(5px);
+  color:#7cecff!important;
+  text-shadow:0 0 14px rgba(124,236,255,.45);
+}
+.dashboard-icon{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12), 0 0 28px rgba(0,212,255,.10)!important;
+}
+
+/* App hamburger: cyan frame only; line colors remain from original */
+.app-menu-btn,
+#appMenuBtn{
+  border:1.5px solid rgba(0,212,255,.92)!important;
+  box-shadow:0 0 10px rgba(0,212,255,.28)!important;
+  background:rgba(10,23,38,.78)!important;
+}
+.app-menu-btn:hover,
+#appMenuBtn:hover{
+  border-color:rgba(0,225,255,1)!important;
+  box-shadow:0 0 14px rgba(0,212,255,.36)!important;
+}
+
+/* Song module layout */
+#bunpouView.song-learning-view:not(.hidden){
+  padding:7px!important;
+  background:
+    radial-gradient(circle at 6% 8%, rgba(0,212,255,.10), transparent 28%),
+    radial-gradient(circle at 94% 10%, rgba(255,202,92,.08), transparent 28%),
+    linear-gradient(140deg, rgba(6,15,30,.97), rgba(15,13,18,.97))!important;
+}
+.mje-song-shell{
+  height:100%;
+  min-height:0;
+}
+.song-list-pane,
+.song-detail-pane{
+  min-height:0!important;
+  height:100%!important;
+}
+.song-list-pane.hidden,
+.song-detail-pane.hidden{
+  display:none!important;
+}
+
+/* Navbar list: no title, no add button, search smaller, room for hamburger */
+.song-topbar.song-list-topbar{
+  display:grid!important;
+  grid-template-columns:auto minmax(220px,460px)!important;
+  justify-content:start!important;
+  align-items:center!important;
+  gap:14px!important;
+  padding:8px 92px 8px 12px!important;
+  min-height:58px!important;
+  border-radius:18px!important;
+  background:rgba(12,22,38,.72)!important;
+  border:1px solid rgba(124,236,255,.14)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07)!important;
+}
+.song-topbar h2,
+.song-add-btn,
+#songAdminAddBtn,
+.song-admin-bar{
+  display:none!important;
+}
+.song-search-wrap{
+  width:min(460px,42vw)!important;
+  min-height:42px!important;
+  border-color:rgba(255,255,255,.13)!important;
+  background:rgba(0,0,0,.18)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04)!important;
+}
+.song-search-wrap input{
+  font-size:15px!important;
+}
+
+/* Back button like requested sample */
+.song-back-dashboard,
+.song-detail-back{
+  min-height:46px!important;
+  padding:0 22px!important;
+  border:1.5px solid transparent!important;
+  border-radius:18px!important;
+  background:
+    linear-gradient(rgba(18,31,51,.96), rgba(18,31,51,.96)) padding-box,
+    linear-gradient(135deg, #00d4ff 0%, #198cff 48%, #ffd166 78%, #57f287 100%) border-box!important;
+  color:#fff!important;
+  box-shadow:0 0 12px rgba(0,212,255,.22)!important;
+  font-size:17px!important;
+  letter-spacing:.01em!important;
+}
+.song-back-dashboard:hover,
+.song-detail-back:hover{
+  box-shadow:0 0 18px rgba(0,212,255,.34)!important;
+}
+
+/* List song: title is the button, no play icon */
+.song-compact-list{
+  padding:8px 96px 70px 8px!important;
+  gap:0!important;
+}
+.song-row,
+.song-list-clickable{
+  width:100%!important;
+  min-height:62px!important;
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  justify-items:start!important;
+  align-items:center!important;
+  padding:12px 16px!important;
+  border:0!important;
+  border-bottom:1px solid rgba(255,255,255,.08)!important;
+  border-radius:0!important;
+  background:transparent!important;
+  text-align:left!important;
+  color:#fff!important;
+  cursor:pointer!important;
+}
+.song-list-clickable:hover{
+  background:linear-gradient(90deg, rgba(0,212,255,.08), transparent 56%)!important;
+}
+.song-row-title{
+  font-size:18px!important;
+  line-height:1.28!important;
+  font-weight:650!important;
+  letter-spacing:.01em!important;
+}
+.song-list-clickable:hover .song-row-title{
+  color:#7cecff!important;
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+.song-row-meta{
+  margin-top:5px!important;
+  color:rgba(255,255,255,.58)!important;
+  font-size:13px!important;
+}
+
+/* Detail */
+.song-detail-pane{
+  grid-template-rows:auto auto auto minmax(0,1fr)!important;
+}
+.song-detail-top{
+  grid-template-columns:auto minmax(0,1fr)!important;
+  gap:10px!important;
+  padding-right:92px!important;
+}
+.song-mode-tabs{
+  min-height:52px!important;
+  padding:5px!important;
+  border-radius:15px!important;
+  background:rgba(0,0,0,.18)!important;
+}
+.song-mode-tabs button,
+.song-breakdown-tabs button{
+  min-height:42px!important;
+  border-radius:11px!important;
+  font-size:16px!important;
+  font-weight:750!important;
+  border-color:rgba(255,255,255,.13)!important;
+}
+.song-mode-tabs button.active,
+.song-breakdown-tabs button.active{
+  color:#2a1701!important;
+  background:linear-gradient(135deg,#fffdf5 0%,#ffd267 100%)!important;
+}
+.song-detail-info{
+  min-height:38px!important;
+  display:flex!important;
+  align-items:center!important;
+  padding:6px 10px!important;
+  color:rgba(255,255,255,.72)!important;
+  font-size:15px!important;
+}
+.song-zoom-controls{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:8px!important;
+  padding:2px 10px 7px!important;
+}
+.song-zoom-controls.hidden{
+  display:none!important;
+}
+.song-zoom-controls button{
+  min-width:42px;
+  min-height:34px;
+  border-radius:12px;
+  border:1px solid rgba(124,236,255,.22);
+  background:rgba(255,255,255,.055);
+  color:#fff;
+  cursor:pointer;
+  font-weight:850;
+}
+.song-zoom-controls span{
+  min-width:54px;
+  color:rgba(255,255,255,.66);
+  font-size:12px;
+  text-align:center;
+}
+.song-detail-scroll{
+  padding:18px 104px 42px 12px!important;
+  background:linear-gradient(135deg, rgba(5,16,32,.56), rgba(8,8,16,.28))!important;
+}
+.song-lyrics-text{
+  font-size:calc(16px * var(--song-lyric-scale, 2))!important;
+  line-height:1.55!important;
+  letter-spacing:.005em!important;
+  max-width:1100px!important;
+}
+.song-lyrics-text.romaji{
+  font-size:calc(15px * var(--song-lyric-scale, 2))!important;
+}
+.song-lyrics-text.arti{
+  font-size:calc(15.5px * var(--song-lyric-scale, 2))!important;
+  color:#f2dfb1!important;
+  max-width:1160px!important;
+}
+
+/* Breakdown search */
+.song-breakdown-wrap{
+  gap:12px!important;
+}
+.song-breakdown-search{
+  position:sticky;
+  top:0;
+  z-index:3;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  width:min(560px,100%);
+  min-height:42px;
+  padding:0 12px;
+  border-radius:999px;
+  border:1px solid rgba(124,236,255,.20);
+  background:rgba(8,14,25,.92);
+  backdrop-filter:blur(10px);
+}
+.song-breakdown-search input{
+  width:100%;
+  min-width:0;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:#fff;
+  font:inherit;
+  font-size:14px;
+}
+.song-breakdown-search input::placeholder{
+  color:rgba(255,255,255,.48);
+}
+.song-breakdown-tabs{
+  top:54px!important;
+  padding:5px!important;
+  border-radius:16px!important;
+  background:rgba(10,11,18,.94)!important;
+}
+.song-breakdown-list{
+  grid-template-columns:repeat(auto-fill,minmax(235px,1fr))!important;
+  gap:9px!important;
+}
+.song-breakdown-link{
+  min-height:64px!important;
+  padding:11px 13px!important;
+  border-radius:14px!important;
+  background:rgba(255,255,255,.042)!important;
+  border-color:rgba(255,255,255,.10)!important;
+}
+.song-breakdown-link b{
+  font-size:16px!important;
+}
+.song-breakdown-link small{
+  margin-top:6px!important;
+  font-size:13px!important;
+  line-height:1.35!important;
+  white-space:nowrap!important;
+}
+
+/* Side player: bigger, clearer border; play + auto only */
+.song-side-player{
+  right:18px!important;
+  gap:10px!important;
+  padding:9px!important;
+  border-radius:22px!important;
+  border:1.5px solid rgba(255,255,255,.22)!important;
+  background:rgba(16,16,22,.82)!important;
+  box-shadow:0 18px 54px rgba(0,0,0,.44), 0 0 18px rgba(0,212,255,.10)!important;
+}
+.song-side-player button{
+  min-width:66px!important;
+  min-height:60px!important;
+  border-radius:16px!important;
+  border:1.3px solid rgba(255,255,255,.20)!important;
+  background:rgba(255,255,255,.06)!important;
+  color:#fff!important;
+  font-size:18px!important;
+  font-weight:850!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07)!important;
+}
+.song-side-player button:hover{
+  border-color:rgba(124,236,255,.42)!important;
+  background:rgba(255,255,255,.09)!important;
+}
+.song-side-player button.active{
+  color:#1f1400!important;
+  background:linear-gradient(135deg,#fff6d9,#ffd169)!important;
+  border-color:rgba(255,220,130,.92)!important;
+}
+.song-signal{
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  gap:2px;
+  height:24px;
+}
+.song-signal i{
+  display:block;
+  width:4px;
+  border-radius:999px;
+  background:rgba(31,20,0,.25);
+}
+.song-signal i:nth-child(1){height:6px}
+.song-signal i:nth-child(2){height:8px}
+.song-signal i:nth-child(3){height:10px}
+.song-signal i:nth-child(4){height:12px}
+.song-signal i:nth-child(5){height:14px}
+.song-signal i:nth-child(6){height:16px}
+.song-signal i:nth-child(7){height:18px}
+.song-signal i:nth-child(8){height:20px}
+.song-signal i:nth-child(9){height:22px}
+.song-signal i:nth-child(10){height:24px}
+.song-signal i.on{
+  background:#1f1400;
+}
+
+/* Modal stays aligned */
+.song-modal-card{
+  background:
+    radial-gradient(circle at 0% 0%, rgba(0,212,255,.11), transparent 34%),
+    linear-gradient(145deg, rgba(18,31,51,.98), rgba(8,10,18,.98))!important;
+  border-color:rgba(124,236,255,.18)!important;
+}
+
+/* Mobile */
+@media(max-width:760px){
+  .song-topbar.song-list-topbar{
+    grid-template-columns:auto minmax(0,1fr)!important;
+    gap:8px!important;
+    min-height:54px!important;
+    padding:6px 72px 6px 6px!important;
+  }
+  .song-back-dashboard,
+  .song-detail-back{
+    min-height:40px!important;
+    padding:0 12px!important;
+    border-radius:14px!important;
+    font-size:14px!important;
+  }
+  .song-search-wrap{
+    width:100%!important;
+    min-height:38px!important;
+  }
+  .song-search-wrap input{
+    font-size:13px!important;
+  }
+  .song-compact-list{
+    padding:4px 6px 76px!important;
+  }
+  .song-row,
+  .song-list-clickable{
+    min-height:54px!important;
+    padding:10px 8px!important;
+  }
+  .song-row-title{
+    font-size:15px!important;
+  }
+  .song-row-meta{
+    font-size:11px!important;
+  }
+  .song-detail-top{
+    grid-template-columns:1fr!important;
+    padding-right:70px!important;
+  }
+  .song-mode-tabs{
+    min-height:44px!important;
+  }
+  .song-mode-tabs button,
+  .song-breakdown-tabs button{
+    min-height:36px!important;
+    font-size:12px!important;
+  }
+  .song-detail-info{
+    min-height:30px!important;
+    font-size:12px!important;
+  }
+  .song-detail-scroll{
+    padding:10px 8px 96px!important;
+  }
+  .song-lyrics-text,
+  .song-lyrics-text.romaji,
+  .song-lyrics-text.arti{
+    font-size:calc(11px * var(--song-lyric-scale, 1.55))!important;
+    line-height:1.58!important;
+  }
+  .song-zoom-controls{
+    padding:0 8px 6px!important;
+  }
+  .song-side-player{
+    left:50%!important;
+    right:auto!important;
+    top:auto!important;
+    bottom:10px!important;
+    transform:translateX(-50%)!important;
+    grid-template-columns:repeat(2,auto)!important;
+    border-radius:18px!important;
+    padding:7px!important;
+    gap:8px!important;
+  }
+  .song-side-player button{
+    min-width:58px!important;
+    min-height:48px!important;
+    border-radius:14px!important;
+    font-size:15px!important;
+  }
+  .song-signal{
+    height:18px;
+  }
+  .song-signal i{
+    width:3px;
+  }
+  .song-breakdown-search{
+    width:100%;
+    min-height:38px;
+  }
+  .song-breakdown-tabs{
+    top:48px!important;
+  }
+  .song-breakdown-list{
+    grid-template-columns:1fr!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <div class="app">
@@ -8594,28 +9123,16 @@ body.creator-modal-open{
 </button>
 </div>
 </section>
+
 <section class="view hidden page-with-back song-learning-view" id="bunpouView">
   <div class="mje-song-shell">
     <div id="songListPane" class="song-list-pane">
-      <div class="song-topbar">
+      <div class="song-topbar song-list-topbar">
         <button class="song-back-dashboard" id="bunpouBackBtn" type="button">← Kembali</button>
-        <h2>Belajar Lewat Lagu</h2>
         <label class="song-search-wrap" aria-label="Search lagu">
           <span>🔍</span>
           <input id="songSearchInput" type="search" placeholder="Search lagu..." autocomplete="off"/>
         </label>
-        <button id="songAdminAddBtn" class="song-add-btn" type="button">+ Tambah Lagu</button>
-      </div>
-
-      <div id="songAdminBar" class="song-admin-bar hidden">
-        <span id="songAdminEmail">Admin mode</span>
-        <div class="song-admin-filter" id="songStatusFilter">
-          <button data-song-status-filter="all" class="active" type="button">All</button>
-          <button data-song-status-filter="draft" type="button">Draft</button>
-          <button data-song-status-filter="published" type="button">Published</button>
-          <button data-song-status-filter="archived" type="button">Archived</button>
-        </div>
-        <button id="songAdminLogoutBtn" type="button">Logout</button>
       </div>
 
       <div id="songListGrid" class="song-compact-list" aria-live="polite"></div>
@@ -8632,7 +9149,12 @@ body.creator-modal-open{
         </nav>
       </div>
 
-      <div id="songDetailInfo" class="song-detail-info">Back Number - Sasaeru hito no uta • - • dukungan/keluarga</div>
+      <div id="songDetailInfo" class="song-detail-info"></div>
+      <div id="songZoomControls" class="song-zoom-controls" aria-label="Kontrol ukuran lirik">
+        <button id="songZoomOutBtn" type="button">A−</button>
+        <span id="songZoomLabel">200%</span>
+        <button id="songZoomInBtn" type="button">A+</button>
+      </div>
 
       <div id="songHiddenYoutubeHost" class="song-hidden-youtube-host" aria-hidden="true">
         <div id="songHiddenYoutubePlayer"></div>
@@ -8644,116 +9166,10 @@ body.creator-modal-open{
       </div>
 
       <div id="songSidePlayer" class="song-side-player" aria-label="Kontrol lagu dan auto scroll">
-        <button id="songPlayPauseBtn" type="button">▶</button>
-        <button id="songRestartBtn" type="button">↺</button>
-        <button id="songAutoScrollBtn" type="button">Auto</button>
-        <button id="songSpeedBtn" type="button">1x</button>
+        <button id="songPlayPauseBtn" type="button" title="Klik: Play/Pause • Klik 2x: ulangi dari awal">▶</button>
+        <button id="songAutoScrollBtn" type="button" title="Auto-scroll / level kecepatan">Auto</button>
       </div>
     </div>
-  </div>
-
-  <div id="songAdminModal" class="song-modal hidden" role="dialog" aria-modal="true" aria-labelledby="songAdminModalTitle">
-    <div class="song-modal-backdrop" data-song-close-modal="admin"></div>
-    <article class="song-modal-card song-admin-modal-card">
-      <button class="song-modal-close" data-song-close-modal="admin" type="button" aria-label="Tutup">×</button>
-
-      <div id="songLoginPanel">
-        <h3 id="songAdminModalTitle">Login Admin</h3>
-        <p class="song-modal-muted">Masuk dengan Supabase Auth. Tombol tambah lagu hanya aktif untuk email yang ada di tabel <code>admin_users</code>.</p>
-        <label class="song-form-field">
-          <span>Email</span>
-          <input id="songLoginEmail" type="email" autocomplete="email" placeholder="admin@email.com"/>
-        </label>
-        <label class="song-form-field">
-          <span>Password</span>
-          <input id="songLoginPassword" type="password" autocomplete="current-password" placeholder="Password"/>
-        </label>
-        <div class="song-modal-actions">
-          <button id="songForgotPasswordOpenBtn" class="song-ghost-btn" type="button">Forgot password?</button>
-          <button id="songLoginBtn" class="song-primary-btn" type="button">Login</button>
-        </div>
-        <div id="songLoginMessage" class="song-form-message"></div>
-      </div>
-
-      <div id="songForgotPanel" class="hidden">
-        <h3>Reset Password</h3>
-        <p class="song-modal-muted">Masukkan email admin. Supabase akan mengirim link reset password.</p>
-        <label class="song-form-field">
-          <span>Email</span>
-          <input id="songResetEmail" type="email" autocomplete="email" placeholder="admin@email.com"/>
-        </label>
-        <div class="song-modal-actions">
-          <button id="songBackToLoginBtn" class="song-ghost-btn" type="button">Kembali</button>
-          <button id="songSendResetBtn" class="song-primary-btn" type="button">Kirim Link</button>
-        </div>
-        <div id="songResetMessage" class="song-form-message"></div>
-      </div>
-    </article>
-  </div>
-
-  <div id="songFormModal" class="song-modal hidden" role="dialog" aria-modal="true" aria-labelledby="songFormTitle">
-    <div class="song-modal-backdrop" data-song-close-modal="form"></div>
-    <article class="song-modal-card song-form-modal-card">
-      <button class="song-modal-close" data-song-close-modal="form" type="button" aria-label="Tutup">×</button>
-      <h3 id="songFormTitle">Tambah Lagu</h3>
-
-      <div class="song-step-indicator">
-        <span data-song-step-dot="1" class="active">1 Info</span>
-        <span data-song-step-dot="2">2 Lirik</span>
-        <span data-song-step-dot="3">3 Audio</span>
-        <span data-song-step-dot="4">4 Preview</span>
-      </div>
-
-      <div id="songFormStep1" class="song-form-step">
-        <label class="song-form-field">
-          <span>Nama penyanyi / band</span>
-          <input id="songArtistInput" type="text" list="songArtistSuggestions" placeholder="Back Number" autocomplete="off"/>
-          <datalist id="songArtistSuggestions"></datalist>
-        </label>
-        <label class="song-form-field">
-          <span>Judul lagu romaji</span>
-          <input id="songTitleInput" type="text" placeholder="Sasaeru hito no uta" autocomplete="off"/>
-        </label>
-      </div>
-
-      <div id="songFormStep2" class="song-form-step hidden">
-        <label class="song-form-field">
-          <span>Lirik 日本語</span>
-          <textarea id="songJapaneseInput" rows="9" placeholder="元気で毎日暮らしてますか"></textarea>
-        </label>
-        <label class="song-form-field">
-          <span>Romaji</span>
-          <textarea id="songRomajiInput" rows="9" placeholder="Genki de mainichi kurashitemasu ka"></textarea>
-        </label>
-        <label class="song-form-field">
-          <span>Arti Indonesia</span>
-          <textarea id="songIndonesianInput" rows="7" placeholder="Terjemahan Indonesia ditulis sebagai teks panjang biasa. Tidak harus sejajar per baris."></textarea>
-        </label>
-      </div>
-
-      <div id="songFormStep3" class="song-form-step hidden">
-        <div class="song-radio-stack" role="radiogroup" aria-label="Sumber lagu">
-          <label><input type="radio" name="songSourceType" value="youtube" checked/> Link YouTube</label>
-          <label><input type="radio" name="songSourceType" value="none"/> Tanpa audio dulu</label>
-        </div>
-        <label class="song-form-field">
-          <span>YouTube URL</span>
-          <input id="songYoutubeUrlInput" type="url" placeholder="https://youtu.be/4nPxHqHzGPI"/>
-        </label>
-      </div>
-
-      <div id="songFormStep4" class="song-form-step hidden">
-        <div id="songPreviewBox" class="song-preview-box"></div>
-        <p class="song-modal-muted">Status default lagu baru: <b>draft</b>. Lagu baru tampil ke user setelah admin klik Publish dari list admin.</p>
-      </div>
-
-      <div class="song-modal-actions">
-        <button id="songFormPrevBtn" class="song-ghost-btn" type="button">Sebelumnya</button>
-        <button id="songFormNextBtn" class="song-primary-btn" type="button">Lanjut</button>
-        <button id="songFormSaveBtn" class="song-primary-btn hidden" type="button">Simpan sebagai Draft</button>
-      </div>
-      <div id="songFormMessage" class="song-form-message"></div>
-    </article>
   </div>
 
   <div id="songFlashModal" class="song-modal hidden" role="dialog" aria-modal="true" aria-labelledby="songFlashTitle">
@@ -8768,19 +9184,8 @@ body.creator-modal-open{
       <p id="songFlashNote"></p>
     </article>
   </div>
-
-  <div id="songConfirmModal" class="song-modal hidden" role="dialog" aria-modal="true" aria-labelledby="songConfirmTitle">
-    <div class="song-modal-backdrop" data-song-close-modal="confirm"></div>
-    <article class="song-modal-card song-confirm-card">
-      <h3 id="songConfirmTitle">Konfirmasi</h3>
-      <p id="songConfirmText"></p>
-      <div class="song-modal-actions">
-        <button id="songConfirmCancelBtn" class="song-ghost-btn" type="button">Cancel</button>
-        <button id="songConfirmOkBtn" class="song-primary-btn" type="button">OK</button>
-      </div>
-    </article>
-  </div>
 </section>
+
 
 <section class="view hidden page-with-back quest-mode-view" id="questModeView">
 <button class="page-back-btn" id="questModeBackBtn" type="button">← Kembali</button>
@@ -12781,43 +13186,1287 @@ renderLevels();
 </script>
 
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script id="madeSongLearningFinalRuntime">
 (function(){
   "use strict";
 
-  /*
-    Supabase setup:
-    1) Ganti SUPABASE_URL dan SUPABASE_ANON_KEY di bawah.
-    2) Buat tabel songs dan admin_users.
-    3) Tambahkan email admin ke admin_users.
-    4) Lagu baru selalu disimpan sebagai draft.
-  */
-  var SUPABASE_URL = "https://YOUR_PROJECT_REF.supabase.co";
-  var SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+  var SONGS = [
+  {
+    "id": "song-back-number-sasaeru-hito-no-uta",
+    "song_code": "MJE-LAGU-000001",
+    "artist_romaji": "Back Number",
+    "title_romaji": "Sasaeru hito no uta",
+    "year": "-",
+    "theme": "dukungan/keluarga",
+    "japanese_lyrics": "元気で毎日暮らしてますか\n朝は起きられているのでしょうか\n野菜もきちんと食べていますか\nつらい思いはしてませんか\n\n頑張ってって言いながら\nあまりムリしないでねって思っています\n心配になることも寂しくなることもあるけど\n元気でいてくれたら\n\n愛する人がどこにいても\n心から笑えますように\n少しくらい嫌なことがあっても\n今日を笑って終えてくれたなら\n\nただそれだけでそれだけでいい\nこっちは心配いらないから\nたまに疲れたら帰っておいで\nあなたの好きなものを作って\n待っているから\n\n人生は一度だから\n自分が思うように生きるのもいい\n本当は出世なんて\nしてもしなくてもいいんだよ\n間違えたっていい\nそのままでいい\n\n愛する人がどこにいても\n心から笑えますように\n少しくらい嫌なことがあっても\n今日を笑って終えてくれたなら\n\nただそれだけでそれだけでいい\nこっちは心配いらないから\nたまに疲れたら帰っておいで\nあなたの好きなものを作って\n待っているから\n待っているから",
+    "romaji_lyrics": "Genki de mainichi kurashitemasu ka\nAsa wa okirarete iru no deshou ka\nYasai mo kichinto tabete imasu ka\nTsurai omoi wa shitemasen ka\n\nGanbatte tte ii nagara\nAmari muri shinaide ne tte\nOmotte imasu\nShinpai ni naru koto mo sabishiku naru koto mo\nAru kedo\nGenki de ite kuretara\n\nAisuru hito ga doko ni ite mo\nKokoro kara waraemasu you ni\nSukoshi kurai iya na koto ga atte mo\nKyou wo waratte oete kureta nara\n\nTada sore dake de\nSore dake de ii\nKocchi wa shinpai iranai kara\nTama ni tsukaretara kaette oide\nAnata no suki na mono wo tsukutte\nMatte iru kara\n\nJinsei wa ichido dakara\nJibun ga omou you ni\nIkiru no mo ii\nHontou wa shusse nante\nShite mo shinakute mo ii'n da yo\nMachigaeta tte ii\nSonomama de ii\n\nAisuru hito ga doko ni ite mo\nKokoro kara waraemasu you ni\nSukoshi kurai iya na koto ga atte mo\nKyou wo waratte oete kureta nara\n\nTada sore dake de\nSore dake de ii\nKocchi wa shinpai iranai kara\nTama ni tsukaretara kaette oide\nAnata no suki na mono wo tsukutte\nMatte iru kara\nMatte iru kara",
+    "indonesian_translation": "Apakah kamu baik-baik saja menjalani hari-harimu?\nApakah kamu bisa bangun di pagi hari?\nApakah kamu makan sayur dengan benar?\nApakah kamu tidak sedang menanggung hal yang berat?\n\nSambil berkata, “Semangat, ya,”\naku juga sebenarnya selalu berpikir,\n“Jangan terlalu memaksakan diri, ya.”\n\nKadang aku merasa khawatir,\nkadang juga merasa kesepian.\nTapi selama kamu tetap sehat dan baik-baik saja,\nitu sudah cukup bagiku.\n\nDi mana pun orang yang kusayangi berada,\nsemoga dia bisa tertawa dari hati.\nWalaupun ada sedikit hal yang tidak menyenangkan,\nsemoga hari ini tetap bisa ia akhiri dengan senyuman.\n\nHanya itu saja.\nBenar-benar hanya itu yang kuinginkan.\nKamu tidak perlu mengkhawatirkan aku di sini.\n\nKalau suatu saat kamu lelah,\npulanglah sesekali.\nAku akan membuatkan hal yang kamu suka,\ndan menunggumu di sini.\n\nHidup hanya sekali.\nJadi tidak apa-apa kalau kamu hidup\nseperti yang kamu inginkan.\n\nSebenarnya, soal sukses atau naik jabatan,\nberhasil atau tidak berhasil,\nitu bukan hal yang paling penting.\n\nTidak apa-apa kalau kamu pernah salah.\nTidak apa-apa tetap menjadi dirimu sendiri.\n\nDi mana pun orang yang kusayangi berada,\nsemoga dia bisa tertawa dari hati.\nWalaupun ada sedikit hal yang tidak menyenangkan,\nsemoga hari ini tetap bisa ia akhiri dengan senyuman.\n\nHanya itu saja.\nBenar-benar hanya itu yang kuinginkan.\nKamu tidak perlu mengkhawatirkan aku di sini.\n\nKalau suatu saat kamu lelah,\npulanglah sesekali.\nAku akan membuatkan hal yang kamu suka,\ndan menunggumu di sini.",
+    "source_type": "youtube",
+    "youtube_url": "https://youtu.be/4nPxHqHzGPI?si=kDgDuu22LDhPn-sY"
+  },
+  {
+    "id": "song-road-of-major-taisetsu-na-mono",
+    "song_code": "MJE-LAGU-000002",
+    "artist_romaji": "Road of Major",
+    "title_romaji": "Taisetsu na mono",
+    "year": "-",
+    "theme": "perpisahan/kenangan/harapan",
+    "japanese_lyrics": "泣かないで そこにはほら\nかけがえのない 大切なもの\n目を閉じれば 夜空に映る\n優しい想い出たち\n\n桜散る その度にまた\n門出の涙 流したけれど\n涙散る その度にまた\n笑いあえた 僕達がいた\n\n泣かないで そこにはほら\nあなたを包む 大切な人\n一つ一つ 流した涙\nその理由を忘れないで\n\nあたたかい 人の優しさに\n僕は応えられているのだろうか\nこの旅が 終わる頃には\nその答えも見えてくるだろう\n\nこの空の下 同じ星見上げて 悩む僕らは\n夢を握ったまま\n泣き笑い支え合い信じてく\n\n桜散る その度にまた\n門出の涙 流したけれど\n涙散る その度にまた\n笑いあえた 僕達がいた\n\n変わりゆく日々が\n僕らに不安の色をもたらそうとも\n染まらずに今は 歩く自分の意思 道しるべに\n\nこの空の下\nこの空の下 かけがえのない大切なもの",
+    "romaji_lyrics": "Nakanaide soko ni wa hora\nKakegae no nai taisetsu na mono\nMe wo tojireba yozora ni utsuru\nYasashii omoide tachi\n\nSakura chiru sono tabi ni mata\nKadode no namida nagashita keredo\nNamida chiru sono tabi ni mata\nWarai aeta bokutachi ga ita\n\nNakanaide soko ni wa hora\nAnata wo tsutsumu taisetsu na hito\nHitotsu hitotsu nagashita namida\nSono wake wo wasurenaide\n\nAtatakai hito no yasashisa ni\nBoku wa kotaerarete iru no darou ka\nKono tabi ga owaru koro ni wa\nSono kotae mo miete kuru darou\n\nKono sora no shita onaji hoshi miagete nayamu bokura wa\nYume wo nigitta mama\nNaki warai sasae ai shinjiteku\n\nSakura chiru sono tabi ni mata\nKadode no namida nagashita keredo\nNamida chiru sono tabi ni mata\nWarai aeta bokutachi ga ita\n\nKawariyuku hibi ga\nBokura ni fuan no iro wo motarasou tomo\nSomarazu ni ima wa aruku jibun no ishi michi shirube ni\n\nKono sora no shita\nKono sora no shita kakegae no nai taisetsu na mono",
+    "indonesian_translation": "Jangan menangis.\nLihatlah, di sana ada sesuatu yang sangat berharga,\nsesuatu yang tidak bisa tergantikan.\n\nSaat kamu memejamkan mata,\nyang terpantul di langit malam\nadalah kenangan-kenangan lembut\nyang pernah kamu simpan.\n\nSetiap kali bunga sakura berguguran,\nair mata perpisahan kembali mengalir\ndi awal perjalanan yang baru.\n\nTapi setiap kali air mata itu jatuh,\ndi sana juga ada kita\nyang masih bisa tertawa bersama.\n\nJangan menangis.\nLihatlah, di sana ada orang-orang berharga\nyang selalu menyelimutimu dengan kehangatan.\n\nSetiap air mata yang pernah kamu jatuhkan,\nsatu demi satu,\njangan pernah lupakan alasan di baliknya.\n\nDi hadapan kehangatan\ndan kebaikan orang-orang,\naku bertanya-tanya,\napakah aku sudah mampu membalasnya dengan baik?\n\nMungkin saat perjalanan ini sampai di ujungnya,\njawaban itu juga perlahan akan terlihat.\n\nDi bawah langit yang sama,\nkita menatap bintang yang sama\nsambil membawa kegelisahan masing-masing.\n\nMeski begitu,\nkita tetap menggenggam mimpi,\nmenangis, tertawa,\nsaling menopang,\ndan terus percaya.\n\nSetiap kali bunga sakura berguguran,\nair mata perpisahan kembali mengalir\ndi awal perjalanan yang baru.\n\nTapi setiap kali air mata itu jatuh,\ndi sana juga ada kita\nyang masih bisa tertawa bersama.\n\nWalaupun hari-hari yang terus berubah\nmembawa warna kecemasan ke dalam hidup kita,\nuntuk saat ini,\njangan biarkan dirimu ikut ternodai olehnya.\n\nTeruslah berjalan\ndengan kemauanmu sendiri\nsebagai penunjuk arah.\n\nDi bawah langit ini.\n\nDi bawah langit ini,\nada sesuatu yang sangat berharga\ndan tidak tergantikan.",
+    "source_type": "youtube",
+    "youtube_url": "https://www.youtube.com/watch?v=ZAT9FrNkI9M"
+  }
+];
+  var VOCABULARY = [
+  {
+    "word": "元気",
+    "reading": "げんき",
+    "meaning": "sehat / baik-baik saja / bersemangat",
+    "note": "Dipakai untuk menanyakan atau berharap seseorang tetap baik-baik saja."
+  },
+  {
+    "word": "毎日",
+    "reading": "まいにち",
+    "meaning": "setiap hari",
+    "note": "Kata keterangan waktu yang sering muncul dalam percakapan sehari-hari."
+  },
+  {
+    "word": "暮らす",
+    "reading": "くらす",
+    "meaning": "hidup / menjalani kehidupan",
+    "note": "Kata kerja Godan / Kelompok 1. Berbeda dari 生きる, 暮らす lebih menekankan kehidupan sehari-hari.",
+    "verb_group": "Godan / Kelompok 1",
+    "matches": [
+      "暮らして"
+    ]
+  },
+  {
+    "word": "朝",
+    "reading": "あさ",
+    "meaning": "pagi",
+    "note": "Menunjukkan waktu pagi hari."
+  },
+  {
+    "word": "起きる",
+    "reading": "おきる",
+    "meaning": "bangun",
+    "note": "Kata kerja Ichidan / Kelompok 2.",
+    "verb_group": "Ichidan / Kelompok 2",
+    "matches": [
+      "起きられて"
+    ]
+  },
+  {
+    "word": "野菜",
+    "reading": "やさい",
+    "meaning": "sayur",
+    "note": "Kata benda untuk makanan sehat/sayuran."
+  },
+  {
+    "word": "きちんと",
+    "reading": "きちんと",
+    "meaning": "dengan baik / rapi / benar",
+    "note": "Adverb yang menunjukkan sesuatu dilakukan dengan benar atau tertib."
+  },
+  {
+    "word": "食べる",
+    "reading": "たべる",
+    "meaning": "makan",
+    "note": "Kata kerja Ichidan / Kelompok 2.",
+    "verb_group": "Ichidan / Kelompok 2",
+    "matches": [
+      "食べて"
+    ]
+  },
+  {
+    "word": "つらい",
+    "reading": "つらい",
+    "meaning": "berat / menyakitkan / sulit",
+    "note": "Kata sifat i yang menggambarkan keadaan emosional atau fisik yang berat."
+  },
+  {
+    "word": "思い",
+    "reading": "おもい",
+    "meaning": "perasaan / beban pikiran",
+    "note": "Dalam lirik dapat berarti beban hati atau perasaan yang sedang ditanggung."
+  },
+  {
+    "word": "する",
+    "reading": "する",
+    "meaning": "melakukan",
+    "note": "Kata kerja irregular / Kelompok 3.",
+    "verb_group": "Irregular / Kelompok 3",
+    "matches": [
+      "して",
+      "しない",
+      "しても",
+      "しなくても"
+    ]
+  },
+  {
+    "word": "頑張る",
+    "reading": "がんばる",
+    "meaning": "berusaha / bertahan / semangat",
+    "note": "Kata kerja Godan / Kelompok 1. Sering dipakai untuk memberi semangat.",
+    "verb_group": "Godan / Kelompok 1",
+    "matches": [
+      "頑張って"
+    ]
+  },
+  {
+    "word": "言う",
+    "reading": "いう",
+    "meaning": "mengatakan",
+    "note": "Kata kerja Godan / Kelompok 1.",
+    "verb_group": "Godan / Kelompok 1",
+    "matches": [
+      "言い"
+    ]
+  },
+  {
+    "word": "ながら",
+    "reading": "ながら",
+    "meaning": "sambil",
+    "note": "Menghubungkan dua tindakan yang terjadi bersamaan."
+  },
+  {
+    "word": "あまり",
+    "reading": "あまり",
+    "meaning": "terlalu / tidak begitu",
+    "note": "Sering dipakai dengan bentuk negatif, seperti あまり〜ない."
+  },
+  {
+    "word": "無理",
+    "reading": "むり",
+    "meaning": "memaksakan diri / mustahil",
+    "note": "Dalam konteks lagu, maksudnya jangan terlalu memaksa diri.",
+    "matches": [
+      "ムリ"
+    ]
+  },
+  {
+    "word": "心配",
+    "reading": "しんぱい",
+    "meaning": "khawatir",
+    "note": "Perasaan cemas terhadap keadaan seseorang."
+  },
+  {
+    "word": "なる",
+    "reading": "なる",
+    "meaning": "menjadi",
+    "note": "Kata kerja Godan / Kelompok 1.",
+    "verb_group": "Godan / Kelompok 1",
+    "matches": [
+      "なる"
+    ]
+  },
+  {
+    "word": "こと",
+    "reading": "こと",
+    "meaning": "hal / perkara",
+    "note": "Menominalkan tindakan atau menyebut hal secara umum."
+  },
+  {
+    "word": "寂しい",
+    "reading": "さびしい",
+    "meaning": "kesepian",
+    "note": "Kata sifat i untuk perasaan sepi atau rindu.",
+    "matches": [
+      "寂しく"
+    ]
+  },
+  {
+    "word": "ある",
+    "reading": "ある",
+    "meaning": "ada / terjadi",
+    "note": "Kata kerja Godan / Kelompok 1 untuk benda/kejadian.",
+    "verb_group": "Godan / Kelompok 1",
+    "matches": [
+      "ある",
+      "あって"
+    ]
+  },
+  {
+    "word": "けど",
+    "reading": "けど",
+    "meaning": "tetapi / walaupun",
+    "note": "Bentuk kasual dari けれど."
+  },
+  {
+    "word": "いる",
+    "reading": "いる",
+    "meaning": "ada / berada",
+    "note": "Kata kerja Ichidan / Kelompok 2 untuk manusia/hewan atau keadaan berlangsung.",
+    "verb_group": "Ichidan / Kelompok 2",
+    "matches": [
+      "いて",
+      "いる"
+    ]
+  },
+  {
+    "word": "くれる",
+    "reading": "くれる",
+    "meaning": "memberi untuk pihak pembicara",
+    "note": "Kata kerja Ichidan / Kelompok 2. Memberi nuansa kebaikan yang diterima pembicara.",
+    "verb_group": "Ichidan / Kelompok 2",
+    "matches": [
+      "くれたら"
+    ]
+  },
+  {
+    "word": "愛する",
+    "reading": "あいする",
+    "meaning": "mencintai",
+    "note": "Suru-verb / Kelompok 3.",
+    "verb_group": "Suru-verb / Kelompok 3"
+  },
+  {
+    "word": "人",
+    "reading": "ひと",
+    "meaning": "orang",
+    "note": "Kata benda dasar yang sangat sering dipakai."
+  },
+  {
+    "word": "どこ",
+    "reading": "どこ",
+    "meaning": "di mana",
+    "note": "Kata tanya lokasi."
+  },
+  {
+    "word": "心",
+    "reading": "こころ",
+    "meaning": "hati",
+    "note": "Dalam lirik sering menunjuk perasaan terdalam."
+  },
+  {
+    "word": "から",
+    "reading": "から",
+    "meaning": "dari / karena",
+    "note": "Partikel yang bisa menunjukkan asal atau sebab."
+  },
+  {
+    "word": "笑う",
+    "reading": "わらう",
+    "meaning": "tertawa / tersenyum",
+    "note": "Kata kerja Godan / Kelompok 1.",
+    "verb_group": "Godan / Kelompok 1",
+    "matches": [
+      "笑え",
+      "笑って"
+    ]
+  },
+  {
+    "word": "ように",
+    "reading": "ように",
+    "meaning": "agar / supaya",
+    "note": "Dipakai untuk harapan atau tujuan."
+  },
+  {
+    "word": "少し",
+    "reading": "すこし",
+    "meaning": "sedikit",
+    "note": "Kata keterangan jumlah."
+  },
+  {
+    "word": "くらい",
+    "reading": "くらい",
+    "meaning": "sekitar / kira-kira / bahkan",
+    "note": "Memberi nuansa perkiraan atau derajat."
+  },
+  {
+    "word": "嫌",
+    "reading": "いや",
+    "meaning": "tidak suka / buruk / tidak menyenangkan",
+    "note": "Na-adjective. Dalam lirik: 嫌なこと = hal yang tidak menyenangkan."
+  },
+  {
+    "word": "今日",
+    "reading": "きょう",
+    "meaning": "hari ini",
+    "note": "Kata waktu."
+  },
+  {
+    "word": "終える",
+    "reading": "おえる",
+    "meaning": "mengakhiri / menyelesaikan",
+    "note": "Kata kerja Ichidan / Kelompok 2.",
+    "verb_group": "Ichidan / Kelompok 2",
+    "matches": [
+      "終えて"
+    ]
+  },
+  {
+    "word": "ただ",
+    "reading": "ただ",
+    "meaning": "hanya / sekadar",
+    "note": "Membatasi makna: hanya itu saja."
+  },
+  {
+    "word": "それ",
+    "reading": "それ",
+    "meaning": "itu",
+    "note": "Kata tunjuk untuk sesuatu yang dekat dengan lawan bicara atau sudah disebut."
+  },
+  {
+    "word": "だけ",
+    "reading": "だけ",
+    "meaning": "saja / hanya",
+    "note": "Partikel pembatas."
+  },
+  {
+    "word": "いい",
+    "reading": "いい",
+    "meaning": "baik / cukup",
+    "note": "Bisa berarti cukup atau tidak apa-apa tergantung konteks."
+  },
+  {
+    "word": "こっち",
+    "reading": "こっち",
+    "meaning": "sini / pihakku",
+    "note": "Bentuk kasual dari こちら."
+  },
+  {
+    "word": "いらない",
+    "reading": "いらない",
+    "meaning": "tidak perlu",
+    "note": "Bentuk negatif dari いる yang berarti membutuhkan.",
+    "matches": [
+      "いらない"
+    ]
+  },
+  {
+    "word": "たまに",
+    "reading": "たまに",
+    "meaning": "sesekali",
+    "note": "Frekuensi tidak sering."
+  },
+  {
+    "word": "疲れる",
+    "reading": "つかれる",
+    "meaning": "lelah",
+    "note": "Kata kerja Ichidan / Kelompok 2.",
+    "verb_group": "Ichidan / Kelompok 2",
+    "matches": [
+      "疲れたら"
+    ]
+  },
+  {
+    "word": "帰る",
+    "reading": "かえる",
+    "meaning": "pulang",
+    "note": "Kata kerja Godan / Kelompok 1.",
+    "verb_group": "Godan / Kelompok 1",
+    "matches": [
+      "帰って"
+    ]
+  },
+  {
+    "word": "おいで",
+    "reading": "おいで",
+    "meaning": "datanglah / pulanglah ke sini",
+    "note": "Ungkapan lembut untuk memanggil seseorang datang."
+  },
+  {
+    "word": "あなた",
+    "reading": "あなた",
+    "meaning": "kamu",
+    "note": "Kata ganti orang kedua."
+  },
+  {
+    "word": "好き",
+    "reading": "すき",
+    "meaning": "suka",
+    "note": "Na-adjective untuk rasa suka."
+  },
+  {
+    "word": "もの",
+    "reading": "もの",
+    "meaning": "benda / hal",
+    "note": "Kata benda umum."
+  },
+  {
+    "word": "作る",
+    "reading": "つくる",
+    "meaning": "membuat",
+    "note": "Kata kerja Godan / Kelompok 1.",
+    "verb_group": "Godan / Kelompok 1",
+    "matches": [
+      "作って"
+    ]
+  },
+  {
+    "word": "待つ",
+    "reading": "まつ",
+    "meaning": "menunggu",
+    "note": "Kata kerja Godan / Kelompok 1.",
+    "verb_group": "Godan / Kelompok 1",
+    "matches": [
+      "待って"
+    ]
+  },
+  {
+    "word": "人生",
+    "reading": "じんせい",
+    "meaning": "hidup / kehidupan",
+    "note": "Kehidupan manusia secara keseluruhan."
+  },
+  {
+    "word": "一度",
+    "reading": "いちど",
+    "meaning": "sekali",
+    "note": "Jumlah/frekuensi satu kali."
+  },
+  {
+    "word": "自分",
+    "reading": "じぶん",
+    "meaning": "diri sendiri",
+    "note": "Menunjuk diri sendiri."
+  },
+  {
+    "word": "思う",
+    "reading": "おもう",
+    "meaning": "berpikir / merasa",
+    "note": "Kata kerja Godan / Kelompok 1.",
+    "verb_group": "Godan / Kelompok 1",
+    "matches": [
+      "思う",
+      "思って"
+    ]
+  },
+  {
+    "word": "生きる",
+    "reading": "いきる",
+    "meaning": "hidup",
+    "note": "Kata kerja Ichidan / Kelompok 2.",
+    "verb_group": "Ichidan / Kelompok 2"
+  },
+  {
+    "word": "本当",
+    "reading": "ほんとう",
+    "meaning": "sebenarnya / sungguh",
+    "note": "Sering ditulis ホント secara kasual.",
+    "matches": [
+      "本当",
+      "ホント"
+    ]
+  },
+  {
+    "word": "出世",
+    "reading": "しゅっせ",
+    "meaning": "sukses karier / naik jabatan",
+    "note": "Sering berkaitan dengan kemajuan status pekerjaan."
+  },
+  {
+    "word": "なんて",
+    "reading": "なんて",
+    "meaning": "hal seperti / semacam",
+    "note": "Memberi nuansa merendahkan atau mengecilkan topik."
+  },
+  {
+    "word": "間違える",
+    "reading": "まちがえる",
+    "meaning": "salah / melakukan kesalahan",
+    "note": "Kata kerja Ichidan / Kelompok 2.",
+    "verb_group": "Ichidan / Kelompok 2",
+    "matches": [
+      "間違えた"
+    ]
+  },
+  {
+    "word": "そのまま",
+    "reading": "そのまま",
+    "meaning": "apa adanya / tetap seperti itu",
+    "note": "Menggambarkan keadaan tanpa diubah."
+  },
+  {
+    "word": "泣く",
+    "reading": "なく",
+    "meaning": "menangis",
+    "note": "Kata kerja Godan / Kelompok 1.",
+    "verb_group": "Godan / Kelompok 1",
+    "matches": [
+      "泣かない",
+      "泣き"
+    ]
+  },
+  {
+    "word": "そこ",
+    "reading": "そこ",
+    "meaning": "di sana",
+    "note": "Kata tunjuk tempat."
+  },
+  {
+    "word": "ほら",
+    "reading": "ほら",
+    "meaning": "lihatlah / coba lihat",
+    "note": "Ungkapan untuk menarik perhatian lawan bicara."
+  },
+  {
+    "word": "かけがえのない",
+    "reading": "かけがえのない",
+    "meaning": "tidak tergantikan",
+    "note": "Ungkapan untuk sesuatu yang sangat berharga."
+  },
+  {
+    "word": "大切",
+    "reading": "たいせつ",
+    "meaning": "penting / berharga",
+    "note": "Na-adjective yang menunjukkan nilai emosional atau pentingnya sesuatu."
+  },
+  {
+    "word": "目",
+    "reading": "め",
+    "meaning": "mata",
+    "note": "Bagian tubuh; dalam lirik sering dipakai dengan 閉じる."
+  },
+  {
+    "word": "閉じる",
+    "reading": "とじる",
+    "meaning": "menutup",
+    "note": "Kata kerja Ichidan / Kelompok 2.",
+    "verb_group": "Ichidan / Kelompok 2",
+    "matches": [
+      "閉じれば"
+    ]
+  },
+  {
+    "word": "夜空",
+    "reading": "よぞら",
+    "meaning": "langit malam",
+    "note": "Gabungan 夜 + 空."
+  },
+  {
+    "word": "映る",
+    "reading": "うつる",
+    "meaning": "terpantul / tampak",
+    "note": "Kata kerja Godan / Kelompok 1.",
+    "verb_group": "Godan / Kelompok 1"
+  },
+  {
+    "word": "優しい",
+    "reading": "やさしい",
+    "meaning": "lembut / baik hati",
+    "note": "Kata sifat i.",
+    "matches": [
+      "優しい",
+      "優しさ"
+    ]
+  },
+  {
+    "word": "想い出",
+    "reading": "おもいで",
+    "meaning": "kenangan",
+    "note": "Varian penulisan dari 思い出, bernuansa lebih emosional."
+  },
+  {
+    "word": "たち",
+    "reading": "たち",
+    "meaning": "para / bentuk jamak",
+    "note": "Akhiran untuk membuat kelompok, seperti 僕達."
+  },
+  {
+    "word": "桜",
+    "reading": "さくら",
+    "meaning": "bunga sakura",
+    "note": "Simbol musim semi, perpisahan, dan awal baru."
+  },
+  {
+    "word": "散る",
+    "reading": "ちる",
+    "meaning": "berguguran / tersebar",
+    "note": "Kata kerja Godan / Kelompok 1.",
+    "verb_group": "Godan / Kelompok 1"
+  },
+  {
+    "word": "度",
+    "reading": "たび",
+    "meaning": "setiap kali",
+    "note": "Dalam その度に berarti 'setiap kali itu terjadi'."
+  },
+  {
+    "word": "門出",
+    "reading": "かどで",
+    "meaning": "awal perjalanan / keberangkatan",
+    "note": "Sering dipakai untuk perpisahan atau memulai babak baru."
+  },
+  {
+    "word": "涙",
+    "reading": "なみだ",
+    "meaning": "air mata",
+    "note": "Dalam lagu sering melambangkan kesedihan, perpisahan, atau perasaan yang tidak tertahan."
+  },
+  {
+    "word": "流す",
+    "reading": "ながす",
+    "meaning": "mengalirkan / menumpahkan",
+    "note": "Kata kerja Godan / Kelompok 1. Dalam 涙を流す berarti meneteskan air mata.",
+    "verb_group": "Godan / Kelompok 1",
+    "matches": [
+      "流した"
+    ]
+  },
+  {
+    "word": "けれど",
+    "reading": "けれど",
+    "meaning": "tetapi / walaupun",
+    "note": "Penghubung kontras yang lebih lembut dari でも."
+  },
+  {
+    "word": "笑いあう",
+    "reading": "わらいあう",
+    "meaning": "saling tertawa",
+    "note": "Kata kerja Godan / Kelompok 1; あう memberi makna saling.",
+    "verb_group": "Godan / Kelompok 1",
+    "matches": [
+      "笑いあえた"
+    ]
+  },
+  {
+    "word": "僕達",
+    "reading": "ぼくたち",
+    "meaning": "kami / kita",
+    "note": "Bentuk jamak dari 僕."
+  },
+  {
+    "word": "僕",
+    "reading": "ぼく",
+    "meaning": "aku / saya",
+    "note": "Kata ganti orang pertama bernuansa maskulin/kasual."
+  },
+  {
+    "word": "包む",
+    "reading": "つつむ",
+    "meaning": "membungkus / menyelimuti",
+    "note": "Kata kerja Godan / Kelompok 1. Dalam lirik berarti melindungi atau menghangatkan.",
+    "verb_group": "Godan / Kelompok 1"
+  },
+  {
+    "word": "一つ一つ",
+    "reading": "ひとつひとつ",
+    "meaning": "satu per satu",
+    "note": "Menekankan setiap hal secara individual."
+  },
+  {
+    "word": "理由",
+    "reading": "りゆう",
+    "meaning": "alasan",
+    "note": "Alasan di balik tindakan/perasaan."
+  },
+  {
+    "word": "忘れる",
+    "reading": "わすれる",
+    "meaning": "melupakan",
+    "note": "Kata kerja Ichidan / Kelompok 2.",
+    "verb_group": "Ichidan / Kelompok 2",
+    "matches": [
+      "忘れない"
+    ]
+  },
+  {
+    "word": "あたたかい",
+    "reading": "あたたかい",
+    "meaning": "hangat",
+    "note": "Bisa fisik atau emosional. Di sini nuansanya kehangatan hati."
+  },
+  {
+    "word": "優しさ",
+    "reading": "やさしさ",
+    "meaning": "kebaikan / kelembutan",
+    "note": "Bentuk kata benda dari 優しい."
+  },
+  {
+    "word": "応える",
+    "reading": "こたえる",
+    "meaning": "membalas / merespons harapan",
+    "note": "Kata kerja Ichidan / Kelompok 2. Berbeda dari 答える yang fokus pada menjawab pertanyaan.",
+    "verb_group": "Ichidan / Kelompok 2",
+    "matches": [
+      "応えられて"
+    ]
+  },
+  {
+    "word": "旅",
+    "reading": "たび",
+    "meaning": "perjalanan",
+    "note": "Perjalanan fisik atau perjalanan hidup."
+  },
+  {
+    "word": "終わる",
+    "reading": "おわる",
+    "meaning": "berakhir",
+    "note": "Kata kerja Godan / Kelompok 1.",
+    "verb_group": "Godan / Kelompok 1"
+  },
+  {
+    "word": "頃",
+    "reading": "ころ",
+    "meaning": "sekitar waktu / saat",
+    "note": "Menunjukkan waktu yang kurang spesifik."
+  },
+  {
+    "word": "答え",
+    "reading": "こたえ",
+    "meaning": "jawaban",
+    "note": "Jawaban atas pertanyaan atau pencarian batin."
+  },
+  {
+    "word": "見える",
+    "reading": "みえる",
+    "meaning": "terlihat / tampak",
+    "note": "Kata kerja Ichidan / Kelompok 2.",
+    "verb_group": "Ichidan / Kelompok 2",
+    "matches": [
+      "見えて"
+    ]
+  },
+  {
+    "word": "来る",
+    "reading": "くる",
+    "meaning": "datang",
+    "note": "Kata kerja irregular / Kelompok 3.",
+    "verb_group": "Irregular / Kelompok 3",
+    "matches": [
+      "くる"
+    ]
+  },
+  {
+    "word": "空",
+    "reading": "そら",
+    "meaning": "langit",
+    "note": "Dalam lagu sering menjadi simbol ruang yang menghubungkan banyak orang."
+  },
+  {
+    "word": "下",
+    "reading": "した",
+    "meaning": "bawah",
+    "note": "この空の下 = di bawah langit ini."
+  },
+  {
+    "word": "同じ",
+    "reading": "おなじ",
+    "meaning": "sama",
+    "note": "Na-adjective yang berarti sama."
+  },
+  {
+    "word": "星",
+    "reading": "ほし",
+    "meaning": "bintang",
+    "note": "Objek langit yang sering menjadi simbol harapan."
+  },
+  {
+    "word": "見上げる",
+    "reading": "みあげる",
+    "meaning": "menatap ke atas",
+    "note": "Kata kerja Ichidan / Kelompok 2.",
+    "verb_group": "Ichidan / Kelompok 2",
+    "matches": [
+      "見上げて"
+    ]
+  },
+  {
+    "word": "悩む",
+    "reading": "なやむ",
+    "meaning": "cemas / bimbang / punya masalah",
+    "note": "Kata kerja Godan / Kelompok 1.",
+    "verb_group": "Godan / Kelompok 1",
+    "matches": [
+      "悩む"
+    ]
+  },
+  {
+    "word": "僕ら",
+    "reading": "ぼくら",
+    "meaning": "kami / kita",
+    "note": "Bentuk jamak dari 僕 yang lebih kasual."
+  },
+  {
+    "word": "夢",
+    "reading": "ゆめ",
+    "meaning": "mimpi",
+    "note": "Impian atau harapan masa depan."
+  },
+  {
+    "word": "握る",
+    "reading": "にぎる",
+    "meaning": "menggenggam",
+    "note": "Kata kerja Godan / Kelompok 1.",
+    "verb_group": "Godan / Kelompok 1",
+    "matches": [
+      "握った"
+    ]
+  },
+  {
+    "word": "まま",
+    "reading": "まま",
+    "meaning": "tetap dalam keadaan",
+    "note": "Menunjukkan keadaan yang dibiarkan terus berlangsung."
+  },
+  {
+    "word": "泣き笑い",
+    "reading": "なきわらい",
+    "meaning": "menangis sambil tertawa",
+    "note": "Campuran perasaan sedih dan bahagia."
+  },
+  {
+    "word": "支え合う",
+    "reading": "ささえあう",
+    "meaning": "saling menopang / saling mendukung",
+    "note": "Kata kerja Godan / Kelompok 1; 合う berarti saling.",
+    "verb_group": "Godan / Kelompok 1",
+    "matches": [
+      "支え合い"
+    ]
+  },
+  {
+    "word": "信じる",
+    "reading": "しんじる",
+    "meaning": "percaya",
+    "note": "Kata kerja Ichidan / Kelompok 2.",
+    "verb_group": "Ichidan / Kelompok 2",
+    "matches": [
+      "信じて"
+    ]
+  },
+  {
+    "word": "変わりゆく",
+    "reading": "かわりゆく",
+    "meaning": "terus berubah",
+    "note": "Bentuk puitis dari 変わっていく."
+  },
+  {
+    "word": "日々",
+    "reading": "ひび",
+    "meaning": "hari-hari",
+    "note": "Bentuk berulang dari 日 yang berarti keseharian."
+  },
+  {
+    "word": "不安",
+    "reading": "ふあん",
+    "meaning": "kecemasan / rasa tidak tenang",
+    "note": "Na-adjective/kata benda."
+  },
+  {
+    "word": "色",
+    "reading": "いろ",
+    "meaning": "warna",
+    "note": "Secara kiasan bisa berarti nuansa perasaan."
+  },
+  {
+    "word": "もたらす",
+    "reading": "もたらす",
+    "meaning": "membawa / menyebabkan",
+    "note": "Kata kerja Godan / Kelompok 1.",
+    "verb_group": "Godan / Kelompok 1",
+    "matches": [
+      "もたらそう"
+    ]
+  },
+  {
+    "word": "とも",
+    "reading": "とも",
+    "meaning": "walaupun / sekalipun",
+    "note": "Dalam pola 〜ようとも berarti walaupun."
+  },
+  {
+    "word": "染まる",
+    "reading": "そまる",
+    "meaning": "terwarnai / terpengaruh",
+    "note": "Kata kerja Godan / Kelompok 1.",
+    "verb_group": "Godan / Kelompok 1",
+    "matches": [
+      "染まらず"
+    ]
+  },
+  {
+    "word": "今",
+    "reading": "いま",
+    "meaning": "sekarang",
+    "note": "Waktu saat ini."
+  },
+  {
+    "word": "歩く",
+    "reading": "あるく",
+    "meaning": "berjalan",
+    "note": "Kata kerja Godan / Kelompok 1.",
+    "verb_group": "Godan / Kelompok 1",
+    "matches": [
+      "歩く"
+    ]
+  },
+  {
+    "word": "意思",
+    "reading": "いし",
+    "meaning": "kemauan / kehendak",
+    "note": "Niat atau kemauan yang dimiliki seseorang."
+  },
+  {
+    "word": "道しるべ",
+    "reading": "みちしるべ",
+    "meaning": "penunjuk arah / pedoman",
+    "note": "Dapat berarti petunjuk hidup secara kiasan."
+  }
+];
+  var GRAMMAR = [
+  {
+    "pattern": "Vていますか",
+    "meaning": "apakah sedang / apakah menjalani",
+    "example": "暮らしてますか / 食べていますか",
+    "romaji": "kurashitemasu ka / tabete imasu ka",
+    "explanation": "Bentuk ている + ますか dipakai untuk menanyakan keadaan atau kebiasaan yang sedang berlangsung."
+  },
+  {
+    "pattern": "Vられている",
+    "meaning": "bisa / dalam keadaan mampu",
+    "example": "起きられている",
+    "romaji": "okirarete iru",
+    "explanation": "Bentuk potensial 起きられる + ている menunjukkan kemampuan atau keadaan yang masih berlangsung."
+  },
+  {
+    "pattern": "Nも",
+    "meaning": "N juga",
+    "example": "野菜も",
+    "romaji": "yasai mo",
+    "explanation": "Partikel も menambahkan makna 'juga'."
+  },
+  {
+    "pattern": "Vていませんか",
+    "meaning": "apakah tidak sedang...",
+    "example": "してませんか",
+    "romaji": "shitemasen ka",
+    "explanation": "Bentuk negatif sopan + か untuk bertanya dengan lembut."
+  },
+  {
+    "pattern": "Vながら",
+    "meaning": "sambil melakukan",
+    "example": "言いながら",
+    "romaji": "ii nagara",
+    "explanation": "ながら menghubungkan dua tindakan yang berjalan bersamaan."
+  },
+  {
+    "pattern": "あまり + Vない",
+    "meaning": "tidak terlalu...",
+    "example": "あまりムリしないで",
+    "romaji": "amari muri shinaide",
+    "explanation": "あまり sering dipakai bersama bentuk negatif untuk menyatakan 'tidak terlalu'."
+  },
+  {
+    "pattern": "Vないで",
+    "meaning": "jangan melakukan / tanpa melakukan",
+    "example": "泣かないで / 忘れないで / ムリしないで",
+    "romaji": "nakanaide / wasurenaide / muri shinaide",
+    "explanation": "Bentuk negatif + で dapat menjadi larangan lembut atau 'tanpa melakukan'."
+  },
+  {
+    "pattern": "Nになる",
+    "meaning": "menjadi N",
+    "example": "心配になる / 寂しくなる",
+    "romaji": "shinpai ni naru / sabishiku naru",
+    "explanation": "なる menunjukkan perubahan keadaan."
+  },
+  {
+    "pattern": "VこともVこともある",
+    "meaning": "ada kalanya... dan ada kalanya...",
+    "example": "心配になることも寂しくなることもある",
+    "romaji": "shinpai ni naru koto mo sabishiku naru koto mo aru",
+    "explanation": "こともある menyatakan bahwa suatu hal bisa terjadi kadang-kadang."
+  },
+  {
+    "pattern": "Vてくれたら",
+    "meaning": "kalau kamu melakukan untukku",
+    "example": "元気でいてくれたら",
+    "romaji": "genki de ite kuretara",
+    "explanation": "くれる memberi nuansa kebaikan yang diterima pembicara; たら menyatakan kondisi."
+  },
+  {
+    "pattern": "疑問詞 + に + Vても",
+    "meaning": "di mana pun / kapan pun",
+    "example": "どこにいても",
+    "romaji": "doko ni ite mo",
+    "explanation": "疑問詞 + ても memberi makna 'apa pun/di mana pun/siapa pun'."
+  },
+  {
+    "pattern": "Vますように",
+    "meaning": "semoga / agar",
+    "example": "笑えますように",
+    "romaji": "waraemasu you ni",
+    "explanation": "ように dipakai untuk harapan atau doa."
+  },
+  {
+    "pattern": "Nがあっても",
+    "meaning": "walaupun ada N",
+    "example": "嫌なことがあっても",
+    "romaji": "iya na koto ga atte mo",
+    "explanation": "ても memberi makna 'walaupun'."
+  },
+  {
+    "pattern": "Vたなら",
+    "meaning": "kalau sudah / apabila",
+    "example": "終えてくれたなら",
+    "romaji": "oete kureta nara",
+    "explanation": "なら menyatakan kondisi dengan nuansa 'kalau memang begitu'."
+  },
+  {
+    "pattern": "ただ + Nだけ",
+    "meaning": "hanya itu saja",
+    "example": "ただそれだけ",
+    "romaji": "tada sore dake",
+    "explanation": "ただ dan だけ membatasi makna menjadi 'hanya'."
+  },
+  {
+    "pattern": "Nだけでいい",
+    "meaning": "cukup hanya dengan N",
+    "example": "それだけでいい",
+    "romaji": "sore dake de ii",
+    "explanation": "でいい berarti sudah cukup dengan keadaan tersebut."
+  },
+  {
+    "pattern": "Nはいらない",
+    "meaning": "tidak perlu N",
+    "example": "心配いらない",
+    "romaji": "shinpai iranai",
+    "explanation": "いらない berarti tidak membutuhkan."
+  },
+  {
+    "pattern": "Vたら",
+    "meaning": "kalau / ketika",
+    "example": "疲れたら",
+    "romaji": "tsukaretara",
+    "explanation": "Bentuk lampau + ら membentuk kondisi."
+  },
+  {
+    "pattern": "Vておいで",
+    "meaning": "datanglah / pulanglah ke sini",
+    "example": "帰っておいで",
+    "romaji": "kaette oide",
+    "explanation": "Ungkapan lembut untuk meminta seseorang datang atau pulang."
+  },
+  {
+    "pattern": "Nの好きなもの",
+    "meaning": "hal yang disukai N",
+    "example": "あなたの好きなもの",
+    "romaji": "anata no suki na mono",
+    "explanation": "の menghubungkan pemilik/penjelas dengan 好きなもの."
+  },
+  {
+    "pattern": "V辞書形 + のもいい",
+    "meaning": "melakukan V juga tidak apa-apa",
+    "example": "生きるのもいい",
+    "romaji": "ikiru no mo ii",
+    "explanation": "の menominalkan kata kerja; もいい menunjukkan penerimaan."
+  },
+  {
+    "pattern": "Nなんて",
+    "meaning": "hal seperti N",
+    "example": "出世なんて",
+    "romaji": "shusse nante",
+    "explanation": "なんて memberi nuansa bahwa topiknya tidak perlu terlalu dibesar-besarkan."
+  },
+  {
+    "pattern": "VてもVなくてもいい",
+    "meaning": "boleh melakukan atau tidak melakukan",
+    "example": "してもしなくてもいい",
+    "romaji": "shite mo shinakute mo ii",
+    "explanation": "Dua pilihan sama-sama diterima."
+  },
+  {
+    "pattern": "Vたっていい",
+    "meaning": "meskipun melakukan, tidak apa-apa",
+    "example": "間違えたっていい",
+    "romaji": "machigaeta tte ii",
+    "explanation": "Bentuk kasual dari Vてもいい."
+  },
+  {
+    "pattern": "そのままでいい",
+    "meaning": "apa adanya sudah cukup",
+    "example": "そのままでいい",
+    "romaji": "sonomama de ii",
+    "explanation": "Pola penerimaan terhadap keadaan tanpa harus berubah."
+  },
+  {
+    "pattern": "そこにはほら",
+    "meaning": "lihatlah, di sana ada...",
+    "example": "そこにはほら",
+    "romaji": "soko ni wa hora",
+    "explanation": "には menandai lokasi/topik, ほら menarik perhatian pendengar."
+  },
+  {
+    "pattern": "かけがえのない + N",
+    "meaning": "N yang tidak tergantikan",
+    "example": "かけがえのない 大切なもの",
+    "romaji": "kakegae no nai taisetsu na mono",
+    "explanation": "Ungkapan tetap untuk sesuatu yang sangat berharga."
+  },
+  {
+    "pattern": "Vば",
+    "meaning": "kalau / saat",
+    "example": "目を閉じれば",
+    "romaji": "me wo tojireba",
+    "explanation": "Bentuk ba menyatakan kondisi atau saat sesuatu dilakukan."
+  },
+  {
+    "pattern": "Nに映る",
+    "meaning": "terpantul/terlihat di N",
+    "example": "夜空に映る",
+    "romaji": "yozora ni utsuru",
+    "explanation": "に menandai tempat/permukaan munculnya bayangan atau gambaran."
+  },
+  {
+    "pattern": "Nたち",
+    "meaning": "para N / kumpulan N",
+    "example": "想い出たち",
+    "romaji": "omoide tachi",
+    "explanation": "たち menjadikan kata benda bernuansa jamak atau kumpulan."
+  },
+  {
+    "pattern": "その度にまた",
+    "meaning": "setiap kali itu terjadi, lagi",
+    "example": "桜散る その度にまた",
+    "romaji": "sakura chiru sono tabi ni mata",
+    "explanation": "その度に berarti setiap kali hal tersebut terjadi."
+  },
+  {
+    "pattern": "Nの涙",
+    "meaning": "air mata karena/untuk N",
+    "example": "門出の涙",
+    "romaji": "kadode no namida",
+    "explanation": "の menghubungkan alasan/situasi dengan 涙."
+  },
+  {
+    "pattern": "Vたけれど",
+    "meaning": "walaupun sudah V / tetapi",
+    "example": "流したけれど",
+    "romaji": "nagashita keredo",
+    "explanation": "けれど menghubungkan kontras dengan nada lembut."
+  },
+  {
+    "pattern": "Vあう / V合う",
+    "meaning": "saling melakukan V",
+    "example": "笑いあえた / 支え合い",
+    "romaji": "warai aeta / sasae ai",
+    "explanation": "合う/あう menunjukkan tindakan yang dilakukan satu sama lain."
+  },
+  {
+    "pattern": "Nがいた",
+    "meaning": "ada N / N pernah ada",
+    "example": "僕達がいた",
+    "romaji": "bokutachi ga ita",
+    "explanation": "いた adalah bentuk lampau dari いる untuk manusia/makhluk hidup."
+  },
+  {
+    "pattern": "Nを包む",
+    "meaning": "menyelimuti/membungkus N",
+    "example": "あなたを包む",
+    "romaji": "anata wo tsutsumu",
+    "explanation": "を menandai objek yang diselimuti."
+  },
+  {
+    "pattern": "一つ一つ",
+    "meaning": "satu per satu",
+    "example": "一つ一つ 流した涙",
+    "romaji": "hitotsu hitotsu nagashita namida",
+    "explanation": "Pengulangan angka menunjukkan setiap item secara individual."
+  },
+  {
+    "pattern": "Nを忘れないで",
+    "meaning": "jangan lupakan N",
+    "example": "その理由を忘れないで",
+    "romaji": "sono wake wo wasurenaide",
+    "explanation": "Vないで di sini berupa larangan lembut."
+  },
+  {
+    "pattern": "Nに応えられている",
+    "meaning": "mampu membalas/menjawab N",
+    "example": "人の優しさに応えられている",
+    "romaji": "hito no yasashisa ni kotaerarete iru",
+    "explanation": "応える digunakan untuk membalas kebaikan, harapan, atau perasaan."
+  },
+  {
+    "pattern": "のだろうか",
+    "meaning": "apakah kira-kira / aku bertanya-tanya",
+    "example": "いるのだろうか",
+    "romaji": "iru no darou ka",
+    "explanation": "Memberi nuansa reflektif dan ragu-ragu."
+  },
+  {
+    "pattern": "Nが終わる頃には",
+    "meaning": "saat N berakhir nanti",
+    "example": "この旅が終わる頃には",
+    "romaji": "kono tabi ga owaru koro ni wa",
+    "explanation": "頃には menunjukkan sekitar waktu suatu hal terjadi."
+  },
+  {
+    "pattern": "Vてくる",
+    "meaning": "mulai terlihat/terjadi ke arah pembicara",
+    "example": "見えてくる",
+    "romaji": "miete kuru",
+    "explanation": "てくる menunjukkan perubahan yang mulai terasa atau mendekat."
+  },
+  {
+    "pattern": "Nの下",
+    "meaning": "di bawah N",
+    "example": "この空の下",
+    "romaji": "kono sora no shita",
+    "explanation": "の menghubungkan langit dengan posisi di bawahnya."
+  },
+  {
+    "pattern": "Nを見上げて",
+    "meaning": "menatap N ke atas",
+    "example": "同じ星見上げて",
+    "romaji": "onaji hoshi miagete",
+    "explanation": "を sering dihilangkan dalam lirik, tetapi maknanya tetap objek yang ditatap."
+  },
+  {
+    "pattern": "Vたまま",
+    "meaning": "tetap dalam keadaan setelah V",
+    "example": "夢を握ったまま",
+    "romaji": "yume wo nigitta mama",
+    "explanation": "まま menyatakan keadaan yang dipertahankan."
+  },
+  {
+    "pattern": "Vてく",
+    "meaning": "terus melakukan / bergerak ke depan",
+    "example": "信じてく",
+    "romaji": "shinjiteku",
+    "explanation": "Bentuk kasual dari ていく, menunjukkan tindakan berlanjut ke masa depan."
+  },
+  {
+    "pattern": "Vようとも",
+    "meaning": "walaupun akan V",
+    "example": "もたらそうとも",
+    "romaji": "motarasou tomo",
+    "explanation": "Bentuk volitional + とも memberi makna 'sekalipun/walaupun'."
+  },
+  {
+    "pattern": "Vずに",
+    "meaning": "tanpa melakukan V",
+    "example": "染まらずに",
+    "romaji": "somarazu ni",
+    "explanation": "Bentuk klasik/literer dari ないで."
+  },
+  {
+    "pattern": "Nを道しるべに",
+    "meaning": "menjadikan N sebagai pedoman",
+    "example": "自分の意思 道しるべに",
+    "romaji": "jibun no ishi michi shirube ni",
+    "explanation": "に menunjukkan peran atau hasil: menjadikan sesuatu sebagai penunjuk arah."
+  }
+];
 
-  var demoSongs = [{"id": "demo-back-number-sasaeru", "song_code": "MJE-LAGU-DEMO-001", "artist_romaji": "Back Number", "title_romaji": "Sasaeru hito no uta", "year": "-", "theme": "dukungan/keluarga", "japanese_lyrics": "元気で毎日暮らしてますか\n朝は起きられているのでしょうか\n野菜もきちんと食べていますか\nつらい思いはしてませんか\n\n頑張ってって言いながら\nあまりムリしないでねって思っています\n心配になることも寂しくなることもあるけど\n元気でいてくれたら\n\n愛する人がどこにいても\n心から笑えますように\n少しくらい嫌なことがあっても\n今日を笑って終えてくれたなら\n\nただそれだけでそれだけでいい\nこっちは心配いらないから\nたまに疲れたら帰っておいで\nあなたの好きなものを作って\n待っているから\n\n人生は一度だから\n自分が思うように生きるのもいい\n本当は出世なんて\nしてもしなくてもいいんだよ\n間違えたっていい\nそのままでいい\n\n愛する人がどこにいても\n心から笑えますように\n少しくらい嫌なことがあっても\n今日を笑って終えてくれたなら\n\nただそれだけでそれだけでいい\nこっちは心配いらないから\nたまに疲れたら帰っておいで\nあなたの好きなものを作って\n待っているから", "romaji_lyrics": "Genki de mainichi kurashitemasu ka\nAsa wa okirarete iru no deshou ka\nYasai mo kichinto tabete imasu ka\nTsurai omoi wa shitemasen ka\n\nGanbatte tte ii nagara\nAmari muri shinaide ne tte\nOmotte imasu\nShinpai ni naru koto mo sabishiku naru koto mo\nAru kedo\nGenki de ite kuretara\n\nAisuru hito ga doko ni ite mo\nKokoro kara waraemasu you ni\nSukoshi kurai iya na koto ga atte mo\nKyou wo waratte oete kureta nara\n\nTada sore dake de\nSore dake de ii\nKocchi wa shinpai iranai kara\nTama ni tsukaretara kaette oide\nAnata no suki na mono wo tsukutte\nMatte iru kara\n\nJinsei wa ichido dakara\nJibun ga omou you ni\nIkiru no mo ii\nHontou wa shusse nante\nShite mo shinakute mo ii'n da yo\nMachigaeta tte ii\nSonomama de ii\n\nAisuru hito ga doko ni ite mo\nKokoro kara waraemasu you ni\nSukoshi kurai iya na koto ga atte mo\nKyou wo waratte oete kureta nara\n\nTada sore dake de\nSore dake de ii\nKocchi wa shinpai iranai kara\nTama ni tsukaretara kaette oide\nAnata no suki na mono wo tsukutte\nMatte iru kara\nMatte iru kara", "indonesian_translation": "Arti Indonesia belum diisi. Masukkan terjemahan Indonesia melalui form admin agar tab Arti menampilkan versi terjemahan penuh.", "source_type": "youtube", "youtube_url": "https://youtu.be/4nPxHqHzGPI?si=kDgDuu22LDhPn-sY", "status": "published", "created_at": "2026-07-08T00:00:00.000Z", "created_by": "demo", "updated_at": "2026-07-08T00:00:00.000Z", "updated_by": "demo", "published_at": "2026-07-08T00:00:00.000Z", "vocabulary": [{"word": "元気", "reading": "げんき", "meaning": "sehat / bersemangat", "pos": "na-adjective / kata benda", "verb_group": "", "note": "Dipakai untuk menanyakan keadaan fisik dan suasana hati."}, {"word": "毎日", "reading": "まいにち", "meaning": "setiap hari", "pos": "kata keterangan / kata benda", "verb_group": "", "note": "Menunjukkan rutinitas harian."}, {"word": "暮らす", "reading": "くらす", "meaning": "hidup / menjalani kehidupan", "pos": "kata kerja", "verb_group": "Godan / Kelompok 1", "note": "Kata kerja dasar berakhiran す; bentuk て menjadi 暮らして."}, {"word": "朝", "reading": "あさ", "meaning": "pagi", "pos": "kata benda", "verb_group": "", "note": "Waktu pagi hari."}, {"word": "起きる", "reading": "おきる", "meaning": "bangun", "pos": "kata kerja", "verb_group": "Ichidan / Kelompok 2", "note": "Bentuk potensial/pasifnya 起きられる."}, {"word": "野菜", "reading": "やさい", "meaning": "sayur", "pos": "kata benda", "verb_group": "", "note": "Makanan berupa sayuran."}, {"word": "きちんと", "reading": "きちんと", "meaning": "dengan baik / rapi / benar", "pos": "kata keterangan", "verb_group": "", "note": "Menekankan sesuatu dilakukan dengan benar."}, {"word": "食べる", "reading": "たべる", "meaning": "makan", "pos": "kata kerja", "verb_group": "Ichidan / Kelompok 2", "note": "Bentuk て menjadi 食べて."}, {"word": "つらい", "reading": "つらい", "meaning": "berat / menyakitkan", "pos": "i-adjective", "verb_group": "", "note": "Menunjukkan kondisi emosional atau fisik yang sulit."}, {"word": "思い", "reading": "おもい", "meaning": "perasaan / pikiran", "pos": "kata benda", "verb_group": "", "note": "Nominalisasi dari 思う, sering berarti perasaan batin."}, {"word": "する", "reading": "する", "meaning": "melakukan", "pos": "kata kerja", "verb_group": "Irregular / Kelompok 3", "note": "Kata kerja tidak beraturan yang sangat sering dipakai."}, {"word": "頑張る", "reading": "がんばる", "meaning": "berusaha / bertahan / semangat", "pos": "kata kerja", "verb_group": "Godan / Kelompok 1", "note": "Bentuk て menjadi 頑張って."}, {"word": "言う", "reading": "いう", "meaning": "mengatakan", "pos": "kata kerja", "verb_group": "Godan / Kelompok 1", "note": "Bentuk ます: 言います; bentuk sambung: 言い."}, {"word": "ながら", "reading": "ながら", "meaning": "sambil", "pos": "pola sambung", "verb_group": "", "note": "Menghubungkan dua aksi yang terjadi bersamaan."}, {"word": "あまり", "reading": "あまり", "meaning": "terlalu / tidak begitu", "pos": "kata keterangan", "verb_group": "", "note": "Sering dipakai dengan bentuk negatif: あまり〜ない."}, {"word": "無理", "reading": "むり", "meaning": "memaksakan diri / mustahil", "pos": "na-adjective / kata benda", "verb_group": "", "note": "Dalam konteks ini berarti jangan memaksakan diri."}, {"word": "思う", "reading": "おもう", "meaning": "berpikir / merasa", "pos": "kata kerja", "verb_group": "Godan / Kelompok 1", "note": "Bentuk て menjadi 思って."}, {"word": "心配", "reading": "しんぱい", "meaning": "khawatir", "pos": "na-adjective / kata benda", "verb_group": "", "note": "Perasaan cemas terhadap keadaan seseorang."}, {"word": "なる", "reading": "なる", "meaning": "menjadi", "pos": "kata kerja", "verb_group": "Godan / Kelompok 1", "note": "Bentuk dasar untuk perubahan keadaan."}, {"word": "こと", "reading": "こと", "meaning": "hal / perkara", "pos": "kata benda nominalizer", "verb_group": "", "note": "Membuat kata kerja/kalimat menjadi kata benda."}, {"word": "寂しい", "reading": "さびしい", "meaning": "kesepian", "pos": "i-adjective", "verb_group": "", "note": "Perasaan sepi atau rindu."}, {"word": "ある", "reading": "ある", "meaning": "ada / terjadi", "pos": "kata kerja", "verb_group": "Godan / Kelompok 1", "note": "Untuk benda mati atau kejadian."}, {"word": "けど", "reading": "けど", "meaning": "tetapi / walaupun", "pos": "konjungsi", "verb_group": "", "note": "Bentuk kasual dari けれど."}, {"word": "いる", "reading": "いる", "meaning": "ada / berada", "pos": "kata kerja", "verb_group": "Ichidan / Kelompok 2", "note": "Untuk manusia/hewan; juga bagian dari ている."}, {"word": "くれる", "reading": "くれる", "meaning": "memberi untuk pihak pembicara", "pos": "kata kerja", "verb_group": "Ichidan / Kelompok 2", "note": "Memberi nuansa kebaikan yang diterima pembicara."}, {"word": "愛する", "reading": "あいする", "meaning": "mencintai", "pos": "kata kerja", "verb_group": "Suru-verb / Kelompok 3", "note": "Bentuk dari 愛 + する."}, {"word": "人", "reading": "ひと", "meaning": "orang", "pos": "kata benda", "verb_group": "", "note": "Merujuk pada seseorang."}, {"word": "どこ", "reading": "どこ", "meaning": "di mana", "pos": "kata tanya", "verb_group": "", "note": "Menanyakan tempat."}, {"word": "心", "reading": "こころ", "meaning": "hati", "pos": "kata benda", "verb_group": "", "note": "Menunjukkan perasaan terdalam."}, {"word": "から", "reading": "から", "meaning": "dari / karena", "pos": "partikel", "verb_group": "", "note": "Dalam 心から berarti dari hati."}, {"word": "笑う", "reading": "わらう", "meaning": "tertawa / tersenyum", "pos": "kata kerja", "verb_group": "Godan / Kelompok 1", "note": "Bentuk potensial sopan: 笑えます."}, {"word": "ように", "reading": "ように", "meaning": "agar / supaya", "pos": "pola", "verb_group": "", "note": "Menyatakan harapan atau tujuan."}, {"word": "少し", "reading": "すこし", "meaning": "sedikit", "pos": "kata keterangan / kata benda", "verb_group": "", "note": "Jumlah atau derajat kecil."}, {"word": "くらい", "reading": "くらい", "meaning": "sekitar / kira-kira / bahkan", "pos": "partikel", "verb_group": "", "note": "Memberi nuansa batas atau kadar."}, {"word": "嫌", "reading": "いや", "meaning": "tidak suka / buruk / tidak menyenangkan", "pos": "na-adjective", "verb_group": "", "note": "Dalam 嫌なこと berarti hal yang tidak menyenangkan."}, {"word": "今日", "reading": "きょう", "meaning": "hari ini", "pos": "kata benda", "verb_group": "", "note": "Waktu hari ini."}, {"word": "終える", "reading": "おえる", "meaning": "mengakhiri / menyelesaikan", "pos": "kata kerja", "verb_group": "Ichidan / Kelompok 2", "note": "Bentuk て menjadi 終えて."}, {"word": "くれる", "reading": "くれる", "meaning": "memberikan / melakukan untukku", "pos": "kata kerja", "verb_group": "Ichidan / Kelompok 2", "note": "Dalam 終えてくれた memberi nuansa harapan untuk orang yang disayangi."}, {"word": "ただ", "reading": "ただ", "meaning": "hanya / sekadar", "pos": "kata keterangan", "verb_group": "", "note": "Menekankan kesederhanaan maksud."}, {"word": "それ", "reading": "それ", "meaning": "itu", "pos": "kata ganti", "verb_group": "", "note": "Menunjuk hal yang sudah disebutkan."}, {"word": "だけ", "reading": "だけ", "meaning": "saja / hanya", "pos": "partikel", "verb_group": "", "note": "Membatasi makna pada satu hal."}, {"word": "いい", "reading": "いい", "meaning": "baik / cukup", "pos": "i-adjective", "verb_group": "", "note": "Dalam それだけでいい berarti itu saja sudah cukup."}, {"word": "こっち", "reading": "こっち", "meaning": "sini / pihakku", "pos": "kata ganti arah", "verb_group": "", "note": "Bentuk kasual dari こちら."}, {"word": "いらない", "reading": "いらない", "meaning": "tidak perlu", "pos": "kata kerja/ekspresi", "verb_group": "Godan asal: 要る（いる）", "note": "Berasal dari 要る, bentuk negatifnya いらない."}, {"word": "たまに", "reading": "たまに", "meaning": "sesekali", "pos": "kata keterangan", "verb_group": "", "note": "Menunjukkan frekuensi yang jarang."}, {"word": "疲れる", "reading": "つかれる", "meaning": "lelah", "pos": "kata kerja", "verb_group": "Ichidan / Kelompok 2", "note": "Bentuk たら: 疲れたら."}, {"word": "帰る", "reading": "かえる", "meaning": "pulang", "pos": "kata kerja", "verb_group": "Godan / Kelompok 1", "note": "Bentuk て menjadi 帰って."}, {"word": "おいで", "reading": "おいで", "meaning": "datanglah / pulanglah ke sini", "pos": "ungkapan", "verb_group": "", "note": "Bentuk lembut/akrab untuk mengajak seseorang datang."}, {"word": "あなた", "reading": "あなた", "meaning": "kamu / Anda", "pos": "kata ganti", "verb_group": "", "note": "Dalam lagu sering terasa personal dan penuh kasih."}, {"word": "好き", "reading": "すき", "meaning": "suka", "pos": "na-adjective", "verb_group": "", "note": "Menyatakan hal yang disukai."}, {"word": "もの", "reading": "もの", "meaning": "benda / hal", "pos": "kata benda", "verb_group": "", "note": "Bentuk kasual dari 物."}, {"word": "作る", "reading": "つくる", "meaning": "membuat", "pos": "kata kerja", "verb_group": "Godan / Kelompok 1", "note": "Bentuk て menjadi 作って."}, {"word": "待つ", "reading": "まつ", "meaning": "menunggu", "pos": "kata kerja", "verb_group": "Godan / Kelompok 1", "note": "Bentuk て menjadi 待って."}, {"word": "人生", "reading": "じんせい", "meaning": "kehidupan / hidup", "pos": "kata benda", "verb_group": "", "note": "Kehidupan manusia secara keseluruhan."}, {"word": "一度", "reading": "いちど", "meaning": "satu kali", "pos": "kata benda/keterangan", "verb_group": "", "note": "Dalam 人生は一度 berarti hidup hanya sekali."}, {"word": "自分", "reading": "じぶん", "meaning": "diri sendiri", "pos": "kata benda", "verb_group": "", "note": "Merujuk pada diri sendiri."}, {"word": "生きる", "reading": "いきる", "meaning": "hidup / menjalani hidup", "pos": "kata kerja", "verb_group": "Ichidan / Kelompok 2", "note": "Bentuk kamus berakhiran る tetapi termasuk kelompok 2."}, {"word": "本当", "reading": "ほんとう", "meaning": "sebenarnya / kebenaran", "pos": "kata benda / na-adjective", "verb_group": "", "note": "Sering ditulis ホント dalam gaya kasual."}, {"word": "出世", "reading": "しゅっせ", "meaning": "sukses karier / naik status", "pos": "suru-noun", "verb_group": "", "note": "Dapat menjadi 出世する."}, {"word": "なんて", "reading": "なんて", "meaning": "hal seperti / semacam", "pos": "partikel", "verb_group": "", "note": "Memberi nuansa merendahkan topik atau menekankan."}, {"word": "間違える", "reading": "まちがえる", "meaning": "salah / keliru", "pos": "kata kerja", "verb_group": "Ichidan / Kelompok 2", "note": "Bentuk lampau: 間違えた."}, {"word": "そのまま", "reading": "そのまま", "meaning": "apa adanya / tetap seperti itu", "pos": "ungkapan", "verb_group": "", "note": "Menunjukkan kondisi tidak perlu diubah."}, {"word": "で", "reading": "で", "meaning": "dengan / di / karena", "pos": "partikel", "verb_group": "", "note": "Fungsi tergantung konteks: alat, tempat aksi, sebab, atau kondisi."}, {"word": "は", "reading": "は", "meaning": "penanda topik", "pos": "partikel", "verb_group": "", "note": "Menandai topik pembicaraan."}, {"word": "も", "reading": "も", "meaning": "juga / pun", "pos": "partikel", "verb_group": "", "note": "Menambahkan unsur yang juga berlaku."}, {"word": "に", "reading": "に", "meaning": "di / ke / pada", "pos": "partikel", "verb_group": "", "note": "Menandai arah, tempat keberadaan, atau waktu."}, {"word": "を", "reading": "を", "meaning": "penanda objek", "pos": "partikel", "verb_group": "", "note": "Menandai objek langsung dari kata kerja."}, {"word": "が", "reading": "が", "meaning": "penanda subjek", "pos": "partikel", "verb_group": "", "note": "Menandai subjek atau fokus informasi."}], "grammar": [{"pattern": "N + で", "meaning": "dengan / dalam keadaan / karena", "example": "元気で毎日暮らしてますか", "romaji": "genki de mainichi kurashitemasu ka", "explanation": "Partikel で dapat menunjukkan keadaan atau cara. Di sini 元気で memberi nuansa 'dalam keadaan sehat/baik'."}, {"pattern": "Vています", "meaning": "sedang / terus melakukan / keadaan yang berlangsung", "example": "食べていますか", "romaji": "tabete imasu ka", "explanation": "Bentuk ている menunjukkan aksi yang sedang berlangsung atau kebiasaan/keadaan yang berlanjut."}, {"pattern": "Vられている", "meaning": "bisa / pasif dalam bentuk berlangsung", "example": "起きられているのでしょうか", "romaji": "okirarete iru no deshou ka", "explanation": "起きる menjadi 起きられる. Dalam konteks ini lebih dekat ke 'apakah kamu bisa bangun'."}, {"pattern": "のでしょうか", "meaning": "apakah kiranya / aku bertanya-tanya", "example": "起きられているのでしょうか", "romaji": "okirarete iru no deshou ka", "explanation": "Ekspresi sopan/lembut untuk bertanya dengan nuansa khawatir atau menebak."}, {"pattern": "Nも", "meaning": "juga / pun", "example": "野菜も", "romaji": "yasai mo", "explanation": "Partikel も menambahkan hal yang ikut dipikirkan, yaitu sayuran juga."}, {"pattern": "あまり + negatif", "meaning": "tidak terlalu / jangan terlalu", "example": "あまりムリしないで", "romaji": "amari muri shinaide", "explanation": "あまり sering dipakai bersama bentuk negatif untuk menurunkan intensitas."}, {"pattern": "Vないで", "meaning": "jangan melakukan / tanpa melakukan", "example": "ムリしないで", "romaji": "muri shinaide", "explanation": "Bentuk negatif ない + で dapat berarti 'jangan...' dalam permintaan lembut."}, {"pattern": "Vてね", "meaning": "tolong ya / lakukan ya", "example": "しないでね", "romaji": "shinaide ne", "explanation": "ね melembutkan permintaan dan memberi nuansa akrab."}, {"pattern": "Vます-stem + ながら", "meaning": "sambil melakukan", "example": "言いながら", "romaji": "ii nagara", "explanation": "Menghubungkan dua aksi yang terjadi bersamaan."}, {"pattern": "Vています", "meaning": "sedang berpikir / merasa", "example": "思っています", "romaji": "omotte imasu", "explanation": "Bentuk ている pada 思う menunjukkan keadaan pikiran/perasaan yang terus ada."}, {"pattern": "Vこと", "meaning": "hal melakukan sesuatu", "example": "心配になること", "romaji": "shinpai ni naru koto", "explanation": "こと mengubah frasa kerja menjadi kata benda: 'hal menjadi khawatir'."}, {"pattern": "Aくなる", "meaning": "menjadi ...", "example": "寂しくなる", "romaji": "sabishiku naru", "explanation": "i-adjective mengubah い menjadi く sebelum なる."}, {"pattern": "Nになる", "meaning": "menjadi ...", "example": "心配になる", "romaji": "shinpai ni naru", "explanation": "Untuk noun/na-adjective, gunakan に sebelum なる."}, {"pattern": "Sけど", "meaning": "tetapi / walaupun", "example": "あるけど", "romaji": "aru kedo", "explanation": "けど menghubungkan kalimat dengan nuansa kontras atau pengantar lembut."}, {"pattern": "Vてくれる", "meaning": "melakukan sesuatu untukku/kami", "example": "元気でいてくれたら", "romaji": "genki de ite kuretara", "explanation": "くれる memberi nuansa bahwa keadaan orang itu menjadi hal yang membahagiakan bagi pembicara."}, {"pattern": "Vたら", "meaning": "kalau / ketika", "example": "いてくれたら", "romaji": "ite kuretara", "explanation": "Bentuk たら menyatakan kondisi: kalau kamu tetap sehat."}, {"pattern": "どこにいても", "meaning": "di mana pun berada", "example": "どこにいても", "romaji": "doko ni ite mo", "explanation": "疑問詞 + ても membentuk makna 'apa pun/di mana pun'."}, {"pattern": "心から", "meaning": "dari hati / sepenuh hati", "example": "心から笑えますように", "romaji": "kokoro kara waraemasu you ni", "explanation": "から berarti 'dari'. 心から berarti dari hati yang terdalam."}, {"pattern": "Vますように", "meaning": "semoga / agar", "example": "笑えますように", "romaji": "waraemasu you ni", "explanation": "Pola untuk menyatakan doa atau harapan."}, {"pattern": "少しくらい", "meaning": "sedikit pun / walau sedikit", "example": "少しくらい嫌なこと", "romaji": "sukoshi kurai iya na koto", "explanation": "くらい memberi nuansa batas/kadar minimal."}, {"pattern": "Aな + N", "meaning": "kata sifat na menerangkan benda", "example": "嫌なこと", "romaji": "iya na koto", "explanation": "Na-adjective memakai な sebelum kata benda."}, {"pattern": "Nがある", "meaning": "ada / terjadi", "example": "嫌なことがあっても", "romaji": "iya na koto ga atte mo", "explanation": "ある dipakai untuk keberadaan benda atau kejadian."}, {"pattern": "Vても", "meaning": "meskipun / walaupun", "example": "あっても", "romaji": "atte mo", "explanation": "Bentuk て + も berarti walaupun atau meskipun."}, {"pattern": "Vて終える", "meaning": "selesai melakukan", "example": "笑って終えて", "romaji": "waratte oete", "explanation": "Menunjukkan aksi diselesaikan dengan keadaan tertentu."}, {"pattern": "Vたなら", "meaning": "kalau sudah / apabila", "example": "終えてくれたなら", "romaji": "oete kureta nara", "explanation": "なら menyatakan kondisi; dengan bentuk lampau memberi nuansa jika hal itu terjadi."}, {"pattern": "ただ + Nだけ", "meaning": "hanya itu saja", "example": "ただそれだけ", "romaji": "tada sore dake", "explanation": "ただ dan だけ sama-sama membatasi makna menjadi 'hanya'."}, {"pattern": "Nだけでいい", "meaning": "cukup hanya dengan ...", "example": "それだけでいい", "romaji": "sore dake de ii", "explanation": "Pola yang menyatakan sesuatu sudah cukup."}, {"pattern": "Nはいらない", "meaning": "tidak perlu ...", "example": "心配いらない", "romaji": "shinpai iranai", "explanation": "いらない berarti tidak dibutuhkan/tidak perlu."}, {"pattern": "Vたら", "meaning": "kalau / ketika", "example": "疲れたら", "romaji": "tsukaretara", "explanation": "Bentuk kondisional dari kata kerja lampau + ら."}, {"pattern": "Vておいで", "meaning": "datanglah / pulanglah ke sini", "example": "帰っておいで", "romaji": "kaette oide", "explanation": "Ungkapan lembut untuk menyuruh seseorang datang/pulang."}, {"pattern": "Nの好きなもの", "meaning": "hal yang disukai oleh ...", "example": "あなたの好きなもの", "romaji": "anata no suki na mono", "explanation": "の menghubungkan pemilik/penjelas dengan 好きなもの."}, {"pattern": "NをV", "meaning": "melakukan V terhadap objek N", "example": "ものを作って", "romaji": "mono wo tsukutte", "explanation": "を menandai objek dari kata kerja 作る."}, {"pattern": "Vている", "meaning": "sedang / tetap dalam keadaan", "example": "待っている", "romaji": "matte iru", "explanation": "Bentuk ている menunjukkan keadaan menunggu yang terus berlangsung."}, {"pattern": "Nは一度", "meaning": "N hanya satu kali", "example": "人生は一度", "romaji": "jinsei wa ichido", "explanation": "は menandai topik; 一度 menyatakan sekali."}, {"pattern": "V辞書形 + のもいい", "meaning": "melakukan ... juga boleh/baik", "example": "生きるのもいい", "romaji": "ikiru no mo ii", "explanation": "の menominalkan kata kerja; もいい memberi arti 'juga boleh/baik'."}, {"pattern": "Nなんて", "meaning": "hal seperti N", "example": "出世なんて", "romaji": "shusse nante", "explanation": "なんて memberi nuansa bahwa topik tidak perlu terlalu dianggap besar."}, {"pattern": "VてもVなくてもいい", "meaning": "boleh melakukan atau tidak melakukan", "example": "してもしなくてもいい", "romaji": "shite mo shinakute mo ii", "explanation": "Menyatakan dua pilihan sama-sama tidak masalah."}, {"pattern": "Vたっていい", "meaning": "meskipun melakukan, tidak apa-apa", "example": "間違えたっていい", "romaji": "machigaeta tte ii", "explanation": "Bentuk kasual dari Vてもいい dalam nuansa penerimaan."}, {"pattern": "そのままでいい", "meaning": "apa adanya sudah cukup", "example": "そのままでいい", "romaji": "sonomama de ii", "explanation": "Memberi pesan menerima keadaan apa adanya."}]}];
-  var songs = demoSongs.slice();
-  var supabaseClient = null;
-  var currentUser = null;
-  var isAdmin = false;
   var activeSong = null;
-  var activeSongId = null;
   var activeTab = "jp";
   var activeBreakdownTab = "vocab";
-  var activeStatusFilter = "all";
-  var editingSong = null;
-  var formStep = 1;
+  var breakdownQuery = "";
   var youtubePlayer = null;
   var youtubeApiReady = false;
   var youtubeApiCallbacks = [];
   var isPlaying = false;
   var autoScrollOn = false;
-  var scrollSpeed = 1;
-  var scrollSpeedOptions = [0.5,1,1.5,2];
+  var autoSpeedLevel = 0;
   var scrollRaf = null;
   var scrollLastTs = 0;
-  var confirmCallback = null;
+  var lyricZoom = Number(localStorage.getItem("mjeSongLyricZoom") || 200);
+  var playClickTimer = null;
 
   function q(id){return document.getElementById(id);}
   function qa(sel,root){return Array.prototype.slice.call((root||document).querySelectorAll(sel));}
@@ -12825,36 +14474,6 @@ renderLevels();
     return String(value==null?"":value).replace(/[&<>"']/g,function(ch){
       return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[ch];
     });
-  }
-  function textLines(value){
-    var text = String(value||"").replace(/\r\n/g,"\n").trim();
-    return text || "Belum ada data.";
-  }
-  function titleCase(value){
-    return String(value||"").trim().toLowerCase().replace(/\s+/g," ").replace(/\b[a-z]/g,function(ch){return ch.toUpperCase();});
-  }
-  function songTitleCase(value){
-    var s=String(value||"").trim().toLowerCase().replace(/\s+/g," ");
-    return s ? s.charAt(0).toUpperCase()+s.slice(1) : "";
-  }
-  function displaySong(song){
-    return (song.artist_romaji||song.artist||"Artist")+" - "+(song.title_romaji||song.title||"Judul lagu");
-  }
-  function songYear(song){return song.year || "-";}
-  function songTheme(song){return song.theme || "tema belum dianalisis";}
-  function youtubeIdFromUrl(url){
-    url=String(url||"").trim();
-    if(!url)return "";
-    var m=url.match(/[?&]v=([^&]+)/)||url.match(/youtu\.be\/([^?&]+)/)||url.match(/embed\/([^?&]+)/)||url.match(/shorts\/([^?&]+)/);
-    return m ? decodeURIComponent(m[1]) : url;
-  }
-  function isSupabaseConfigured(){
-    return SUPABASE_URL.indexOf("YOUR_PROJECT_REF")<0 && SUPABASE_ANON_KEY.indexOf("YOUR_SUPABASE_ANON_KEY")<0 && window.supabase;
-  }
-  function initSupabase(){
-    if(isSupabaseConfigured() && !supabaseClient){
-      supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-    }
   }
   function closeMenu(){
     var dropdown=q("appMenuDropdown"), button=q("appMenuBtn");
@@ -12866,6 +14485,23 @@ renderLevels();
       var node=q(id); if(node)node.classList.add("hidden");
     });
   }
+  function relabelDashboardAndMenu(){
+    var dash=q("dashboardBunpouBtn");
+    if(dash){
+      var b=dash.querySelector(".dashboard-action-copy b");
+      var small=dash.querySelector(".dashboard-action-copy small");
+      var progress=dash.querySelector(".dashboard-card-progress");
+      if(b)b.textContent="Belajar Lewat Lagu";
+      if(small)small.textContent="Belajar bahasa Jepang lewat lagu, YouTube, lirik, romaji, arti, kosakata, dan pola kalimat.";
+      if(progress)progress.textContent="Song Learning Lab";
+    }
+    var menu=q("menuBunpouBtn");
+    if(menu){
+      var mb=menu.querySelector("b"), ms=menu.querySelector("small");
+      if(mb)mb.textContent="Belajar Lewat Lagu";
+      if(ms)ms.textContent="Lirik, romaji, arti, kosakata";
+    }
+  }
   function showSongView(){
     try{ if(window.stopTimer)window.stopTimer(); }catch(_e){}
     hideAllViews();
@@ -12873,569 +14509,402 @@ renderLevels();
     if(view)view.classList.remove("hidden");
     if(userbar)userbar.classList.remove("hidden");
     showSongList();
-    loadSongs();
+    closeMenu();
+  }
+  function showDashboard(){
+    stopAutoScroll();
+    hideAllViews();
+    var dashboard=q("dashboardView"), userbar=q("userbar");
+    if(dashboard)dashboard.classList.remove("hidden");
+    if(userbar)userbar.classList.remove("hidden");
+    closeMenu();
+  }
+  function displaySong(song){
+    return (song.artist_romaji||"Artist")+" - "+(song.title_romaji||"Judul lagu");
+  }
+  function metaSong(song){
+    return (song.year || "-")+" • "+(song.theme || "-");
+  }
+  function renderList(){
+    var grid=q("songListGrid");
+    if(!grid)return;
+    var query=(q("songSearchInput") && q("songSearchInput").value || "").toLowerCase().trim();
+    var filtered=SONGS.slice().sort(function(a,b){
+      return displaySong(a).localeCompare(displaySong(b), "id", {sensitivity:"base"});
+    }).filter(function(song){
+      var hay=(displaySong(song)+" "+metaSong(song)+" "+(song.song_code||"")).toLowerCase();
+      return !query || hay.indexOf(query)>-1;
+    });
+    if(!filtered.length){
+      grid.innerHTML='<div class="song-empty">Tidak ada lagu yang cocok.</div>';
+      return;
+    }
+    grid.innerHTML=filtered.map(function(song){
+      return '<button class="song-row song-row-main song-list-clickable" data-song-open="'+esc(song.id)+'" type="button">'+
+        '<span class="song-row-title">'+esc(displaySong(song))+'</span>'+
+        '<span class="song-row-meta">'+esc(metaSong(song))+'</span>'+
+      '</button>';
+    }).join("");
   }
   function showSongList(){
+    activeSong=null;
+    activeTab="jp";
     stopAutoScroll();
-    pauseYoutube();
+    stopYoutube();
     var list=q("songListPane"), detail=q("songDetailPane");
     if(list)list.classList.remove("hidden");
     if(detail)detail.classList.add("hidden");
-    activeSong=null;
     renderList();
   }
-  function showSongDetail(songId){
-    var song=songs.find(function(s){return String(s.id)===String(songId);})||songs[0];
-    if(!song)return;
-    activeSong=song;
-    activeSongId=song.id;
+  function openSong(id){
+    activeSong=SONGS.find(function(song){return song.id===id;}) || SONGS[0] || null;
+    if(!activeSong)return;
     activeTab="jp";
     activeBreakdownTab="vocab";
+    breakdownQuery="";
     var list=q("songListPane"), detail=q("songDetailPane");
     if(list)list.classList.add("hidden");
     if(detail)detail.classList.remove("hidden");
-    qa(".song-mode-tabs button").forEach(function(b){b.classList.toggle("active",b.getAttribute("data-song-tab")==="jp");});
-    renderDetail();
-    prepareYoutube(song);
-    try{q("songDetailScroll").scrollTop=0;}catch(_e){}
-  }
-  async function loadSongs(){
-    initSupabase();
-    if(!supabaseClient){
-      songs = demoSongs.slice();
-      renderList();
-      updateAdminUi();
-      return;
-    }
-    var query = supabaseClient.from("songs").select("*").order("artist_romaji",{ascending:true}).order("title_romaji",{ascending:true});
-    if(!isAdmin) query = query.eq("status","published");
-    var result = await query;
-    if(result.error){
-      songs = demoSongs.slice();
-      renderList("Gagal mengambil data Supabase. Menampilkan data demo.");
-      return;
-    }
-    songs = (result.data&&result.data.length?result.data:demoSongs.slice()).map(enrichSongBreakdown);
-    renderList();
-    updateArtistSuggestions();
-  }
-  function enrichSongBreakdown(song){
-    if(!song.vocabulary)song.vocabulary=detectVocabulary(song.japanese_lyrics||"");
-    if(!song.grammar)song.grammar=detectGrammar(song.japanese_lyrics||"");
-    return song;
-  }
-  function renderList(message){
-    var box=q("songListGrid"); if(!box)return;
-    var input=q("songSearchInput");
-    var term=(input&&input.value?input.value:"").toLowerCase().trim();
-    var visible=songs.filter(function(song){
-      if(!isAdmin && song.status!=="published")return false;
-      if(isAdmin && activeStatusFilter!=="all" && song.status!==activeStatusFilter)return false;
-      var hay=[displaySong(song), songTheme(song), songYear(song), song.status, song.song_code].join(" ").toLowerCase();
-      return !term || hay.indexOf(term)>=0;
-    }).sort(function(a,b){
-      return displaySong(a).localeCompare(displaySong(b), "id", {sensitivity:"base"});
+    qa("[data-song-tab]").forEach(function(btn){
+      btn.classList.toggle("active", btn.getAttribute("data-song-tab")==="jp");
     });
-    if(message){
-      box.innerHTML='<div class="song-empty">'+esc(message)+'</div>';
-      return;
-    }
-    if(!visible.length){
-      box.innerHTML='<div class="song-empty">Tidak ada lagu yang cocok.</div>';
-      return;
-    }
-    box.innerHTML="";
-    visible.forEach(function(song){
-      var row=document.createElement("div");
-      row.className="song-row";
-      var status = isAdmin ? '<span class="song-status-pill">'+esc(song.status||"draft")+'</span>' : "";
-      row.innerHTML=
-        '<button class="song-row-main" type="button" data-open-song="'+esc(song.id)+'">'+
-          '<span class="song-row-title">'+esc(displaySong(song))+status+'</span>'+
-          '<span class="song-row-meta">'+esc(songYear(song))+' • '+esc(songTheme(song))+'</span>'+
-        '</button>'+
-        '<div class="song-row-actions">'+renderRowActions(song)+'</div>';
-      box.appendChild(row);
-    });
-  }
-  function renderRowActions(song){
-    if(isAdmin && song.status==="archived"){
-      return '<button class="song-row-action restore" data-restore-song="'+esc(song.id)+'" type="button">Restore</button>';
-    }
-    var html='<button class="song-row-action play" data-open-song="'+esc(song.id)+'" type="button">▶</button>';
-    if(isAdmin){
-      html += '<button class="song-row-action" data-edit-song="'+esc(song.id)+'" type="button">Edit</button>';
-      if(song.status==="published"){
-        html += '<button class="song-row-action" data-status-song="'+esc(song.id)+'" data-next-status="draft" type="button">Unpublish</button>';
-      }else{
-        html += '<button class="song-row-action" data-status-song="'+esc(song.id)+'" data-next-status="published" type="button">Publish</button>';
-      }
-      html += '<button class="song-row-action danger" data-archive-song="'+esc(song.id)+'" type="button">Hapus</button>';
-    }
-    return html;
-  }
-  function renderDetail(){
-    if(!activeSong)return;
-    q("songDetailInfo").textContent = displaySong(activeSong)+" • "+songYear(activeSong)+" • "+songTheme(activeSong);
+    updateSongInfo();
+    updateZoomControls();
     renderContent();
-    updatePlayerButtons();
+    prepareYouTube(activeSong);
+    resetScroll();
+  }
+  function updateSongInfo(){
+    var info=q("songDetailInfo");
+    if(info && activeSong)info.textContent=displaySong(activeSong)+" • "+metaSong(activeSong);
+  }
+  function textBlock(value, cls){
+    return '<pre class="song-lyrics-text '+(cls||'')+'">'+esc(String(value||"Belum ada data.").trim())+'</pre>';
   }
   function renderContent(){
-    var area=q("songContentArea"); if(!area||!activeSong)return;
-    if(activeTab==="jp"){
-      area.innerHTML='<pre class="song-lyrics-text jp">'+esc(textLines(activeSong.japanese_lyrics))+'</pre>';
-      return;
+    var area=q("songContentArea");
+    if(!area || !activeSong)return;
+    if(activeTab==="jp") area.innerHTML=textBlock(activeSong.japanese_lyrics, "jp");
+    else if(activeTab==="romaji") area.innerHTML=textBlock(activeSong.romaji_lyrics, "romaji");
+    else if(activeTab==="arti") area.innerHTML=textBlock(activeSong.indonesian_translation, "arti");
+    else area.innerHTML=renderBreakdown();
+    applyLyricZoom();
+    bindBreakdownRuntime();
+  }
+  function setTab(tab){
+    activeTab=tab;
+    qa("[data-song-tab]").forEach(function(btn){btn.classList.toggle("active", btn.getAttribute("data-song-tab")===tab);});
+    renderContent();
+    resetScroll();
+  }
+  function allText(song){return String(song && song.japanese_lyrics || "");}
+  function itemMatchesLyrics(item, lyrics){
+    var arr=[item.word].concat(item.matches||[]);
+    return arr.some(function(token){return token && lyrics.indexOf(token)>-1;});
+  }
+  function breakdownVocab(song){
+    var lyrics=allText(song);
+    return VOCABULARY.filter(function(item){return itemMatchesLyrics(item, lyrics);})
+      .sort(function(a,b){
+        var ia=lyrics.indexOf((a.matches&&a.matches[0])||a.word); if(ia<0)ia=999999;
+        var ib=lyrics.indexOf((b.matches&&b.matches[0])||b.word); if(ib<0)ib=999999;
+        return ia-ib || a.word.localeCompare(b.word,"ja");
+      });
+  }
+  function breakdownGrammar(song){
+    var lyrics=allText(song);
+    return GRAMMAR.filter(function(item){
+      var hay=(item.example||"")+" "+(item.pattern||"");
+      return hay.split(/[\/／,， ]+/).some(function(token){return token && lyrics.indexOf(token)>-1;}) || lyrics.indexOf(String(item.example||"").split(" ")[0])>-1;
+    });
+  }
+  function filterBreakdown(items){
+    var query=breakdownQuery.toLowerCase().trim();
+    if(!query)return items;
+    return items.filter(function(item){
+      var hay=Object.keys(item).map(function(k){return String(item[k]||"");}).join(" ").toLowerCase();
+      return hay.indexOf(query)>-1;
+    });
+  }
+  function renderSignal(level){
+    var bars="";
+    for(var i=1;i<=10;i++){
+      bars+='<i class="'+(i<=level?'on':'')+'"></i>';
     }
-    if(activeTab==="romaji"){
-      area.innerHTML='<pre class="song-lyrics-text romaji">'+esc(textLines(activeSong.romaji_lyrics))+'</pre>';
-      return;
-    }
-    if(activeTab==="arti"){
-      area.innerHTML='<pre class="song-lyrics-text arti">'+esc(textLines(activeSong.indonesian_translation))+'</pre>';
-      return;
-    }
-    var rows = activeBreakdownTab==="vocab" ? (activeSong.vocabulary||[]) : (activeSong.grammar||[]);
-    area.innerHTML=
-      '<div class="song-breakdown-wrap">'+
-        '<div class="song-breakdown-tabs" role="tablist" aria-label="Breakdown">'+
-          '<button class="'+(activeBreakdownTab==="vocab"?"active":"")+'" data-breakdown-tab="vocab" type="button">Kosakata</button>'+
-          '<button class="'+(activeBreakdownTab==="grammar"?"active":"")+'" data-breakdown-tab="grammar" type="button">Pola Kalimat</button>'+
-        '</div>'+
-        '<div class="song-breakdown-list">'+
-          rows.map(function(item,idx){return activeBreakdownTab==="vocab" ? vocabButton(item,idx) : grammarButton(item,idx);}).join("")+
-        '</div>'+
+    return '<span class="song-signal" aria-label="Level auto scroll '+level+'">'+bars+'</span>';
+  }
+  function renderBreakdown(){
+    var isVocab=activeBreakdownTab==="vocab";
+    var all=isVocab ? breakdownVocab(activeSong) : breakdownGrammar(activeSong);
+    var items=filterBreakdown(all);
+    var placeholder=isVocab ? "Cari kosakata..." : "Cari pola kalimat...";
+    var html='<div class="song-breakdown-wrap">'+
+      '<label class="song-breakdown-search"><span>🔍</span><input id="songBreakdownSearchInput" type="search" value="'+esc(breakdownQuery)+'" placeholder="'+placeholder+'" autocomplete="off"/></label>'+
+      '<div class="song-breakdown-tabs" role="tablist" aria-label="Breakdown">'+
+      '<button data-breakdown-tab="vocab" class="'+(isVocab?'active':'')+'" type="button">Kosakata</button>'+
+      '<button data-breakdown-tab="grammar" class="'+(!isVocab?'active':'')+'" type="button">Pola Kalimat</button>'+
       '</div>';
-  }
-  function vocabButton(item,idx){
-    var group=item.verb_group ? " • "+item.verb_group : "";
-    return '<button class="song-breakdown-link" data-vocab-index="'+idx+'" type="button"><b>'+esc(item.word||"—")+'</b>'+(item.reading?'（'+esc(item.reading)+'）':'')+'<small>'+esc(item.meaning||"")+esc(group)+'</small></button>';
-  }
-  function grammarButton(item,idx){
-    return '<button class="song-breakdown-link" data-grammar-index="'+idx+'" type="button"><b>'+esc(item.pattern||"—")+'</b><small>'+esc(item.meaning||"")+'</small></button>';
-  }
-  function openVocab(index){
-    var item=(activeSong&&activeSong.vocabulary||[])[index]; if(!item)return;
-    q("songFlashType").textContent="KOSAKATA";
-    q("songFlashTitle").textContent=item.word||"—";
-    q("songFlashReading").textContent=item.reading?("Reading: "+item.reading):"";
-    q("songFlashMeaning").textContent="Arti: "+(item.meaning||"-")+(item.pos?" • "+item.pos:"")+(item.verb_group?" • Golongan: "+item.verb_group:"");
-    q("songFlashExample").textContent="";
-    q("songFlashNote").textContent=item.note||"";
-    openModal("songFlashModal");
-  }
-  function openGrammar(index){
-    var item=(activeSong&&activeSong.grammar||[])[index]; if(!item)return;
-    q("songFlashType").textContent="POLA KALIMAT";
-    q("songFlashTitle").textContent=item.pattern||"—";
-    q("songFlashReading").textContent="Makna: "+(item.meaning||"-");
-    q("songFlashMeaning").textContent="Contoh: "+(item.example||"-");
-    q("songFlashExample").textContent=item.romaji?("Romaji: "+item.romaji):"";
-    q("songFlashNote").textContent=item.explanation||"";
-    openModal("songFlashModal");
-  }
-  function openModal(id){var m=q(id); if(m)m.classList.remove("hidden");}
-  function closeModal(id){var m=q(id); if(m)m.classList.add("hidden");}
-  function updateAdminUi(){
-    var bar=q("songAdminBar"), email=q("songAdminEmail");
-    if(bar)bar.classList.toggle("hidden",!isAdmin);
-    if(email)email.textContent=currentUser&&currentUser.email?("Admin mode: "+currentUser.email):"Admin mode";
-    updateArtistSuggestions();
-  }
-  async function checkExistingSession(){
-    initSupabase();
-    if(!supabaseClient)return;
-    var res=await supabaseClient.auth.getSession();
-    var user=res && res.data && res.data.session && res.data.session.user;
-    if(user){
-      currentUser=user;
-      isAdmin=await verifyAdmin(user.email);
-      updateAdminUi();
-      await loadSongs();
+    if(!items.length){
+      html+='<div class="song-empty">Tidak ada hasil yang cocok.</div></div>';
+      return html;
     }
-  }
-  async function verifyAdmin(email){
-    if(!supabaseClient||!email)return false;
-    var res=await supabaseClient.from("admin_users").select("email,role").ilike("email",email).limit(1);
-    return !res.error && res.data && res.data.length>0;
-  }
-  async function loginAdmin(){
-    initSupabase();
-    var msg=q("songLoginMessage"); if(msg)msg.textContent="";
-    if(!supabaseClient){
-      if(msg)msg.textContent="Supabase belum dikonfigurasi. Ganti SUPABASE_URL dan SUPABASE_ANON_KEY di kode.";
-      return;
-    }
-    var email=(q("songLoginEmail").value||"").trim();
-    var password=q("songLoginPassword").value||"";
-    var res=await supabaseClient.auth.signInWithPassword({email:email,password:password});
-    if(res.error){if(msg)msg.textContent=res.error.message; return;}
-    currentUser=res.data.user;
-    isAdmin=await verifyAdmin(currentUser.email);
-    if(!isAdmin){
-      await supabaseClient.auth.signOut();
-      currentUser=null;
-      if(msg)msg.textContent="Akses hanya untuk admin. Email ini belum ada di tabel admin_users.";
-      return;
-    }
-    closeModal("songAdminModal");
-    updateAdminUi();
-    await loadSongs();
-    openSongForm(null);
-  }
-  async function sendResetPassword(){
-    initSupabase();
-    var msg=q("songResetMessage"); if(msg)msg.textContent="";
-    if(!supabaseClient){if(msg)msg.textContent="Supabase belum dikonfigurasi."; return;}
-    var email=(q("songResetEmail").value||q("songLoginEmail").value||"").trim();
-    var res=await supabaseClient.auth.resetPasswordForEmail(email,{redirectTo:window.location.href});
-    if(msg)msg.textContent=res.error?res.error.message:"Link reset password sudah dikirim jika email terdaftar.";
-  }
-  async function logoutAdmin(){
-    if(supabaseClient)await supabaseClient.auth.signOut();
-    currentUser=null; isAdmin=false; activeStatusFilter="all";
-    updateAdminUi(); await loadSongs();
-  }
-  function openAdminEntry(){
-    if(isAdmin){openSongForm(null); return;}
-    q("songLoginPanel").classList.remove("hidden");
-    q("songForgotPanel").classList.add("hidden");
-    q("songLoginMessage").textContent="";
-    openModal("songAdminModal");
-  }
-  function openSongForm(song){
-    editingSong=song||null;
-    formStep=1;
-    q("songFormTitle").textContent=editingSong?"Edit Lagu":"Tambah Lagu";
-    q("songArtistInput").value=editingSong?editingSong.artist_romaji:"";
-    q("songTitleInput").value=editingSong?editingSong.title_romaji:"";
-    q("songJapaneseInput").value=editingSong?editingSong.japanese_lyrics:"";
-    q("songRomajiInput").value=editingSong?editingSong.romaji_lyrics:"";
-    q("songIndonesianInput").value=editingSong?editingSong.indonesian_translation:"";
-    q("songYoutubeUrlInput").value=editingSong?editingSong.youtube_url:"";
-    qa('input[name="songSourceType"]').forEach(function(r){r.checked=(r.value===(editingSong?editingSong.source_type:"youtube"));});
-    q("songFormMessage").textContent="";
-    updateFormStep();
-    openModal("songFormModal");
-  }
-  function updateFormStep(){
-    [1,2,3,4].forEach(function(n){
-      var step=q("songFormStep"+n); if(step)step.classList.toggle("hidden",n!==formStep);
-      var dot=document.querySelector('[data-song-step-dot="'+n+'"]'); if(dot)dot.classList.toggle("active",n===formStep);
+    html+='<div class="song-breakdown-list">';
+    items.forEach(function(item,idx){
+      if(isVocab){
+        var group=item.verb_group ? " • "+item.verb_group : "";
+        html+='<button class="song-breakdown-link" data-breakdown-kind="vocab" data-breakdown-index="'+idx+'" type="button"><b>'+esc(item.word)+'（'+esc(item.reading||"")+'）</b><small>'+esc(item.meaning||"")+esc(group)+'</small></button>';
+      }else{
+        html+='<button class="song-breakdown-link" data-breakdown-kind="grammar" data-breakdown-index="'+idx+'" type="button"><b>'+esc(item.pattern||"")+'</b><small>'+esc(item.meaning||"")+'</small></button>';
+      }
     });
-    q("songFormPrevBtn").classList.toggle("hidden",formStep===1);
-    q("songFormNextBtn").classList.toggle("hidden",formStep===4);
-    q("songFormSaveBtn").classList.toggle("hidden",formStep!==4);
-    if(formStep===4)renderPreview();
+    html+='</div></div>';
+    window.__mjeCurrentBreakdownItems=items;
+    return html;
   }
-  function formDraft(){
-    var source=(document.querySelector('input[name="songSourceType"]:checked')||{value:"youtube"}).value;
-    var artist=titleCase(q("songArtistInput").value);
-    var title=songTitleCase(q("songTitleInput").value);
-    var ind=q("songIndonesianInput").value||"";
-    var year=lookupYear(artist,title);
-    return {
-      artist_romaji:artist,
-      title_romaji:title,
-      year:year,
-      theme:analyzeTheme(ind+" "+q("songJapaneseInput").value+" "+q("songRomajiInput").value),
-      japanese_lyrics:q("songJapaneseInput").value.trim(),
-      romaji_lyrics:q("songRomajiInput").value.trim(),
-      indonesian_translation:ind.trim(),
-      source_type:source,
-      youtube_url:source==="youtube" ? q("songYoutubeUrlInput").value.trim() : "",
-      status: editingSong ? editingSong.status : "draft"
-    };
-  }
-  function renderPreview(){
-    var d=formDraft();
-    q("songPreviewBox").innerHTML=
-      '<b>'+esc(d.artist_romaji||"-")+' - '+esc(d.title_romaji||"-")+'</b>'+
-      '<span>Year: '+esc(d.year||"-")+'</span>'+
-      '<span>Theme: '+esc(d.theme||"-")+'</span>'+
-      '<span>Source: '+esc(d.source_type)+(d.youtube_url?' • '+esc(d.youtube_url):'')+'</span>'+
-      '<span>Status: '+esc(d.status||"draft")+'</span>';
-  }
-  function lookupYear(artist,title){
-    var key=(artist+" - "+title).toLowerCase();
-    var table={};
-    return table[key] || "-";
-  }
-  function analyzeTheme(text){
-    text=String(text||"").toLowerCase();
-    var rules=[
-      ["dukungan/keluarga",["dukung","support","khawatir","pulang","keluarga","menunggu","semangat","ganbat","shinpai","kaette","matte"]],
-      ["cinta/perasaan",["cinta","hati","sayang","perasaan","aisuru","kokoro"]],
-      ["rindu/kenangan",["rindu","kenangan","sabish","masa lalu"]],
-      ["harapan/perjalanan hidup",["harapan","mimpi","hidup","masa depan","jinsei","ikiru"]]
-    ];
-    var best=rules[0], score=-1;
-    rules.forEach(function(rule){
-      var n=0; rule[1].forEach(function(k){if(text.indexOf(k)>=0)n++;});
-      if(n>score){score=n; best=rule;}
+  function bindBreakdownRuntime(){
+    qa("[data-breakdown-tab]").forEach(function(btn){
+      btn.addEventListener("click",function(){
+        activeBreakdownTab=btn.getAttribute("data-breakdown-tab");
+        breakdownQuery="";
+        renderContent();
+      });
     });
-    return best[0];
-  }
-  function generateSongCode(){
-    var d=new Date();
-    var pad=function(n){return String(n).padStart(2,"0");};
-    return "MJE-LAGU-"+d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate())+"-"+pad(d.getHours())+pad(d.getMinutes())+pad(d.getSeconds());
-  }
-  async function saveSong(){
-    if(!isAdmin||!supabaseClient){q("songFormMessage").textContent="Supabase admin belum aktif."; return;}
-    var data=formDraft();
-    if(!data.artist_romaji||!data.title_romaji||!data.japanese_lyrics||!data.romaji_lyrics){
-      q("songFormMessage").textContent="Artist, judul, lirik Jepang, dan romaji wajib diisi.";
-      return;
+    var input=q("songBreakdownSearchInput");
+    if(input){
+      input.addEventListener("input",function(){
+        breakdownQuery=input.value;
+        renderContent();
+        var n=q("songBreakdownSearchInput");
+        if(n){n.focus(); try{n.setSelectionRange(n.value.length,n.value.length);}catch(_e){}}
+      });
     }
-    var now=new Date().toISOString();
-    if(editingSong){
-      data.updated_at=now;
-      data.updated_by=currentUser.id;
-      var res=await supabaseClient.from("songs").update(data).eq("id",editingSong.id);
-      if(res.error){q("songFormMessage").textContent=res.error.message; return;}
-    }else{
-      // song_code otomatis dibuat oleh trigger Supabase: MJE-LAGU-000001, MJE-LAGU-000002, dst.
-      data.created_at=now;
-      data.created_by=currentUser.id;
-      data.updated_at=now;
-      data.updated_by=currentUser.id;
-      data.published_at=null;
-      var ins=await supabaseClient.from("songs").insert(data);
-      if(ins.error){q("songFormMessage").textContent=ins.error.message; return;}
-    }
-    closeModal("songFormModal");
-    await loadSongs();
-  }
-  function askConfirm(title,text,callback){
-    q("songConfirmTitle").textContent=title;
-    q("songConfirmText").textContent=text;
-    confirmCallback=callback;
-    openModal("songConfirmModal");
-  }
-  async function updateSongStatus(song,nextStatus){
-    if(!supabaseClient||!isAdmin)return;
-    var data={status:nextStatus,updated_at:new Date().toISOString(),updated_by:currentUser.id};
-    if(nextStatus==="published")data.published_at=new Date().toISOString();
-    var res=await supabaseClient.from("songs").update(data).eq("id",song.id);
-    if(!res.error)await loadSongs();
-  }
-  function updateArtistSuggestions(){
-    var list=q("songArtistSuggestions"); if(!list)return;
-    var names={};
-    songs.forEach(function(song){if(song.artist_romaji)names[song.artist_romaji]=true;});
-    list.innerHTML=Object.keys(names).sort().map(function(name){return '<option value="'+esc(name)+'"></option>';}).join("");
-  }
-  function loadYoutubeApi(callback){
-    if(youtubeApiReady && window.YT && window.YT.Player){callback(); return;}
-    youtubeApiCallbacks.push(callback);
-    if(document.getElementById("youtube-iframe-api"))return;
-    window.onYouTubeIframeAPIReady=function(){
-      youtubeApiReady=true;
-      youtubeApiCallbacks.splice(0).forEach(function(cb){try{cb();}catch(_e){}});
-    };
-    var tag=document.createElement("script");
-    tag.id="youtube-iframe-api";
-    tag.src="https://www.youtube.com/iframe_api";
-    document.head.appendChild(tag);
-  }
-  function prepareYoutube(song){
-    destroyYoutube();
-    isPlaying=false;
-    if(!song || song.source_type!=="youtube" || !song.youtube_url){updatePlayerButtons(); return;}
-    var vid=youtubeIdFromUrl(song.youtube_url);
-    if(!vid){updatePlayerButtons(); return;}
-    loadYoutubeApi(function(){
-      var holder=q("songHiddenYoutubePlayer");
-      if(!holder)return;
-      holder.innerHTML="";
-      youtubePlayer = new YT.Player("songHiddenYoutubePlayer", {
-        width:"1",
-        height:"1",
-        videoId:vid,
-        playerVars:{playsinline:1,controls:0,disablekb:1,modestbranding:1,rel:0},
-        events:{
-          onStateChange:function(ev){
-            isPlaying = ev.data === YT.PlayerState.PLAYING;
-            updatePlayerButtons();
-          }
-        }
+    qa(".song-breakdown-link").forEach(function(btn){
+      btn.addEventListener("click",function(){
+        var idx=Number(btn.getAttribute("data-breakdown-index"));
+        var item=(window.__mjeCurrentBreakdownItems||[])[idx];
+        var kind=btn.getAttribute("data-breakdown-kind");
+        openFlash(kind,item);
       });
     });
   }
-  function destroyYoutube(){
-    try{ if(youtubePlayer && youtubePlayer.destroy)youtubePlayer.destroy(); }catch(_e){}
-    youtubePlayer=null;
-    var holder=q("songHiddenYoutubePlayer"); if(holder)holder.innerHTML="";
+  function openFlash(kind,item){
+    if(!item)return;
+    var modal=q("songFlashModal");
+    if(!modal)return;
+    q("songFlashType").textContent=kind==="vocab" ? "KOSAKATA" : "POLA KALIMAT";
+    if(kind==="vocab"){
+      q("songFlashTitle").textContent=item.word || "";
+      q("songFlashReading").innerHTML=item.reading ? "<b>Reading:</b> "+esc(item.reading) : "";
+      q("songFlashMeaning").innerHTML=item.meaning ? "<b>Arti:</b> "+esc(item.meaning) : "";
+      var ex=item.verb_group ? "<b>Golongan:</b> "+esc(item.verb_group) : "";
+      q("songFlashExample").innerHTML=ex;
+      q("songFlashNote").textContent=item.note || "";
+    }else{
+      q("songFlashTitle").textContent=item.pattern || "";
+      q("songFlashReading").innerHTML=item.meaning ? "<b>Arti:</b> "+esc(item.meaning) : "";
+      q("songFlashMeaning").innerHTML=item.example ? "<b>Contoh:</b> "+esc(item.example) : "";
+      q("songFlashExample").innerHTML=item.romaji ? "<b>Romaji:</b> "+esc(item.romaji) : "";
+      q("songFlashNote").textContent=item.explanation || "";
+    }
+    modal.classList.remove("hidden");
+  }
+  function closeFlash(){
+    var modal=q("songFlashModal");
+    if(modal)modal.classList.add("hidden");
+  }
+  function youtubeIdFromUrl(url){
+    url=String(url||"").trim();
+    if(!url)return "";
+    var m=url.match(/[?&]v=([^&]+)/)||url.match(/youtu\.be\/([^?&]+)/)||url.match(/embed\/([^?&]+)/)||url.match(/shorts\/([^?&]+)/);
+    return m ? decodeURIComponent(m[1]) : "";
+  }
+  function ensureYouTubeApi(cb){
+    if(window.YT && window.YT.Player){youtubeApiReady=true; cb(); return;}
+    youtubeApiCallbacks.push(cb);
+    if(window.__mjeYouTubeLoading)return;
+    window.__mjeYouTubeLoading=true;
+    var prev=window.onYouTubeIframeAPIReady;
+    window.onYouTubeIframeAPIReady=function(){
+      youtubeApiReady=true;
+      if(typeof prev==="function")try{prev();}catch(_e){}
+      youtubeApiCallbacks.splice(0).forEach(function(fn){try{fn();}catch(_e){}});
+    };
+    var tag=document.createElement("script");
+    tag.src="https://www.youtube.com/iframe_api";
+    document.head.appendChild(tag);
+  }
+  function prepareYouTube(song){
+    isPlaying=false;
+    updatePlayButton();
+    var id=youtubeIdFromUrl(song && song.youtube_url);
+    if(!id || song.source_type!=="youtube")return;
+    ensureYouTubeApi(function(){
+      if(youtubePlayer && youtubePlayer.loadVideoById){
+        try{youtubePlayer.loadVideoById({videoId:id,startSeconds:0}); youtubePlayer.pauseVideo();}catch(_e){}
+        return;
+      }
+      var host=q("songHiddenYoutubePlayer");
+      if(!host)return;
+      try{
+        youtubePlayer=new YT.Player("songHiddenYoutubePlayer", {
+          height:"1",
+          width:"1",
+          videoId:id,
+          playerVars:{playsinline:1,controls:0,rel:0,modestbranding:1},
+          events:{
+            onReady:function(e){try{e.target.pauseVideo();}catch(_e){}},
+            onStateChange:function(e){
+              isPlaying=(e.data===YT.PlayerState.PLAYING);
+              updatePlayButton();
+            }
+          }
+        });
+      }catch(_e){}
+    });
   }
   function togglePlayPause(){
-    if(!activeSong || activeSong.source_type!=="youtube" || !activeSong.youtube_url){
-      toggleAutoScroll();
+    if(!activeSong)return;
+    if(activeSong.source_type!=="youtube" || !youtubeIdFromUrl(activeSong.youtube_url)){
+      isPlaying=!isPlaying;
+      updatePlayButton();
       return;
     }
-    if(!youtubePlayer || !youtubePlayer.playVideo){
-      prepareYoutube(activeSong);
-      return;
-    }
-    try{
-      if(isPlaying){youtubePlayer.pauseVideo(); isPlaying=false;}
-      else{youtubePlayer.playVideo(); isPlaying=true;}
-      updatePlayerButtons();
-    }catch(_e){}
-  }
-  function pauseYoutube(){
-    try{if(youtubePlayer && youtubePlayer.pauseVideo)youtubePlayer.pauseVideo();}catch(_e){}
-    isPlaying=false; updatePlayerButtons();
+    ensureYouTubeApi(function(){
+      if(!youtubePlayer || !youtubePlayer.playVideo){prepareYouTube(activeSong); setTimeout(togglePlayPause,600); return;}
+      try{
+        var state=youtubePlayer.getPlayerState ? youtubePlayer.getPlayerState() : -1;
+        if(state===1){youtubePlayer.pauseVideo(); isPlaying=false;}
+        else {youtubePlayer.playVideo(); isPlaying=true;}
+      }catch(_e){}
+      updatePlayButton();
+    });
   }
   function restartSong(){
-    var scroller=q("songDetailScroll"); if(scroller)scroller.scrollTop=0;
     if(youtubePlayer && youtubePlayer.seekTo){
       try{youtubePlayer.seekTo(0,true); youtubePlayer.playVideo(); isPlaying=true;}catch(_e){}
+    }else{
+      resetScroll();
+      isPlaying=true;
     }
-    updatePlayerButtons();
+    updatePlayButton();
   }
-  function updatePlayerButtons(){
-    var play=q("songPlayPauseBtn"), auto=q("songAutoScrollBtn"), speed=q("songSpeedBtn");
-    if(play)play.textContent=isPlaying?"⏸":"▶";
-    if(auto){auto.classList.toggle("active",autoScrollOn); auto.textContent=autoScrollOn?"Auto✓":"Auto";}
-    if(speed)speed.textContent=scrollSpeed+"x";
+  function stopYoutube(){
+    if(youtubePlayer && youtubePlayer.pauseVideo)try{youtubePlayer.pauseVideo();}catch(_e){}
+    isPlaying=false;
+    updatePlayButton();
   }
-  function toggleAutoScroll(){
-    autoScrollOn=!autoScrollOn;
-    if(autoScrollOn)startAutoScroll(); else stopAutoScroll();
-    updatePlayerButtons();
+  function updatePlayButton(){
+    var btn=q("songPlayPauseBtn");
+    if(btn)btn.textContent=isPlaying ? "⏸" : "▶";
+  }
+  function resetScroll(){
+    var sc=q("songDetailScroll");
+    if(sc)sc.scrollTop=0;
+  }
+  function speedPxPerSecond(){
+    return 10 + (autoSpeedLevel * 6);
   }
   function startAutoScroll(){
-    if(scrollRaf)cancelAnimationFrame(scrollRaf);
+    if(!activeSong)return;
+    if(!autoSpeedLevel)autoSpeedLevel=1;
     autoScrollOn=true;
+    updateAutoButton();
     scrollLastTs=0;
-    var step=function(ts){
-      if(!autoScrollOn)return;
-      var scroller=q("songDetailScroll");
-      if(scroller){
-        if(!scrollLastTs)scrollLastTs=ts;
-        var delta=(ts-scrollLastTs)/1000;
-        scrollLastTs=ts;
-        scroller.scrollTop += delta * 20 * scrollSpeed;
-        if(scroller.scrollTop + scroller.clientHeight >= scroller.scrollHeight - 3){
-          autoScrollOn=false; updatePlayerButtons(); return;
-        }
-      }
-      scrollRaf=requestAnimationFrame(step);
-    };
-    scrollRaf=requestAnimationFrame(step);
+    if(scrollRaf)cancelAnimationFrame(scrollRaf);
+    scrollRaf=requestAnimationFrame(autoStep);
   }
   function stopAutoScroll(){
     autoScrollOn=false;
+    autoSpeedLevel=0;
+    updateAutoButton();
     if(scrollRaf)cancelAnimationFrame(scrollRaf);
-    scrollRaf=null; scrollLastTs=0;
-    updatePlayerButtons();
+    scrollRaf=null;
+    scrollLastTs=0;
   }
-  function cycleSpeed(){
-    var idx=scrollSpeedOptions.indexOf(scrollSpeed);
-    scrollSpeed=scrollSpeedOptions[(idx+1)%scrollSpeedOptions.length];
-    updatePlayerButtons();
+  function autoStep(ts){
+    if(!autoScrollOn)return;
+    var sc=q("songDetailScroll");
+    if(!sc){stopAutoScroll(); return;}
+    if(!scrollLastTs)scrollLastTs=ts;
+    var delta=(ts-scrollLastTs)/1000;
+    scrollLastTs=ts;
+    sc.scrollTop += speedPxPerSecond()*delta;
+    if(sc.scrollTop + sc.clientHeight >= sc.scrollHeight - 2){stopAutoScroll(); return;}
+    scrollRaf=requestAnimationFrame(autoStep);
   }
-
-  var vocabDictionary = demoSongs[0].vocabulary || [];
-  var grammarDictionary = demoSongs[0].grammar || [];
-  function detectVocabulary(japanese){
-    japanese=String(japanese||"");
-    return vocabDictionary.filter(function(item){return japanese.indexOf(item.word)>=0 || (item.word==="ムリ" && japanese.indexOf("無理")>=0);});
+  function cycleAuto(){
+    if(!autoScrollOn){autoSpeedLevel=1; startAutoScroll(); return;}
+    autoSpeedLevel += 1;
+    if(autoSpeedLevel>10){stopAutoScroll(); return;}
+    updateAutoButton();
   }
-  function detectGrammar(japanese){
-    japanese=String(japanese||"");
-    return grammarDictionary.filter(function(item){
-      var ex=item.example||"";
-      return !ex || japanese.indexOf(ex.replace(/\s/g,""))>=0 || japanese.length>0;
-    });
+  function updateAutoButton(){
+    var btn=q("songAutoScrollBtn");
+    if(!btn)return;
+    if(autoScrollOn && autoSpeedLevel>0){
+      btn.classList.add("active");
+      btn.innerHTML=renderSignal(autoSpeedLevel);
+      btn.title="Auto-scroll level "+autoSpeedLevel+" / klik untuk naik level";
+    }else{
+      btn.classList.remove("active");
+      btn.textContent="Auto";
+      btn.title="Auto-scroll";
+    }
   }
-
-  function relabelDashboardAndMenu(){
-    function setText(node,text){if(node && node.textContent!==text)node.textContent=text;}
-    setText(document.querySelector("#menuBunpouBtn b"),"Belajar Lewat Lagu");
-    setText(document.querySelector("#menuBunpouBtn small"),"Lirik, romaji, arti, kosakata");
-    setText(document.querySelector("#menuBunpouBtn .menu-symbol"),"♫");
-    setText(document.querySelector("#dashboardBunpouBtn .dashboard-action-copy b"),"Belajar Lewat Lagu");
-    setText(document.querySelector("#dashboardBunpouBtn .dashboard-action-copy small"),"Belajar bahasa Jepang lewat lagu, YouTube, lirik, romaji, arti, kosakata, dan pola kalimat.");
-    setText(document.querySelector("#dashboardBunpouBtn .dashboard-card-progress"),"Song Learning Lab");
-    setText(document.querySelector("#dashboardBunpouBtn .dashboard-arrow"),"→");
-    setText(document.querySelector("#dashboardBunpouBtn .dashboard-icon"),"♫");
-    var card=q("dashboardBunpouBtn"); if(card){card.classList.remove("coming-soon-card");card.removeAttribute("aria-disabled");}
+  function clampZoom(v){return Math.max(100, Math.min(260, v));}
+  function applyLyricZoom(){
+    document.documentElement.style.setProperty("--song-lyric-scale", String(lyricZoom/100));
+    var label=q("songZoomLabel");
+    if(label)label.textContent=Math.round(lyricZoom)+"%";
+    var controls=q("songZoomControls");
+    if(controls)controls.classList.toggle("hidden", activeTab==="breakdown");
+  }
+  function updateZoomControls(){applyLyricZoom();}
+  function changeZoom(delta){
+    lyricZoom=clampZoom(lyricZoom+delta);
+    localStorage.setItem("mjeSongLyricZoom", String(lyricZoom));
+    applyLyricZoom();
   }
   function bindEvents(){
-    var menu=q("menuBunpouBtn");
-    if(menu&&!menu.dataset.songPrdBound){
-      menu.dataset.songPrdBound="1";
-      menu.addEventListener("click",function(e){e.preventDefault();e.stopPropagation();closeMenu();setTimeout(showSongView,60);},true);
-    }
-    var dash=q("dashboardBunpouBtn");
-    if(dash&&!dash.dataset.songPrdBound){
-      dash.dataset.songPrdBound="1";
-      dash.addEventListener("click",function(e){e.preventDefault();e.stopPropagation();showSongView();},true);
-    }
-    var backDash=q("bunpouBackBtn");
-    if(backDash&&!backDash.dataset.songPrdBound){
-      backDash.dataset.songPrdBound="1";
-      backDash.addEventListener("click",function(e){e.preventDefault();stopAutoScroll();pauseYoutube();hideAllViews();var d=q("dashboardView");if(d)d.classList.remove("hidden");},true);
-    }
-    var backList=q("songBackListBtn");
-    if(backList&&!backList.dataset.songPrdBound){
-      backList.dataset.songPrdBound="1";
-      backList.addEventListener("click",function(e){e.preventDefault();showSongList();});
-    }
-    var search=q("songSearchInput");
-    if(search&&!search.dataset.songPrdBound){
-      search.dataset.songPrdBound="1";
-      search.addEventListener("input",function(){renderList();});
-    }
-    q("songAdminAddBtn").addEventListener("click",openAdminEntry);
-    q("songAdminLogoutBtn").addEventListener("click",logoutAdmin);
-    q("songLoginBtn").addEventListener("click",loginAdmin);
-    q("songForgotPasswordOpenBtn").addEventListener("click",function(){q("songLoginPanel").classList.add("hidden");q("songForgotPanel").classList.remove("hidden");q("songResetEmail").value=q("songLoginEmail").value||"";});
-    q("songBackToLoginBtn").addEventListener("click",function(){q("songForgotPanel").classList.add("hidden");q("songLoginPanel").classList.remove("hidden");});
-    q("songSendResetBtn").addEventListener("click",sendResetPassword);
-    q("songFormPrevBtn").addEventListener("click",function(){formStep=Math.max(1,formStep-1);updateFormStep();});
-    q("songFormNextBtn").addEventListener("click",function(){formStep=Math.min(4,formStep+1);updateFormStep();});
-    q("songFormSaveBtn").addEventListener("click",saveSong);
-    q("songPlayPauseBtn").addEventListener("click",togglePlayPause);
-    q("songRestartBtn").addEventListener("click",restartSong);
-    q("songAutoScrollBtn").addEventListener("click",toggleAutoScroll);
-    q("songSpeedBtn").addEventListener("click",cycleSpeed);
-    document.addEventListener("click",function(e){
-      var open=e.target.closest("[data-open-song]");
-      if(open){showSongDetail(open.getAttribute("data-open-song")); return;}
-      var edit=e.target.closest("[data-edit-song]");
-      if(edit){var s=songs.find(function(x){return String(x.id)===String(edit.getAttribute("data-edit-song"));}); if(s)openSongForm(s); return;}
-      var archive=e.target.closest("[data-archive-song]");
-      if(archive){var a=songs.find(function(x){return String(x.id)===String(archive.getAttribute("data-archive-song"));}); if(a)askConfirm("Yakin ingin mengarsipkan lagu ini?","Lagu tidak akan tampil untuk user umum, tapi masih bisa dipulihkan oleh admin.",function(){updateSongStatus(a,"archived");}); return;}
-      var restore=e.target.closest("[data-restore-song]");
-      if(restore){var r=songs.find(function(x){return String(x.id)===String(restore.getAttribute("data-restore-song"));}); if(r)updateSongStatus(r,"draft"); return;}
-      var status=e.target.closest("[data-status-song]");
-      if(status){var st=songs.find(function(x){return String(x.id)===String(status.getAttribute("data-status-song"));}); var ns=status.getAttribute("data-next-status"); if(st)askConfirm(ns==="published"?"Yakin ingin publish lagu ini?":"Unpublish lagu ini?","Status lagu akan berubah menjadi "+ns+".",function(){updateSongStatus(st,ns);}); return;}
-      var bt=e.target.closest("[data-breakdown-tab]");
-      if(bt){activeBreakdownTab=bt.getAttribute("data-breakdown-tab");renderContent(); return;}
-      var vi=e.target.closest("[data-vocab-index]");
-      if(vi){openVocab(Number(vi.getAttribute("data-vocab-index"))); return;}
-      var gi=e.target.closest("[data-grammar-index]");
-      if(gi){openGrammar(Number(gi.getAttribute("data-grammar-index"))); return;}
-      var tab=e.target.closest("[data-song-tab]");
-      if(tab){activeTab=tab.getAttribute("data-song-tab")||"jp";qa(".song-mode-tabs button").forEach(function(b){b.classList.toggle("active",b===tab);});renderContent();try{q("songDetailScroll").scrollTop=0;}catch(_e){} return;}
-      var filter=e.target.closest("[data-song-status-filter]");
-      if(filter){activeStatusFilter=filter.getAttribute("data-song-status-filter")||"all";qa("[data-song-status-filter]").forEach(function(b){b.classList.toggle("active",b===filter);});renderList(); return;}
-      var close=e.target.closest("[data-song-close-modal]");
-      if(close){closeModal({admin:"songAdminModal",form:"songFormModal",flash:"songFlashModal",confirm:"songConfirmModal"}[close.getAttribute("data-song-close-modal")]); return;}
-    });
-    q("songConfirmCancelBtn").addEventListener("click",function(){confirmCallback=null;closeModal("songConfirmModal");});
-    q("songConfirmOkBtn").addEventListener("click",function(){var cb=confirmCallback;confirmCallback=null;closeModal("songConfirmModal");if(cb)cb();});
-    document.addEventListener("keydown",function(e){if(e.key==="Escape"){["songAdminModal","songFormModal","songFlashModal","songConfirmModal"].forEach(closeModal);}});
-  }
-  async function initialize(){
     relabelDashboardAndMenu();
+    var dash=q("dashboardBunpouBtn");
+    if(dash)dash.addEventListener("click",function(e){e.preventDefault();showSongView();});
+    var menu=q("menuBunpouBtn");
+    if(menu)menu.addEventListener("click",function(e){e.preventDefault();showSongView();});
+    var back=q("bunpouBackBtn");
+    if(back)back.addEventListener("click",showDashboard);
+    var backList=q("songBackListBtn");
+    if(backList)backList.addEventListener("click",showSongList);
+    var search=q("songSearchInput");
+    if(search)search.addEventListener("input",renderList);
+    var list=q("songListGrid");
+    if(list)list.addEventListener("click",function(e){
+      var row=e.target.closest("[data-song-open]");
+      if(row)openSong(row.getAttribute("data-song-open"));
+    });
+    qa("[data-song-tab]").forEach(function(btn){
+      btn.addEventListener("click",function(){setTab(btn.getAttribute("data-song-tab"));});
+    });
+    var play=q("songPlayPauseBtn");
+    if(play)play.addEventListener("click",function(){
+      if(playClickTimer){clearTimeout(playClickTimer); playClickTimer=null; restartSong(); return;}
+      playClickTimer=setTimeout(function(){playClickTimer=null; togglePlayPause();},220);
+    });
+    var auto=q("songAutoScrollBtn");
+    if(auto)auto.addEventListener("click",cycleAuto);
+    var out=q("songZoomOutBtn"), inn=q("songZoomInBtn");
+    if(out)out.addEventListener("click",function(){changeZoom(-20);});
+    if(inn)inn.addEventListener("click",function(){changeZoom(20);});
+    qa("[data-song-close-modal='flash']").forEach(function(node){node.addEventListener("click",closeFlash);});
+    document.addEventListener("keydown",function(e){if(e.key==="Escape")closeFlash();});
+  }
+  function initialize(){
     bindEvents();
-    updateAdminUi();
     renderList();
-    await checkExistingSession();
-    window.addEventListener("pageshow",function(){relabelDashboardAndMenu();renderList();});
+    updatePlayButton();
+    updateAutoButton();
+    updateZoomControls();
+    window.addEventListener("pageshow",function(){relabelDashboardAndMenu(); renderList();});
   }
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",initialize,{once:true});
   else initialize();
