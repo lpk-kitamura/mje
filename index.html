@@ -8946,6 +8946,202 @@ body.creator-modal-open{
 }
 </style>
 
+
+<style id="mjeSongPlayerNavbarRevision">
+/* =========================================================
+   Belajar Lewat Lagu — navbar horizontal player revision
+   ========================================================= */
+.song-detail-pane{
+  grid-template-rows:auto auto auto auto minmax(0,1fr)!important;
+}
+
+.song-inline-player{
+  display:grid!important;
+  grid-template-columns:auto minmax(220px, 1fr) auto!important;
+  align-items:center!important;
+  gap:16px!important;
+  min-height:54px!important;
+  padding:7px 96px 8px 10px!important;
+  border-bottom:1px solid rgba(255,255,255,.075)!important;
+  background:linear-gradient(90deg, rgba(3,14,28,.58), rgba(10,8,14,.36))!important;
+}
+
+.song-inline-actions{
+  display:flex!important;
+  align-items:center!important;
+  gap:8px!important;
+}
+
+.song-inline-actions button,
+.song-scroll-speed button{
+  display:grid!important;
+  place-items:center!important;
+  min-width:44px!important;
+  height:40px!important;
+  padding:0 12px!important;
+  border-radius:14px!important;
+  border:1px solid rgba(124,236,255,.28)!important;
+  background:rgba(255,255,255,.055)!important;
+  color:#fff!important;
+  cursor:pointer!important;
+  font-size:18px!important;
+  font-weight:900!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07), 0 0 10px rgba(0,212,255,.06)!important;
+}
+
+.song-inline-actions button:hover,
+.song-scroll-speed button:hover{
+  border-color:rgba(0,212,255,.52)!important;
+  background:rgba(255,255,255,.09)!important;
+}
+
+.song-inline-actions button:disabled,
+.song-scroll-speed button:disabled,
+.song-progress-range:disabled{
+  opacity:.45!important;
+  cursor:not-allowed!important;
+}
+
+.song-seek-wrap{
+  display:grid!important;
+  grid-template-columns:auto minmax(170px, 1fr)!important;
+  align-items:center!important;
+  gap:12px!important;
+  min-width:0!important;
+}
+
+.song-current-time{
+  min-width:50px!important;
+  color:#fff!important;
+  font-size:15px!important;
+  font-weight:800!important;
+  letter-spacing:.03em!important;
+  font-variant-numeric:tabular-nums!important;
+}
+
+.song-progress-range{
+  width:100%!important;
+  height:28px!important;
+  cursor:pointer!important;
+  appearance:none!important;
+  -webkit-appearance:none!important;
+  background:transparent!important;
+}
+
+.song-progress-range::-webkit-slider-runnable-track{
+  height:5px!important;
+  border-radius:999px!important;
+  background:linear-gradient(90deg, rgba(124,236,255,.72), rgba(255,209,102,.72))!important;
+  box-shadow:0 0 10px rgba(0,212,255,.12)!important;
+}
+
+.song-progress-range::-webkit-slider-thumb{
+  appearance:none!important;
+  -webkit-appearance:none!important;
+  width:18px!important;
+  height:18px!important;
+  margin-top:-6.5px!important;
+  border-radius:999px!important;
+  border:2px solid #fff!important;
+  background:#ffd166!important;
+  box-shadow:0 0 0 4px rgba(255,209,102,.18), 0 0 12px rgba(0,212,255,.20)!important;
+}
+
+.song-progress-range::-moz-range-track{
+  height:5px!important;
+  border-radius:999px!important;
+  background:linear-gradient(90deg, rgba(124,236,255,.72), rgba(255,209,102,.72))!important;
+}
+
+.song-progress-range::-moz-range-thumb{
+  width:18px!important;
+  height:18px!important;
+  border-radius:999px!important;
+  border:2px solid #fff!important;
+  background:#ffd166!important;
+  box-shadow:0 0 0 4px rgba(255,209,102,.18), 0 0 12px rgba(0,212,255,.20)!important;
+}
+
+.song-scroll-speed{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  gap:9px!important;
+  white-space:nowrap!important;
+}
+
+#songAutoScrollLabel{
+  min-width:132px!important;
+  text-align:center!important;
+  color:#f2dfb1!important;
+  font-size:14px!important;
+  font-weight:800!important;
+  letter-spacing:.01em!important;
+}
+
+.song-detail-scroll{
+  padding:18px 20px 42px 12px!important;
+}
+
+@media(max-width:920px){
+  .song-inline-player{
+    grid-template-columns:auto minmax(180px,1fr)!important;
+    grid-template-areas:
+      "actions seek"
+      "speed speed"!important;
+    gap:8px 12px!important;
+    padding:7px 76px 8px 8px!important;
+  }
+  .song-inline-actions{grid-area:actions}
+  .song-seek-wrap{grid-area:seek}
+  .song-scroll-speed{
+    grid-area:speed;
+    justify-content:flex-start!important;
+  }
+}
+
+@media(max-width:760px){
+  .song-detail-pane{
+    grid-template-rows:auto auto auto auto minmax(0,1fr)!important;
+  }
+  .song-inline-player{
+    grid-template-columns:1fr!important;
+    grid-template-areas:
+      "actions"
+      "seek"
+      "speed"!important;
+    min-height:auto!important;
+    padding:8px 70px 8px 6px!important;
+    gap:8px!important;
+  }
+  .song-inline-actions{
+    justify-content:flex-start!important;
+  }
+  .song-inline-actions button,
+  .song-scroll-speed button{
+    min-width:40px!important;
+    height:36px!important;
+    border-radius:12px!important;
+    font-size:16px!important;
+  }
+  .song-seek-wrap{
+    grid-template-columns:46px minmax(120px,1fr)!important;
+    gap:8px!important;
+  }
+  .song-current-time{
+    min-width:46px!important;
+    font-size:13px!important;
+  }
+  #songAutoScrollLabel{
+    min-width:118px!important;
+    font-size:12px!important;
+  }
+  .song-detail-scroll{
+    padding:10px 8px 74px!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <div class="app">
@@ -9149,6 +9345,23 @@ body.creator-modal-open{
         </nav>
       </div>
 
+      <div id="songInlinePlayer" class="song-inline-player" aria-label="Kontrol lagu dan auto scroll">
+        <div class="song-inline-actions">
+          <button id="songPlayPauseBtn" type="button" title="Play / Pause lagu">▶</button>
+          <button id="songRestartBtn" type="button" title="Ulangi lagu dari awal">↺</button>
+        </div>
+
+        <label class="song-seek-wrap" aria-label="Progress lagu, bisa digeser maju mundur">
+          <span id="songCurrentTime" class="song-current-time">00:00</span>
+          <input id="songProgressRange" class="song-progress-range" type="range" min="0" max="100" value="0" step="0.1"/>
+        </label>
+
+        <div class="song-scroll-speed" aria-label="Kecepatan auto scroll lirik">
+          <button id="songAutoSlowBtn" type="button" title="Perlambat auto scroll lirik">−</button>
+          <span id="songAutoScrollLabel" title="Kecepatan scroll lirik, bukan kecepatan lagu">Auto Scroll 0.5x</span>
+          <button id="songAutoFastBtn" type="button" title="Percepat auto scroll lirik">+</button>
+        </div>
+      </div>
       <div id="songDetailInfo" class="song-detail-info"></div>
       <div id="songZoomControls" class="song-zoom-controls" aria-label="Kontrol ukuran lirik">
         <button id="songZoomOutBtn" type="button">A−</button>
@@ -9163,11 +9376,6 @@ body.creator-modal-open{
       <div id="songDetailScroll" class="song-detail-scroll">
         <main id="songContentArea" class="song-content-area"></main>
         <footer class="song-mini-footer">mugendai japanese education</footer>
-      </div>
-
-      <div id="songSidePlayer" class="song-side-player" aria-label="Kontrol lagu dan auto scroll">
-        <button id="songPlayPauseBtn" type="button" title="Klik: Play/Pause • Klik 2x: ulangi dari awal">▶</button>
-        <button id="songAutoScrollBtn" type="button" title="Auto-scroll / level kecepatan">Auto</button>
       </div>
     </div>
   </div>
@@ -13190,1268 +13398,9 @@ renderLevels();
 (function(){
   "use strict";
 
-  var SONGS = [
-  {
-    "id": "song-back-number-sasaeru-hito-no-uta",
-    "song_code": "MJE-LAGU-000001",
-    "artist_romaji": "Back Number",
-    "title_romaji": "Sasaeru hito no uta",
-    "year": "-",
-    "theme": "dukungan/keluarga",
-    "japanese_lyrics": "元気で毎日暮らしてますか\n朝は起きられているのでしょうか\n野菜もきちんと食べていますか\nつらい思いはしてませんか\n\n頑張ってって言いながら\nあまりムリしないでねって思っています\n心配になることも寂しくなることもあるけど\n元気でいてくれたら\n\n愛する人がどこにいても\n心から笑えますように\n少しくらい嫌なことがあっても\n今日を笑って終えてくれたなら\n\nただそれだけでそれだけでいい\nこっちは心配いらないから\nたまに疲れたら帰っておいで\nあなたの好きなものを作って\n待っているから\n\n人生は一度だから\n自分が思うように生きるのもいい\n本当は出世なんて\nしてもしなくてもいいんだよ\n間違えたっていい\nそのままでいい\n\n愛する人がどこにいても\n心から笑えますように\n少しくらい嫌なことがあっても\n今日を笑って終えてくれたなら\n\nただそれだけでそれだけでいい\nこっちは心配いらないから\nたまに疲れたら帰っておいで\nあなたの好きなものを作って\n待っているから\n待っているから",
-    "romaji_lyrics": "Genki de mainichi kurashitemasu ka\nAsa wa okirarete iru no deshou ka\nYasai mo kichinto tabete imasu ka\nTsurai omoi wa shitemasen ka\n\nGanbatte tte ii nagara\nAmari muri shinaide ne tte\nOmotte imasu\nShinpai ni naru koto mo sabishiku naru koto mo\nAru kedo\nGenki de ite kuretara\n\nAisuru hito ga doko ni ite mo\nKokoro kara waraemasu you ni\nSukoshi kurai iya na koto ga atte mo\nKyou wo waratte oete kureta nara\n\nTada sore dake de\nSore dake de ii\nKocchi wa shinpai iranai kara\nTama ni tsukaretara kaette oide\nAnata no suki na mono wo tsukutte\nMatte iru kara\n\nJinsei wa ichido dakara\nJibun ga omou you ni\nIkiru no mo ii\nHontou wa shusse nante\nShite mo shinakute mo ii'n da yo\nMachigaeta tte ii\nSonomama de ii\n\nAisuru hito ga doko ni ite mo\nKokoro kara waraemasu you ni\nSukoshi kurai iya na koto ga atte mo\nKyou wo waratte oete kureta nara\n\nTada sore dake de\nSore dake de ii\nKocchi wa shinpai iranai kara\nTama ni tsukaretara kaette oide\nAnata no suki na mono wo tsukutte\nMatte iru kara\nMatte iru kara",
-    "indonesian_translation": "Apakah kamu baik-baik saja menjalani hari-harimu?\nApakah kamu bisa bangun di pagi hari?\nApakah kamu makan sayur dengan benar?\nApakah kamu tidak sedang menanggung hal yang berat?\n\nSambil berkata, “Semangat, ya,”\naku juga sebenarnya selalu berpikir,\n“Jangan terlalu memaksakan diri, ya.”\n\nKadang aku merasa khawatir,\nkadang juga merasa kesepian.\nTapi selama kamu tetap sehat dan baik-baik saja,\nitu sudah cukup bagiku.\n\nDi mana pun orang yang kusayangi berada,\nsemoga dia bisa tertawa dari hati.\nWalaupun ada sedikit hal yang tidak menyenangkan,\nsemoga hari ini tetap bisa ia akhiri dengan senyuman.\n\nHanya itu saja.\nBenar-benar hanya itu yang kuinginkan.\nKamu tidak perlu mengkhawatirkan aku di sini.\n\nKalau suatu saat kamu lelah,\npulanglah sesekali.\nAku akan membuatkan hal yang kamu suka,\ndan menunggumu di sini.\n\nHidup hanya sekali.\nJadi tidak apa-apa kalau kamu hidup\nseperti yang kamu inginkan.\n\nSebenarnya, soal sukses atau naik jabatan,\nberhasil atau tidak berhasil,\nitu bukan hal yang paling penting.\n\nTidak apa-apa kalau kamu pernah salah.\nTidak apa-apa tetap menjadi dirimu sendiri.\n\nDi mana pun orang yang kusayangi berada,\nsemoga dia bisa tertawa dari hati.\nWalaupun ada sedikit hal yang tidak menyenangkan,\nsemoga hari ini tetap bisa ia akhiri dengan senyuman.\n\nHanya itu saja.\nBenar-benar hanya itu yang kuinginkan.\nKamu tidak perlu mengkhawatirkan aku di sini.\n\nKalau suatu saat kamu lelah,\npulanglah sesekali.\nAku akan membuatkan hal yang kamu suka,\ndan menunggumu di sini.",
-    "source_type": "youtube",
-    "youtube_url": "https://youtu.be/4nPxHqHzGPI?si=kDgDuu22LDhPn-sY"
-  },
-  {
-    "id": "song-road-of-major-taisetsu-na-mono",
-    "song_code": "MJE-LAGU-000002",
-    "artist_romaji": "Road of Major",
-    "title_romaji": "Taisetsu na mono",
-    "year": "-",
-    "theme": "perpisahan/kenangan/harapan",
-    "japanese_lyrics": "泣かないで そこにはほら\nかけがえのない 大切なもの\n目を閉じれば 夜空に映る\n優しい想い出たち\n\n桜散る その度にまた\n門出の涙 流したけれど\n涙散る その度にまた\n笑いあえた 僕達がいた\n\n泣かないで そこにはほら\nあなたを包む 大切な人\n一つ一つ 流した涙\nその理由を忘れないで\n\nあたたかい 人の優しさに\n僕は応えられているのだろうか\nこの旅が 終わる頃には\nその答えも見えてくるだろう\n\nこの空の下 同じ星見上げて 悩む僕らは\n夢を握ったまま\n泣き笑い支え合い信じてく\n\n桜散る その度にまた\n門出の涙 流したけれど\n涙散る その度にまた\n笑いあえた 僕達がいた\n\n変わりゆく日々が\n僕らに不安の色をもたらそうとも\n染まらずに今は 歩く自分の意思 道しるべに\n\nこの空の下\nこの空の下 かけがえのない大切なもの",
-    "romaji_lyrics": "Nakanaide soko ni wa hora\nKakegae no nai taisetsu na mono\nMe wo tojireba yozora ni utsuru\nYasashii omoide tachi\n\nSakura chiru sono tabi ni mata\nKadode no namida nagashita keredo\nNamida chiru sono tabi ni mata\nWarai aeta bokutachi ga ita\n\nNakanaide soko ni wa hora\nAnata wo tsutsumu taisetsu na hito\nHitotsu hitotsu nagashita namida\nSono wake wo wasurenaide\n\nAtatakai hito no yasashisa ni\nBoku wa kotaerarete iru no darou ka\nKono tabi ga owaru koro ni wa\nSono kotae mo miete kuru darou\n\nKono sora no shita onaji hoshi miagete nayamu bokura wa\nYume wo nigitta mama\nNaki warai sasae ai shinjiteku\n\nSakura chiru sono tabi ni mata\nKadode no namida nagashita keredo\nNamida chiru sono tabi ni mata\nWarai aeta bokutachi ga ita\n\nKawariyuku hibi ga\nBokura ni fuan no iro wo motarasou tomo\nSomarazu ni ima wa aruku jibun no ishi michi shirube ni\n\nKono sora no shita\nKono sora no shita kakegae no nai taisetsu na mono",
-    "indonesian_translation": "Jangan menangis.\nLihatlah, di sana ada sesuatu yang sangat berharga,\nsesuatu yang tidak bisa tergantikan.\n\nSaat kamu memejamkan mata,\nyang terpantul di langit malam\nadalah kenangan-kenangan lembut\nyang pernah kamu simpan.\n\nSetiap kali bunga sakura berguguran,\nair mata perpisahan kembali mengalir\ndi awal perjalanan yang baru.\n\nTapi setiap kali air mata itu jatuh,\ndi sana juga ada kita\nyang masih bisa tertawa bersama.\n\nJangan menangis.\nLihatlah, di sana ada orang-orang berharga\nyang selalu menyelimutimu dengan kehangatan.\n\nSetiap air mata yang pernah kamu jatuhkan,\nsatu demi satu,\njangan pernah lupakan alasan di baliknya.\n\nDi hadapan kehangatan\ndan kebaikan orang-orang,\naku bertanya-tanya,\napakah aku sudah mampu membalasnya dengan baik?\n\nMungkin saat perjalanan ini sampai di ujungnya,\njawaban itu juga perlahan akan terlihat.\n\nDi bawah langit yang sama,\nkita menatap bintang yang sama\nsambil membawa kegelisahan masing-masing.\n\nMeski begitu,\nkita tetap menggenggam mimpi,\nmenangis, tertawa,\nsaling menopang,\ndan terus percaya.\n\nSetiap kali bunga sakura berguguran,\nair mata perpisahan kembali mengalir\ndi awal perjalanan yang baru.\n\nTapi setiap kali air mata itu jatuh,\ndi sana juga ada kita\nyang masih bisa tertawa bersama.\n\nWalaupun hari-hari yang terus berubah\nmembawa warna kecemasan ke dalam hidup kita,\nuntuk saat ini,\njangan biarkan dirimu ikut ternodai olehnya.\n\nTeruslah berjalan\ndengan kemauanmu sendiri\nsebagai penunjuk arah.\n\nDi bawah langit ini.\n\nDi bawah langit ini,\nada sesuatu yang sangat berharga\ndan tidak tergantikan.",
-    "source_type": "youtube",
-    "youtube_url": "https://www.youtube.com/watch?v=ZAT9FrNkI9M"
-  }
-];
-  var VOCABULARY = [
-  {
-    "word": "元気",
-    "reading": "げんき",
-    "meaning": "sehat / baik-baik saja / bersemangat",
-    "note": "Dipakai untuk menanyakan atau berharap seseorang tetap baik-baik saja."
-  },
-  {
-    "word": "毎日",
-    "reading": "まいにち",
-    "meaning": "setiap hari",
-    "note": "Kata keterangan waktu yang sering muncul dalam percakapan sehari-hari."
-  },
-  {
-    "word": "暮らす",
-    "reading": "くらす",
-    "meaning": "hidup / menjalani kehidupan",
-    "note": "Kata kerja Godan / Kelompok 1. Berbeda dari 生きる, 暮らす lebih menekankan kehidupan sehari-hari.",
-    "verb_group": "Godan / Kelompok 1",
-    "matches": [
-      "暮らして"
-    ]
-  },
-  {
-    "word": "朝",
-    "reading": "あさ",
-    "meaning": "pagi",
-    "note": "Menunjukkan waktu pagi hari."
-  },
-  {
-    "word": "起きる",
-    "reading": "おきる",
-    "meaning": "bangun",
-    "note": "Kata kerja Ichidan / Kelompok 2.",
-    "verb_group": "Ichidan / Kelompok 2",
-    "matches": [
-      "起きられて"
-    ]
-  },
-  {
-    "word": "野菜",
-    "reading": "やさい",
-    "meaning": "sayur",
-    "note": "Kata benda untuk makanan sehat/sayuran."
-  },
-  {
-    "word": "きちんと",
-    "reading": "きちんと",
-    "meaning": "dengan baik / rapi / benar",
-    "note": "Adverb yang menunjukkan sesuatu dilakukan dengan benar atau tertib."
-  },
-  {
-    "word": "食べる",
-    "reading": "たべる",
-    "meaning": "makan",
-    "note": "Kata kerja Ichidan / Kelompok 2.",
-    "verb_group": "Ichidan / Kelompok 2",
-    "matches": [
-      "食べて"
-    ]
-  },
-  {
-    "word": "つらい",
-    "reading": "つらい",
-    "meaning": "berat / menyakitkan / sulit",
-    "note": "Kata sifat i yang menggambarkan keadaan emosional atau fisik yang berat."
-  },
-  {
-    "word": "思い",
-    "reading": "おもい",
-    "meaning": "perasaan / beban pikiran",
-    "note": "Dalam lirik dapat berarti beban hati atau perasaan yang sedang ditanggung."
-  },
-  {
-    "word": "する",
-    "reading": "する",
-    "meaning": "melakukan",
-    "note": "Kata kerja irregular / Kelompok 3.",
-    "verb_group": "Irregular / Kelompok 3",
-    "matches": [
-      "して",
-      "しない",
-      "しても",
-      "しなくても"
-    ]
-  },
-  {
-    "word": "頑張る",
-    "reading": "がんばる",
-    "meaning": "berusaha / bertahan / semangat",
-    "note": "Kata kerja Godan / Kelompok 1. Sering dipakai untuk memberi semangat.",
-    "verb_group": "Godan / Kelompok 1",
-    "matches": [
-      "頑張って"
-    ]
-  },
-  {
-    "word": "言う",
-    "reading": "いう",
-    "meaning": "mengatakan",
-    "note": "Kata kerja Godan / Kelompok 1.",
-    "verb_group": "Godan / Kelompok 1",
-    "matches": [
-      "言い"
-    ]
-  },
-  {
-    "word": "ながら",
-    "reading": "ながら",
-    "meaning": "sambil",
-    "note": "Menghubungkan dua tindakan yang terjadi bersamaan."
-  },
-  {
-    "word": "あまり",
-    "reading": "あまり",
-    "meaning": "terlalu / tidak begitu",
-    "note": "Sering dipakai dengan bentuk negatif, seperti あまり〜ない."
-  },
-  {
-    "word": "無理",
-    "reading": "むり",
-    "meaning": "memaksakan diri / mustahil",
-    "note": "Dalam konteks lagu, maksudnya jangan terlalu memaksa diri.",
-    "matches": [
-      "ムリ"
-    ]
-  },
-  {
-    "word": "心配",
-    "reading": "しんぱい",
-    "meaning": "khawatir",
-    "note": "Perasaan cemas terhadap keadaan seseorang."
-  },
-  {
-    "word": "なる",
-    "reading": "なる",
-    "meaning": "menjadi",
-    "note": "Kata kerja Godan / Kelompok 1.",
-    "verb_group": "Godan / Kelompok 1",
-    "matches": [
-      "なる"
-    ]
-  },
-  {
-    "word": "こと",
-    "reading": "こと",
-    "meaning": "hal / perkara",
-    "note": "Menominalkan tindakan atau menyebut hal secara umum."
-  },
-  {
-    "word": "寂しい",
-    "reading": "さびしい",
-    "meaning": "kesepian",
-    "note": "Kata sifat i untuk perasaan sepi atau rindu.",
-    "matches": [
-      "寂しく"
-    ]
-  },
-  {
-    "word": "ある",
-    "reading": "ある",
-    "meaning": "ada / terjadi",
-    "note": "Kata kerja Godan / Kelompok 1 untuk benda/kejadian.",
-    "verb_group": "Godan / Kelompok 1",
-    "matches": [
-      "ある",
-      "あって"
-    ]
-  },
-  {
-    "word": "けど",
-    "reading": "けど",
-    "meaning": "tetapi / walaupun",
-    "note": "Bentuk kasual dari けれど."
-  },
-  {
-    "word": "いる",
-    "reading": "いる",
-    "meaning": "ada / berada",
-    "note": "Kata kerja Ichidan / Kelompok 2 untuk manusia/hewan atau keadaan berlangsung.",
-    "verb_group": "Ichidan / Kelompok 2",
-    "matches": [
-      "いて",
-      "いる"
-    ]
-  },
-  {
-    "word": "くれる",
-    "reading": "くれる",
-    "meaning": "memberi untuk pihak pembicara",
-    "note": "Kata kerja Ichidan / Kelompok 2. Memberi nuansa kebaikan yang diterima pembicara.",
-    "verb_group": "Ichidan / Kelompok 2",
-    "matches": [
-      "くれたら"
-    ]
-  },
-  {
-    "word": "愛する",
-    "reading": "あいする",
-    "meaning": "mencintai",
-    "note": "Suru-verb / Kelompok 3.",
-    "verb_group": "Suru-verb / Kelompok 3"
-  },
-  {
-    "word": "人",
-    "reading": "ひと",
-    "meaning": "orang",
-    "note": "Kata benda dasar yang sangat sering dipakai."
-  },
-  {
-    "word": "どこ",
-    "reading": "どこ",
-    "meaning": "di mana",
-    "note": "Kata tanya lokasi."
-  },
-  {
-    "word": "心",
-    "reading": "こころ",
-    "meaning": "hati",
-    "note": "Dalam lirik sering menunjuk perasaan terdalam."
-  },
-  {
-    "word": "から",
-    "reading": "から",
-    "meaning": "dari / karena",
-    "note": "Partikel yang bisa menunjukkan asal atau sebab."
-  },
-  {
-    "word": "笑う",
-    "reading": "わらう",
-    "meaning": "tertawa / tersenyum",
-    "note": "Kata kerja Godan / Kelompok 1.",
-    "verb_group": "Godan / Kelompok 1",
-    "matches": [
-      "笑え",
-      "笑って"
-    ]
-  },
-  {
-    "word": "ように",
-    "reading": "ように",
-    "meaning": "agar / supaya",
-    "note": "Dipakai untuk harapan atau tujuan."
-  },
-  {
-    "word": "少し",
-    "reading": "すこし",
-    "meaning": "sedikit",
-    "note": "Kata keterangan jumlah."
-  },
-  {
-    "word": "くらい",
-    "reading": "くらい",
-    "meaning": "sekitar / kira-kira / bahkan",
-    "note": "Memberi nuansa perkiraan atau derajat."
-  },
-  {
-    "word": "嫌",
-    "reading": "いや",
-    "meaning": "tidak suka / buruk / tidak menyenangkan",
-    "note": "Na-adjective. Dalam lirik: 嫌なこと = hal yang tidak menyenangkan."
-  },
-  {
-    "word": "今日",
-    "reading": "きょう",
-    "meaning": "hari ini",
-    "note": "Kata waktu."
-  },
-  {
-    "word": "終える",
-    "reading": "おえる",
-    "meaning": "mengakhiri / menyelesaikan",
-    "note": "Kata kerja Ichidan / Kelompok 2.",
-    "verb_group": "Ichidan / Kelompok 2",
-    "matches": [
-      "終えて"
-    ]
-  },
-  {
-    "word": "ただ",
-    "reading": "ただ",
-    "meaning": "hanya / sekadar",
-    "note": "Membatasi makna: hanya itu saja."
-  },
-  {
-    "word": "それ",
-    "reading": "それ",
-    "meaning": "itu",
-    "note": "Kata tunjuk untuk sesuatu yang dekat dengan lawan bicara atau sudah disebut."
-  },
-  {
-    "word": "だけ",
-    "reading": "だけ",
-    "meaning": "saja / hanya",
-    "note": "Partikel pembatas."
-  },
-  {
-    "word": "いい",
-    "reading": "いい",
-    "meaning": "baik / cukup",
-    "note": "Bisa berarti cukup atau tidak apa-apa tergantung konteks."
-  },
-  {
-    "word": "こっち",
-    "reading": "こっち",
-    "meaning": "sini / pihakku",
-    "note": "Bentuk kasual dari こちら."
-  },
-  {
-    "word": "いらない",
-    "reading": "いらない",
-    "meaning": "tidak perlu",
-    "note": "Bentuk negatif dari いる yang berarti membutuhkan.",
-    "matches": [
-      "いらない"
-    ]
-  },
-  {
-    "word": "たまに",
-    "reading": "たまに",
-    "meaning": "sesekali",
-    "note": "Frekuensi tidak sering."
-  },
-  {
-    "word": "疲れる",
-    "reading": "つかれる",
-    "meaning": "lelah",
-    "note": "Kata kerja Ichidan / Kelompok 2.",
-    "verb_group": "Ichidan / Kelompok 2",
-    "matches": [
-      "疲れたら"
-    ]
-  },
-  {
-    "word": "帰る",
-    "reading": "かえる",
-    "meaning": "pulang",
-    "note": "Kata kerja Godan / Kelompok 1.",
-    "verb_group": "Godan / Kelompok 1",
-    "matches": [
-      "帰って"
-    ]
-  },
-  {
-    "word": "おいで",
-    "reading": "おいで",
-    "meaning": "datanglah / pulanglah ke sini",
-    "note": "Ungkapan lembut untuk memanggil seseorang datang."
-  },
-  {
-    "word": "あなた",
-    "reading": "あなた",
-    "meaning": "kamu",
-    "note": "Kata ganti orang kedua."
-  },
-  {
-    "word": "好き",
-    "reading": "すき",
-    "meaning": "suka",
-    "note": "Na-adjective untuk rasa suka."
-  },
-  {
-    "word": "もの",
-    "reading": "もの",
-    "meaning": "benda / hal",
-    "note": "Kata benda umum."
-  },
-  {
-    "word": "作る",
-    "reading": "つくる",
-    "meaning": "membuat",
-    "note": "Kata kerja Godan / Kelompok 1.",
-    "verb_group": "Godan / Kelompok 1",
-    "matches": [
-      "作って"
-    ]
-  },
-  {
-    "word": "待つ",
-    "reading": "まつ",
-    "meaning": "menunggu",
-    "note": "Kata kerja Godan / Kelompok 1.",
-    "verb_group": "Godan / Kelompok 1",
-    "matches": [
-      "待って"
-    ]
-  },
-  {
-    "word": "人生",
-    "reading": "じんせい",
-    "meaning": "hidup / kehidupan",
-    "note": "Kehidupan manusia secara keseluruhan."
-  },
-  {
-    "word": "一度",
-    "reading": "いちど",
-    "meaning": "sekali",
-    "note": "Jumlah/frekuensi satu kali."
-  },
-  {
-    "word": "自分",
-    "reading": "じぶん",
-    "meaning": "diri sendiri",
-    "note": "Menunjuk diri sendiri."
-  },
-  {
-    "word": "思う",
-    "reading": "おもう",
-    "meaning": "berpikir / merasa",
-    "note": "Kata kerja Godan / Kelompok 1.",
-    "verb_group": "Godan / Kelompok 1",
-    "matches": [
-      "思う",
-      "思って"
-    ]
-  },
-  {
-    "word": "生きる",
-    "reading": "いきる",
-    "meaning": "hidup",
-    "note": "Kata kerja Ichidan / Kelompok 2.",
-    "verb_group": "Ichidan / Kelompok 2"
-  },
-  {
-    "word": "本当",
-    "reading": "ほんとう",
-    "meaning": "sebenarnya / sungguh",
-    "note": "Sering ditulis ホント secara kasual.",
-    "matches": [
-      "本当",
-      "ホント"
-    ]
-  },
-  {
-    "word": "出世",
-    "reading": "しゅっせ",
-    "meaning": "sukses karier / naik jabatan",
-    "note": "Sering berkaitan dengan kemajuan status pekerjaan."
-  },
-  {
-    "word": "なんて",
-    "reading": "なんて",
-    "meaning": "hal seperti / semacam",
-    "note": "Memberi nuansa merendahkan atau mengecilkan topik."
-  },
-  {
-    "word": "間違える",
-    "reading": "まちがえる",
-    "meaning": "salah / melakukan kesalahan",
-    "note": "Kata kerja Ichidan / Kelompok 2.",
-    "verb_group": "Ichidan / Kelompok 2",
-    "matches": [
-      "間違えた"
-    ]
-  },
-  {
-    "word": "そのまま",
-    "reading": "そのまま",
-    "meaning": "apa adanya / tetap seperti itu",
-    "note": "Menggambarkan keadaan tanpa diubah."
-  },
-  {
-    "word": "泣く",
-    "reading": "なく",
-    "meaning": "menangis",
-    "note": "Kata kerja Godan / Kelompok 1.",
-    "verb_group": "Godan / Kelompok 1",
-    "matches": [
-      "泣かない",
-      "泣き"
-    ]
-  },
-  {
-    "word": "そこ",
-    "reading": "そこ",
-    "meaning": "di sana",
-    "note": "Kata tunjuk tempat."
-  },
-  {
-    "word": "ほら",
-    "reading": "ほら",
-    "meaning": "lihatlah / coba lihat",
-    "note": "Ungkapan untuk menarik perhatian lawan bicara."
-  },
-  {
-    "word": "かけがえのない",
-    "reading": "かけがえのない",
-    "meaning": "tidak tergantikan",
-    "note": "Ungkapan untuk sesuatu yang sangat berharga."
-  },
-  {
-    "word": "大切",
-    "reading": "たいせつ",
-    "meaning": "penting / berharga",
-    "note": "Na-adjective yang menunjukkan nilai emosional atau pentingnya sesuatu."
-  },
-  {
-    "word": "目",
-    "reading": "め",
-    "meaning": "mata",
-    "note": "Bagian tubuh; dalam lirik sering dipakai dengan 閉じる."
-  },
-  {
-    "word": "閉じる",
-    "reading": "とじる",
-    "meaning": "menutup",
-    "note": "Kata kerja Ichidan / Kelompok 2.",
-    "verb_group": "Ichidan / Kelompok 2",
-    "matches": [
-      "閉じれば"
-    ]
-  },
-  {
-    "word": "夜空",
-    "reading": "よぞら",
-    "meaning": "langit malam",
-    "note": "Gabungan 夜 + 空."
-  },
-  {
-    "word": "映る",
-    "reading": "うつる",
-    "meaning": "terpantul / tampak",
-    "note": "Kata kerja Godan / Kelompok 1.",
-    "verb_group": "Godan / Kelompok 1"
-  },
-  {
-    "word": "優しい",
-    "reading": "やさしい",
-    "meaning": "lembut / baik hati",
-    "note": "Kata sifat i.",
-    "matches": [
-      "優しい",
-      "優しさ"
-    ]
-  },
-  {
-    "word": "想い出",
-    "reading": "おもいで",
-    "meaning": "kenangan",
-    "note": "Varian penulisan dari 思い出, bernuansa lebih emosional."
-  },
-  {
-    "word": "たち",
-    "reading": "たち",
-    "meaning": "para / bentuk jamak",
-    "note": "Akhiran untuk membuat kelompok, seperti 僕達."
-  },
-  {
-    "word": "桜",
-    "reading": "さくら",
-    "meaning": "bunga sakura",
-    "note": "Simbol musim semi, perpisahan, dan awal baru."
-  },
-  {
-    "word": "散る",
-    "reading": "ちる",
-    "meaning": "berguguran / tersebar",
-    "note": "Kata kerja Godan / Kelompok 1.",
-    "verb_group": "Godan / Kelompok 1"
-  },
-  {
-    "word": "度",
-    "reading": "たび",
-    "meaning": "setiap kali",
-    "note": "Dalam その度に berarti 'setiap kali itu terjadi'."
-  },
-  {
-    "word": "門出",
-    "reading": "かどで",
-    "meaning": "awal perjalanan / keberangkatan",
-    "note": "Sering dipakai untuk perpisahan atau memulai babak baru."
-  },
-  {
-    "word": "涙",
-    "reading": "なみだ",
-    "meaning": "air mata",
-    "note": "Dalam lagu sering melambangkan kesedihan, perpisahan, atau perasaan yang tidak tertahan."
-  },
-  {
-    "word": "流す",
-    "reading": "ながす",
-    "meaning": "mengalirkan / menumpahkan",
-    "note": "Kata kerja Godan / Kelompok 1. Dalam 涙を流す berarti meneteskan air mata.",
-    "verb_group": "Godan / Kelompok 1",
-    "matches": [
-      "流した"
-    ]
-  },
-  {
-    "word": "けれど",
-    "reading": "けれど",
-    "meaning": "tetapi / walaupun",
-    "note": "Penghubung kontras yang lebih lembut dari でも."
-  },
-  {
-    "word": "笑いあう",
-    "reading": "わらいあう",
-    "meaning": "saling tertawa",
-    "note": "Kata kerja Godan / Kelompok 1; あう memberi makna saling.",
-    "verb_group": "Godan / Kelompok 1",
-    "matches": [
-      "笑いあえた"
-    ]
-  },
-  {
-    "word": "僕達",
-    "reading": "ぼくたち",
-    "meaning": "kami / kita",
-    "note": "Bentuk jamak dari 僕."
-  },
-  {
-    "word": "僕",
-    "reading": "ぼく",
-    "meaning": "aku / saya",
-    "note": "Kata ganti orang pertama bernuansa maskulin/kasual."
-  },
-  {
-    "word": "包む",
-    "reading": "つつむ",
-    "meaning": "membungkus / menyelimuti",
-    "note": "Kata kerja Godan / Kelompok 1. Dalam lirik berarti melindungi atau menghangatkan.",
-    "verb_group": "Godan / Kelompok 1"
-  },
-  {
-    "word": "一つ一つ",
-    "reading": "ひとつひとつ",
-    "meaning": "satu per satu",
-    "note": "Menekankan setiap hal secara individual."
-  },
-  {
-    "word": "理由",
-    "reading": "りゆう",
-    "meaning": "alasan",
-    "note": "Alasan di balik tindakan/perasaan."
-  },
-  {
-    "word": "忘れる",
-    "reading": "わすれる",
-    "meaning": "melupakan",
-    "note": "Kata kerja Ichidan / Kelompok 2.",
-    "verb_group": "Ichidan / Kelompok 2",
-    "matches": [
-      "忘れない"
-    ]
-  },
-  {
-    "word": "あたたかい",
-    "reading": "あたたかい",
-    "meaning": "hangat",
-    "note": "Bisa fisik atau emosional. Di sini nuansanya kehangatan hati."
-  },
-  {
-    "word": "優しさ",
-    "reading": "やさしさ",
-    "meaning": "kebaikan / kelembutan",
-    "note": "Bentuk kata benda dari 優しい."
-  },
-  {
-    "word": "応える",
-    "reading": "こたえる",
-    "meaning": "membalas / merespons harapan",
-    "note": "Kata kerja Ichidan / Kelompok 2. Berbeda dari 答える yang fokus pada menjawab pertanyaan.",
-    "verb_group": "Ichidan / Kelompok 2",
-    "matches": [
-      "応えられて"
-    ]
-  },
-  {
-    "word": "旅",
-    "reading": "たび",
-    "meaning": "perjalanan",
-    "note": "Perjalanan fisik atau perjalanan hidup."
-  },
-  {
-    "word": "終わる",
-    "reading": "おわる",
-    "meaning": "berakhir",
-    "note": "Kata kerja Godan / Kelompok 1.",
-    "verb_group": "Godan / Kelompok 1"
-  },
-  {
-    "word": "頃",
-    "reading": "ころ",
-    "meaning": "sekitar waktu / saat",
-    "note": "Menunjukkan waktu yang kurang spesifik."
-  },
-  {
-    "word": "答え",
-    "reading": "こたえ",
-    "meaning": "jawaban",
-    "note": "Jawaban atas pertanyaan atau pencarian batin."
-  },
-  {
-    "word": "見える",
-    "reading": "みえる",
-    "meaning": "terlihat / tampak",
-    "note": "Kata kerja Ichidan / Kelompok 2.",
-    "verb_group": "Ichidan / Kelompok 2",
-    "matches": [
-      "見えて"
-    ]
-  },
-  {
-    "word": "来る",
-    "reading": "くる",
-    "meaning": "datang",
-    "note": "Kata kerja irregular / Kelompok 3.",
-    "verb_group": "Irregular / Kelompok 3",
-    "matches": [
-      "くる"
-    ]
-  },
-  {
-    "word": "空",
-    "reading": "そら",
-    "meaning": "langit",
-    "note": "Dalam lagu sering menjadi simbol ruang yang menghubungkan banyak orang."
-  },
-  {
-    "word": "下",
-    "reading": "した",
-    "meaning": "bawah",
-    "note": "この空の下 = di bawah langit ini."
-  },
-  {
-    "word": "同じ",
-    "reading": "おなじ",
-    "meaning": "sama",
-    "note": "Na-adjective yang berarti sama."
-  },
-  {
-    "word": "星",
-    "reading": "ほし",
-    "meaning": "bintang",
-    "note": "Objek langit yang sering menjadi simbol harapan."
-  },
-  {
-    "word": "見上げる",
-    "reading": "みあげる",
-    "meaning": "menatap ke atas",
-    "note": "Kata kerja Ichidan / Kelompok 2.",
-    "verb_group": "Ichidan / Kelompok 2",
-    "matches": [
-      "見上げて"
-    ]
-  },
-  {
-    "word": "悩む",
-    "reading": "なやむ",
-    "meaning": "cemas / bimbang / punya masalah",
-    "note": "Kata kerja Godan / Kelompok 1.",
-    "verb_group": "Godan / Kelompok 1",
-    "matches": [
-      "悩む"
-    ]
-  },
-  {
-    "word": "僕ら",
-    "reading": "ぼくら",
-    "meaning": "kami / kita",
-    "note": "Bentuk jamak dari 僕 yang lebih kasual."
-  },
-  {
-    "word": "夢",
-    "reading": "ゆめ",
-    "meaning": "mimpi",
-    "note": "Impian atau harapan masa depan."
-  },
-  {
-    "word": "握る",
-    "reading": "にぎる",
-    "meaning": "menggenggam",
-    "note": "Kata kerja Godan / Kelompok 1.",
-    "verb_group": "Godan / Kelompok 1",
-    "matches": [
-      "握った"
-    ]
-  },
-  {
-    "word": "まま",
-    "reading": "まま",
-    "meaning": "tetap dalam keadaan",
-    "note": "Menunjukkan keadaan yang dibiarkan terus berlangsung."
-  },
-  {
-    "word": "泣き笑い",
-    "reading": "なきわらい",
-    "meaning": "menangis sambil tertawa",
-    "note": "Campuran perasaan sedih dan bahagia."
-  },
-  {
-    "word": "支え合う",
-    "reading": "ささえあう",
-    "meaning": "saling menopang / saling mendukung",
-    "note": "Kata kerja Godan / Kelompok 1; 合う berarti saling.",
-    "verb_group": "Godan / Kelompok 1",
-    "matches": [
-      "支え合い"
-    ]
-  },
-  {
-    "word": "信じる",
-    "reading": "しんじる",
-    "meaning": "percaya",
-    "note": "Kata kerja Ichidan / Kelompok 2.",
-    "verb_group": "Ichidan / Kelompok 2",
-    "matches": [
-      "信じて"
-    ]
-  },
-  {
-    "word": "変わりゆく",
-    "reading": "かわりゆく",
-    "meaning": "terus berubah",
-    "note": "Bentuk puitis dari 変わっていく."
-  },
-  {
-    "word": "日々",
-    "reading": "ひび",
-    "meaning": "hari-hari",
-    "note": "Bentuk berulang dari 日 yang berarti keseharian."
-  },
-  {
-    "word": "不安",
-    "reading": "ふあん",
-    "meaning": "kecemasan / rasa tidak tenang",
-    "note": "Na-adjective/kata benda."
-  },
-  {
-    "word": "色",
-    "reading": "いろ",
-    "meaning": "warna",
-    "note": "Secara kiasan bisa berarti nuansa perasaan."
-  },
-  {
-    "word": "もたらす",
-    "reading": "もたらす",
-    "meaning": "membawa / menyebabkan",
-    "note": "Kata kerja Godan / Kelompok 1.",
-    "verb_group": "Godan / Kelompok 1",
-    "matches": [
-      "もたらそう"
-    ]
-  },
-  {
-    "word": "とも",
-    "reading": "とも",
-    "meaning": "walaupun / sekalipun",
-    "note": "Dalam pola 〜ようとも berarti walaupun."
-  },
-  {
-    "word": "染まる",
-    "reading": "そまる",
-    "meaning": "terwarnai / terpengaruh",
-    "note": "Kata kerja Godan / Kelompok 1.",
-    "verb_group": "Godan / Kelompok 1",
-    "matches": [
-      "染まらず"
-    ]
-  },
-  {
-    "word": "今",
-    "reading": "いま",
-    "meaning": "sekarang",
-    "note": "Waktu saat ini."
-  },
-  {
-    "word": "歩く",
-    "reading": "あるく",
-    "meaning": "berjalan",
-    "note": "Kata kerja Godan / Kelompok 1.",
-    "verb_group": "Godan / Kelompok 1",
-    "matches": [
-      "歩く"
-    ]
-  },
-  {
-    "word": "意思",
-    "reading": "いし",
-    "meaning": "kemauan / kehendak",
-    "note": "Niat atau kemauan yang dimiliki seseorang."
-  },
-  {
-    "word": "道しるべ",
-    "reading": "みちしるべ",
-    "meaning": "penunjuk arah / pedoman",
-    "note": "Dapat berarti petunjuk hidup secara kiasan."
-  }
-];
-  var GRAMMAR = [
-  {
-    "pattern": "Vていますか",
-    "meaning": "apakah sedang / apakah menjalani",
-    "example": "暮らしてますか / 食べていますか",
-    "romaji": "kurashitemasu ka / tabete imasu ka",
-    "explanation": "Bentuk ている + ますか dipakai untuk menanyakan keadaan atau kebiasaan yang sedang berlangsung."
-  },
-  {
-    "pattern": "Vられている",
-    "meaning": "bisa / dalam keadaan mampu",
-    "example": "起きられている",
-    "romaji": "okirarete iru",
-    "explanation": "Bentuk potensial 起きられる + ている menunjukkan kemampuan atau keadaan yang masih berlangsung."
-  },
-  {
-    "pattern": "Nも",
-    "meaning": "N juga",
-    "example": "野菜も",
-    "romaji": "yasai mo",
-    "explanation": "Partikel も menambahkan makna 'juga'."
-  },
-  {
-    "pattern": "Vていませんか",
-    "meaning": "apakah tidak sedang...",
-    "example": "してませんか",
-    "romaji": "shitemasen ka",
-    "explanation": "Bentuk negatif sopan + か untuk bertanya dengan lembut."
-  },
-  {
-    "pattern": "Vながら",
-    "meaning": "sambil melakukan",
-    "example": "言いながら",
-    "romaji": "ii nagara",
-    "explanation": "ながら menghubungkan dua tindakan yang berjalan bersamaan."
-  },
-  {
-    "pattern": "あまり + Vない",
-    "meaning": "tidak terlalu...",
-    "example": "あまりムリしないで",
-    "romaji": "amari muri shinaide",
-    "explanation": "あまり sering dipakai bersama bentuk negatif untuk menyatakan 'tidak terlalu'."
-  },
-  {
-    "pattern": "Vないで",
-    "meaning": "jangan melakukan / tanpa melakukan",
-    "example": "泣かないで / 忘れないで / ムリしないで",
-    "romaji": "nakanaide / wasurenaide / muri shinaide",
-    "explanation": "Bentuk negatif + で dapat menjadi larangan lembut atau 'tanpa melakukan'."
-  },
-  {
-    "pattern": "Nになる",
-    "meaning": "menjadi N",
-    "example": "心配になる / 寂しくなる",
-    "romaji": "shinpai ni naru / sabishiku naru",
-    "explanation": "なる menunjukkan perubahan keadaan."
-  },
-  {
-    "pattern": "VこともVこともある",
-    "meaning": "ada kalanya... dan ada kalanya...",
-    "example": "心配になることも寂しくなることもある",
-    "romaji": "shinpai ni naru koto mo sabishiku naru koto mo aru",
-    "explanation": "こともある menyatakan bahwa suatu hal bisa terjadi kadang-kadang."
-  },
-  {
-    "pattern": "Vてくれたら",
-    "meaning": "kalau kamu melakukan untukku",
-    "example": "元気でいてくれたら",
-    "romaji": "genki de ite kuretara",
-    "explanation": "くれる memberi nuansa kebaikan yang diterima pembicara; たら menyatakan kondisi."
-  },
-  {
-    "pattern": "疑問詞 + に + Vても",
-    "meaning": "di mana pun / kapan pun",
-    "example": "どこにいても",
-    "romaji": "doko ni ite mo",
-    "explanation": "疑問詞 + ても memberi makna 'apa pun/di mana pun/siapa pun'."
-  },
-  {
-    "pattern": "Vますように",
-    "meaning": "semoga / agar",
-    "example": "笑えますように",
-    "romaji": "waraemasu you ni",
-    "explanation": "ように dipakai untuk harapan atau doa."
-  },
-  {
-    "pattern": "Nがあっても",
-    "meaning": "walaupun ada N",
-    "example": "嫌なことがあっても",
-    "romaji": "iya na koto ga atte mo",
-    "explanation": "ても memberi makna 'walaupun'."
-  },
-  {
-    "pattern": "Vたなら",
-    "meaning": "kalau sudah / apabila",
-    "example": "終えてくれたなら",
-    "romaji": "oete kureta nara",
-    "explanation": "なら menyatakan kondisi dengan nuansa 'kalau memang begitu'."
-  },
-  {
-    "pattern": "ただ + Nだけ",
-    "meaning": "hanya itu saja",
-    "example": "ただそれだけ",
-    "romaji": "tada sore dake",
-    "explanation": "ただ dan だけ membatasi makna menjadi 'hanya'."
-  },
-  {
-    "pattern": "Nだけでいい",
-    "meaning": "cukup hanya dengan N",
-    "example": "それだけでいい",
-    "romaji": "sore dake de ii",
-    "explanation": "でいい berarti sudah cukup dengan keadaan tersebut."
-  },
-  {
-    "pattern": "Nはいらない",
-    "meaning": "tidak perlu N",
-    "example": "心配いらない",
-    "romaji": "shinpai iranai",
-    "explanation": "いらない berarti tidak membutuhkan."
-  },
-  {
-    "pattern": "Vたら",
-    "meaning": "kalau / ketika",
-    "example": "疲れたら",
-    "romaji": "tsukaretara",
-    "explanation": "Bentuk lampau + ら membentuk kondisi."
-  },
-  {
-    "pattern": "Vておいで",
-    "meaning": "datanglah / pulanglah ke sini",
-    "example": "帰っておいで",
-    "romaji": "kaette oide",
-    "explanation": "Ungkapan lembut untuk meminta seseorang datang atau pulang."
-  },
-  {
-    "pattern": "Nの好きなもの",
-    "meaning": "hal yang disukai N",
-    "example": "あなたの好きなもの",
-    "romaji": "anata no suki na mono",
-    "explanation": "の menghubungkan pemilik/penjelas dengan 好きなもの."
-  },
-  {
-    "pattern": "V辞書形 + のもいい",
-    "meaning": "melakukan V juga tidak apa-apa",
-    "example": "生きるのもいい",
-    "romaji": "ikiru no mo ii",
-    "explanation": "の menominalkan kata kerja; もいい menunjukkan penerimaan."
-  },
-  {
-    "pattern": "Nなんて",
-    "meaning": "hal seperti N",
-    "example": "出世なんて",
-    "romaji": "shusse nante",
-    "explanation": "なんて memberi nuansa bahwa topiknya tidak perlu terlalu dibesar-besarkan."
-  },
-  {
-    "pattern": "VてもVなくてもいい",
-    "meaning": "boleh melakukan atau tidak melakukan",
-    "example": "してもしなくてもいい",
-    "romaji": "shite mo shinakute mo ii",
-    "explanation": "Dua pilihan sama-sama diterima."
-  },
-  {
-    "pattern": "Vたっていい",
-    "meaning": "meskipun melakukan, tidak apa-apa",
-    "example": "間違えたっていい",
-    "romaji": "machigaeta tte ii",
-    "explanation": "Bentuk kasual dari Vてもいい."
-  },
-  {
-    "pattern": "そのままでいい",
-    "meaning": "apa adanya sudah cukup",
-    "example": "そのままでいい",
-    "romaji": "sonomama de ii",
-    "explanation": "Pola penerimaan terhadap keadaan tanpa harus berubah."
-  },
-  {
-    "pattern": "そこにはほら",
-    "meaning": "lihatlah, di sana ada...",
-    "example": "そこにはほら",
-    "romaji": "soko ni wa hora",
-    "explanation": "には menandai lokasi/topik, ほら menarik perhatian pendengar."
-  },
-  {
-    "pattern": "かけがえのない + N",
-    "meaning": "N yang tidak tergantikan",
-    "example": "かけがえのない 大切なもの",
-    "romaji": "kakegae no nai taisetsu na mono",
-    "explanation": "Ungkapan tetap untuk sesuatu yang sangat berharga."
-  },
-  {
-    "pattern": "Vば",
-    "meaning": "kalau / saat",
-    "example": "目を閉じれば",
-    "romaji": "me wo tojireba",
-    "explanation": "Bentuk ba menyatakan kondisi atau saat sesuatu dilakukan."
-  },
-  {
-    "pattern": "Nに映る",
-    "meaning": "terpantul/terlihat di N",
-    "example": "夜空に映る",
-    "romaji": "yozora ni utsuru",
-    "explanation": "に menandai tempat/permukaan munculnya bayangan atau gambaran."
-  },
-  {
-    "pattern": "Nたち",
-    "meaning": "para N / kumpulan N",
-    "example": "想い出たち",
-    "romaji": "omoide tachi",
-    "explanation": "たち menjadikan kata benda bernuansa jamak atau kumpulan."
-  },
-  {
-    "pattern": "その度にまた",
-    "meaning": "setiap kali itu terjadi, lagi",
-    "example": "桜散る その度にまた",
-    "romaji": "sakura chiru sono tabi ni mata",
-    "explanation": "その度に berarti setiap kali hal tersebut terjadi."
-  },
-  {
-    "pattern": "Nの涙",
-    "meaning": "air mata karena/untuk N",
-    "example": "門出の涙",
-    "romaji": "kadode no namida",
-    "explanation": "の menghubungkan alasan/situasi dengan 涙."
-  },
-  {
-    "pattern": "Vたけれど",
-    "meaning": "walaupun sudah V / tetapi",
-    "example": "流したけれど",
-    "romaji": "nagashita keredo",
-    "explanation": "けれど menghubungkan kontras dengan nada lembut."
-  },
-  {
-    "pattern": "Vあう / V合う",
-    "meaning": "saling melakukan V",
-    "example": "笑いあえた / 支え合い",
-    "romaji": "warai aeta / sasae ai",
-    "explanation": "合う/あう menunjukkan tindakan yang dilakukan satu sama lain."
-  },
-  {
-    "pattern": "Nがいた",
-    "meaning": "ada N / N pernah ada",
-    "example": "僕達がいた",
-    "romaji": "bokutachi ga ita",
-    "explanation": "いた adalah bentuk lampau dari いる untuk manusia/makhluk hidup."
-  },
-  {
-    "pattern": "Nを包む",
-    "meaning": "menyelimuti/membungkus N",
-    "example": "あなたを包む",
-    "romaji": "anata wo tsutsumu",
-    "explanation": "を menandai objek yang diselimuti."
-  },
-  {
-    "pattern": "一つ一つ",
-    "meaning": "satu per satu",
-    "example": "一つ一つ 流した涙",
-    "romaji": "hitotsu hitotsu nagashita namida",
-    "explanation": "Pengulangan angka menunjukkan setiap item secara individual."
-  },
-  {
-    "pattern": "Nを忘れないで",
-    "meaning": "jangan lupakan N",
-    "example": "その理由を忘れないで",
-    "romaji": "sono wake wo wasurenaide",
-    "explanation": "Vないで di sini berupa larangan lembut."
-  },
-  {
-    "pattern": "Nに応えられている",
-    "meaning": "mampu membalas/menjawab N",
-    "example": "人の優しさに応えられている",
-    "romaji": "hito no yasashisa ni kotaerarete iru",
-    "explanation": "応える digunakan untuk membalas kebaikan, harapan, atau perasaan."
-  },
-  {
-    "pattern": "のだろうか",
-    "meaning": "apakah kira-kira / aku bertanya-tanya",
-    "example": "いるのだろうか",
-    "romaji": "iru no darou ka",
-    "explanation": "Memberi nuansa reflektif dan ragu-ragu."
-  },
-  {
-    "pattern": "Nが終わる頃には",
-    "meaning": "saat N berakhir nanti",
-    "example": "この旅が終わる頃には",
-    "romaji": "kono tabi ga owaru koro ni wa",
-    "explanation": "頃には menunjukkan sekitar waktu suatu hal terjadi."
-  },
-  {
-    "pattern": "Vてくる",
-    "meaning": "mulai terlihat/terjadi ke arah pembicara",
-    "example": "見えてくる",
-    "romaji": "miete kuru",
-    "explanation": "てくる menunjukkan perubahan yang mulai terasa atau mendekat."
-  },
-  {
-    "pattern": "Nの下",
-    "meaning": "di bawah N",
-    "example": "この空の下",
-    "romaji": "kono sora no shita",
-    "explanation": "の menghubungkan langit dengan posisi di bawahnya."
-  },
-  {
-    "pattern": "Nを見上げて",
-    "meaning": "menatap N ke atas",
-    "example": "同じ星見上げて",
-    "romaji": "onaji hoshi miagete",
-    "explanation": "を sering dihilangkan dalam lirik, tetapi maknanya tetap objek yang ditatap."
-  },
-  {
-    "pattern": "Vたまま",
-    "meaning": "tetap dalam keadaan setelah V",
-    "example": "夢を握ったまま",
-    "romaji": "yume wo nigitta mama",
-    "explanation": "まま menyatakan keadaan yang dipertahankan."
-  },
-  {
-    "pattern": "Vてく",
-    "meaning": "terus melakukan / bergerak ke depan",
-    "example": "信じてく",
-    "romaji": "shinjiteku",
-    "explanation": "Bentuk kasual dari ていく, menunjukkan tindakan berlanjut ke masa depan."
-  },
-  {
-    "pattern": "Vようとも",
-    "meaning": "walaupun akan V",
-    "example": "もたらそうとも",
-    "romaji": "motarasou tomo",
-    "explanation": "Bentuk volitional + とも memberi makna 'sekalipun/walaupun'."
-  },
-  {
-    "pattern": "Vずに",
-    "meaning": "tanpa melakukan V",
-    "example": "染まらずに",
-    "romaji": "somarazu ni",
-    "explanation": "Bentuk klasik/literer dari ないで."
-  },
-  {
-    "pattern": "Nを道しるべに",
-    "meaning": "menjadikan N sebagai pedoman",
-    "example": "自分の意思 道しるべに",
-    "romaji": "jibun no ishi michi shirube ni",
-    "explanation": "に menunjukkan peran atau hasil: menjadikan sesuatu sebagai penunjuk arah."
-  }
-];
+  var SONGS = [{"id":"song-back-number-sasaeru-hito-no-uta","song_code":"MJE-LAGU-000001","artist_romaji":"Back Number","title_romaji":"Sasaeru hito no uta","year":"-","theme":"dukungan/keluarga","japanese_lyrics":"元気で毎日暮らしてますか\n朝は起きられているのでしょうか\n野菜もきちんと食べていますか\nつらい思いはしてませんか\n\n頑張ってって言いながら\nあまりムリしないでねって思っています\n心配になることも寂しくなることもあるけど\n元気でいてくれたら\n\n愛する人がどこにいても\n心から笑えますように\n少しくらい嫌なことがあっても\n今日を笑って終えてくれたなら\n\nただそれだけでそれだけでいい\nこっちは心配いらないから\nたまに疲れたら帰っておいで\nあなたの好きなものを作って\n待っているから\n\n人生は一度だから\n自分が思うように生きるのもいい\n本当は出世なんて\nしてもしなくてもいいんだよ\n間違えたっていい\nそのままでいい\n\n愛する人がどこにいても\n心から笑えますように\n少しくらい嫌なことがあっても\n今日を笑って終えてくれたなら\n\nただそれだけでそれだけでいい\nこっちは心配いらないから\nたまに疲れたら帰っておいで\nあなたの好きなものを作って\n待っているから\n待っているから","romaji_lyrics":"Genki de mainichi kurashitemasu ka\nAsa wa okirarete iru no deshou ka\nYasai mo kichinto tabete imasu ka\nTsurai omoi wa shitemasen ka\n\nGanbatte tte ii nagara\nAmari muri shinaide ne tte\nOmotte imasu\nShinpai ni naru koto mo sabishiku naru koto mo\nAru kedo\nGenki de ite kuretara\n\nAisuru hito ga doko ni ite mo\nKokoro kara waraemasu you ni\nSukoshi kurai iya na koto ga atte mo\nKyou wo waratte oete kureta nara\n\nTada sore dake de\nSore dake de ii\nKocchi wa shinpai iranai kara\nTama ni tsukaretara kaette oide\nAnata no suki na mono wo tsukutte\nMatte iru kara\n\nJinsei wa ichido dakara\nJibun ga omou you ni\nIkiru no mo ii\nHontou wa shusse nante\nShite mo shinakute mo ii'n da yo\nMachigaeta tte ii\nSonomama de ii\n\nAisuru hito ga doko ni ite mo\nKokoro kara waraemasu you ni\nSukoshi kurai iya na koto ga atte mo\nKyou wo waratte oete kureta nara\n\nTada sore dake de\nSore dake de ii\nKocchi wa shinpai iranai kara\nTama ni tsukaretara kaette oide\nAnata no suki na mono wo tsukutte\nMatte iru kara\nMatte iru kara","indonesian_translation":"Apakah kamu baik-baik saja menjalani hari-harimu?\nApakah kamu bisa bangun di pagi hari?\nApakah kamu makan sayur dengan benar?\nApakah kamu tidak sedang menanggung hal yang berat?\n\nSambil berkata, “Semangat, ya,”\naku juga sebenarnya selalu berpikir,\n“Jangan terlalu memaksakan diri, ya.”\n\nKadang aku merasa khawatir,\nkadang juga merasa kesepian.\nTapi selama kamu tetap sehat dan baik-baik saja,\nitu sudah cukup bagiku.\n\nDi mana pun orang yang kusayangi berada,\nsemoga dia bisa tertawa dari hati.\nWalaupun ada sedikit hal yang tidak menyenangkan,\nsemoga hari ini tetap bisa ia akhiri dengan senyuman.\n\nHanya itu saja.\nBenar-benar hanya itu yang kuinginkan.\nKamu tidak perlu mengkhawatirkan aku di sini.\n\nKalau suatu saat kamu lelah,\npulanglah sesekali.\nAku akan membuatkan hal yang kamu suka,\ndan menunggumu di sini.\n\nHidup hanya sekali.\nJadi tidak apa-apa kalau kamu hidup\nseperti yang kamu inginkan.\n\nSebenarnya, soal sukses atau naik jabatan,\nberhasil atau tidak berhasil,\nitu bukan hal yang paling penting.\n\nTidak apa-apa kalau kamu pernah salah.\nTidak apa-apa tetap menjadi dirimu sendiri.\n\nDi mana pun orang yang kusayangi berada,\nsemoga dia bisa tertawa dari hati.\nWalaupun ada sedikit hal yang tidak menyenangkan,\nsemoga hari ini tetap bisa ia akhiri dengan senyuman.\n\nHanya itu saja.\nBenar-benar hanya itu yang kuinginkan.\nKamu tidak perlu mengkhawatirkan aku di sini.\n\nKalau suatu saat kamu lelah,\npulanglah sesekali.\nAku akan membuatkan hal yang kamu suka,\ndan menunggumu di sini.","source_type":"youtube","youtube_url":"https://youtu.be/4nPxHqHzGPI?si=kDgDuu22LDhPn-sY"},{"id":"song-road-of-major-taisetsu-na-mono","song_code":"MJE-LAGU-000002","artist_romaji":"Road of Major","title_romaji":"Taisetsu na mono","year":"-","theme":"perpisahan/kenangan/harapan","japanese_lyrics":"泣かないで そこにはほら\nかけがえのない 大切なもの\n目を閉じれば 夜空に映る\n優しい想い出たち\n\n桜散る その度にまた\n門出の涙 流したけれど\n涙散る その度にまた\n笑いあえた 僕達がいた\n\n泣かないで そこにはほら\nあなたを包む 大切な人\n一つ一つ 流した涙\nその理由を忘れないで\n\nあたたかい 人の優しさに\n僕は応えられているのだろうか\nこの旅が 終わる頃には\nその答えも見えてくるだろう\n\nこの空の下 同じ星見上げて 悩む僕らは\n夢を握ったまま\n泣き笑い支え合い信じてく\n\n桜散る その度にまた\n門出の涙 流したけれど\n涙散る その度にまた\n笑いあえた 僕達がいた\n\n変わりゆく日々が\n僕らに不安の色をもたらそうとも\n染まらずに今は 歩く自分の意思 道しるべに\n\nこの空の下\nこの空の下 かけがえのない大切なもの","romaji_lyrics":"Nakanaide soko ni wa hora\nKakegae no nai taisetsu na mono\nMe wo tojireba yozora ni utsuru\nYasashii omoide tachi\n\nSakura chiru sono tabi ni mata\nKadode no namida nagashita keredo\nNamida chiru sono tabi ni mata\nWarai aeta bokutachi ga ita\n\nNakanaide soko ni wa hora\nAnata wo tsutsumu taisetsu na hito\nHitotsu hitotsu nagashita namida\nSono wake wo wasurenaide\n\nAtatakai hito no yasashisa ni\nBoku wa kotaerarete iru no darou ka\nKono tabi ga owaru koro ni wa\nSono kotae mo miete kuru darou\n\nKono sora no shita onaji hoshi miagete nayamu bokura wa\nYume wo nigitta mama\nNaki warai sasae ai shinjiteku\n\nSakura chiru sono tabi ni mata\nKadode no namida nagashita keredo\nNamida chiru sono tabi ni mata\nWarai aeta bokutachi ga ita\n\nKawariyuku hibi ga\nBokura ni fuan no iro wo motarasou tomo\nSomarazu ni ima wa aruku jibun no ishi michi shirube ni\n\nKono sora no shita\nKono sora no shita kakegae no nai taisetsu na mono","indonesian_translation":"Jangan menangis.\nLihatlah, di sana ada sesuatu yang sangat berharga,\nsesuatu yang tidak bisa tergantikan.\n\nSaat kamu memejamkan mata,\nyang terpantul di langit malam\nadalah kenangan-kenangan lembut\nyang pernah kamu simpan.\n\nSetiap kali bunga sakura berguguran,\nair mata perpisahan kembali mengalir\ndi awal perjalanan yang baru.\n\nTapi setiap kali air mata itu jatuh,\ndi sana juga ada kita\nyang masih bisa tertawa bersama.\n\nJangan menangis.\nLihatlah, di sana ada orang-orang berharga\nyang selalu menyelimutimu dengan kehangatan.\n\nSetiap air mata yang pernah kamu jatuhkan,\nsatu demi satu,\njangan pernah lupakan alasan di baliknya.\n\nDi hadapan kehangatan\ndan kebaikan orang-orang,\naku bertanya-tanya,\napakah aku sudah mampu membalasnya dengan baik?\n\nMungkin saat perjalanan ini sampai di ujungnya,\njawaban itu juga perlahan akan terlihat.\n\nDi bawah langit yang sama,\nkita menatap bintang yang sama\nsambil membawa kegelisahan masing-masing.\n\nMeski begitu,\nkita tetap menggenggam mimpi,\nmenangis, tertawa,\nsaling menopang,\ndan terus percaya.\n\nSetiap kali bunga sakura berguguran,\nair mata perpisahan kembali mengalir\ndi awal perjalanan yang baru.\n\nTapi setiap kali air mata itu jatuh,\ndi sana juga ada kita\nyang masih bisa tertawa bersama.\n\nWalaupun hari-hari yang terus berubah\nmembawa warna kecemasan ke dalam hidup kita,\nuntuk saat ini,\njangan biarkan dirimu ikut ternodai olehnya.\n\nTeruslah berjalan\ndengan kemauanmu sendiri\nsebagai penunjuk arah.\n\nDi bawah langit ini.\n\nDi bawah langit ini,\nada sesuatu yang sangat berharga\ndan tidak tergantikan.","source_type":"youtube","youtube_url":"https://www.youtube.com/watch?v=ZAT9FrNkI9M"},{"id":"song-maki-otsuki-memories","song_code":"MJE-LAGU-000003","artist_romaji":"Maki Otsuki","title_romaji":"Memories","year":"-","theme":"kenangan/masa kecil/mimpi","japanese_lyrics":"小さな頃には宝の地図が\n頭の中に浮かんでいて\nいつでも探したキセキの場所を\n知らない誰かに負けないよに\n\n今ではほこりだらけの毎日\nいつの日かすべての\n時に身を委せるだけ\n\nもしも世界が変わるのなら\n何も知らない頃の私に\n連れていって　思い出が色あせないように\n\n小さな頃から歌を唄って\n夢見る心あたためてた\nみんなで真似した秘密のメロディー\n今度は上手に聞こえるように\n\n今ではため息ついてばかりで\n誰もまだ本当の\n夢さえつかめないまま\n\nもしも時代が戻るのなら\n涙を知った頃の私に\n連れていって　せつなさが追いつかないように\n\nもしも世界が変わるのなら\n何も知らない頃の私に\n連れていって　思い出が色あせないように\n\n連れていって　せつなさが追いつかないように","romaji_lyrics":"Chiisana koro ni wa takara no chizu ga\nAtama no naka ni ukande ite\nItsudemo sagashita kiseki no basho wo\nShiranai dareka ni makenai you ni\n\nIma de wa hokori darake no mainichi\nItsu no hi ka subete no\nToki ni mi wo makaseru dake\n\nMoshimo sekai ga kawaru no nara\nNani mo shiranai koro no watashi ni\nTsurete itte omoide ga iroasenai you ni\n\nChiisana koro kara uta wo utatte\nYume miru kokoro atatameteta\nMinna de mane shita himitsu no merodii\nKondo wa jouzu ni kikoeru you ni\n\nIma de wa tameiki tsuite bakari de\nDare mo mada hontou no\nYume sae tsukamenai mama\n\nMoshimo jidai ga modoru no nara\nNamida wo shitta koro no watashi ni\nTsurete itte setsunasa ga oitsukanai you ni\n\nMoshimo sekai ga kawaru no nara\nNani mo shiranai koro no watashi ni\nTsurete itte omoide ga iroasenai you ni\n\nTsurete itte setsunasa ga oitsukanai you ni","indonesian_translation":"Saat aku masih kecil,\npeta harta karun selalu tergambar\ndi dalam kepalaku.\n\nAku selalu mencari tempat penuh keajaiban itu,\nseolah tidak ingin kalah\ndari seseorang yang bahkan tidak kukenal.\n\nTapi sekarang,\nhari-hariku terasa dipenuhi debu.\nEntah suatu hari nanti,\nmungkin aku hanya akan menyerahkan semuanya\npada aliran waktu.\n\nJika dunia ini bisa berubah,\nbawalah aku kembali\nkepada diriku yang dulu,\nyang belum mengetahui apa pun.\n\nBawalah aku ke sana,\nagar kenangan-kenangan itu\ntidak kehilangan warnanya.\n\nSejak kecil aku sudah bernyanyi,\nmenghangatkan hati\nyang selalu memimpikan sesuatu.\n\nMelodi rahasia\nyang dulu kita tirukan bersama,\nsemoga kali ini\nbisa terdengar lebih indah.\n\nTapi sekarang,\naku hanya terus menghela napas.\nBelum ada seorang pun\nyang benar-benar mampu menggenggam\nmimpi yang sesungguhnya.\n\nJika zaman bisa kembali,\nbawalah aku kepada diriku\nsaat pertama kali mengenal air mata.\n\nBawalah aku ke sana,\nagar rasa perih ini\ntidak sempat mengejarku.\n\nJika dunia ini bisa berubah,\nbawalah aku kembali\nkepada diriku yang dulu,\nyang belum mengetahui apa pun.\n\nBawalah aku ke sana,\nagar kenangan-kenangan itu\ntidak kehilangan warnanya.\n\nBawalah aku ke sana,\nagar rasa perih ini\ntidak sempat mengejarku.","source_type":"youtube","youtube_url":"https://www.youtube.com/watch?v=cWWjANOisLo"}];
+  var VOCABULARY = [{"word":"元気","reading":"げんき","meaning":"sehat / baik-baik saja / bersemangat","note":"Dipakai untuk menanyakan atau berharap seseorang tetap baik-baik saja."},{"word":"毎日","reading":"まいにち","meaning":"setiap hari","note":"Kata keterangan waktu yang sering muncul dalam percakapan sehari-hari."},{"word":"暮らす","reading":"くらす","meaning":"hidup / menjalani kehidupan","note":"Kata kerja Godan / Kelompok 1. Berbeda dari 生きる, 暮らす lebih menekankan kehidupan sehari-hari.","verb_group":"Godan / Kelompok 1","matches":["暮らして"]},{"word":"朝","reading":"あさ","meaning":"pagi","note":"Menunjukkan waktu pagi hari."},{"word":"起きる","reading":"おきる","meaning":"bangun","note":"Kata kerja Ichidan / Kelompok 2.","verb_group":"Ichidan / Kelompok 2","matches":["起きられて"]},{"word":"野菜","reading":"やさい","meaning":"sayur","note":"Kata benda untuk makanan sehat/sayuran."},{"word":"きちんと","reading":"きちんと","meaning":"dengan baik / rapi / benar","note":"Adverb yang menunjukkan sesuatu dilakukan dengan benar atau tertib."},{"word":"食べる","reading":"たべる","meaning":"makan","note":"Kata kerja Ichidan / Kelompok 2.","verb_group":"Ichidan / Kelompok 2","matches":["食べて"]},{"word":"つらい","reading":"つらい","meaning":"berat / menyakitkan / sulit","note":"Kata sifat i yang menggambarkan keadaan emosional atau fisik yang berat."},{"word":"思い","reading":"おもい","meaning":"perasaan / beban pikiran","note":"Dalam lirik dapat berarti beban hati atau perasaan yang sedang ditanggung."},{"word":"する","reading":"する","meaning":"melakukan","note":"Kata kerja irregular / Kelompok 3.","verb_group":"Irregular / Kelompok 3","matches":["して","しない","しても","しなくても"]},{"word":"頑張る","reading":"がんばる","meaning":"berusaha / bertahan / semangat","note":"Kata kerja Godan / Kelompok 1. Sering dipakai untuk memberi semangat.","verb_group":"Godan / Kelompok 1","matches":["頑張って"]},{"word":"言う","reading":"いう","meaning":"mengatakan","note":"Kata kerja Godan / Kelompok 1.","verb_group":"Godan / Kelompok 1","matches":["言い"]},{"word":"ながら","reading":"ながら","meaning":"sambil","note":"Menghubungkan dua tindakan yang terjadi bersamaan."},{"word":"あまり","reading":"あまり","meaning":"terlalu / tidak begitu","note":"Sering dipakai dengan bentuk negatif, seperti あまり〜ない."},{"word":"無理","reading":"むり","meaning":"memaksakan diri / mustahil","note":"Dalam konteks lagu, maksudnya jangan terlalu memaksa diri.","matches":["ムリ"]},{"word":"心配","reading":"しんぱい","meaning":"khawatir","note":"Perasaan cemas terhadap keadaan seseorang."},{"word":"なる","reading":"なる","meaning":"menjadi","note":"Kata kerja Godan / Kelompok 1.","verb_group":"Godan / Kelompok 1","matches":["なる"]},{"word":"こと","reading":"こと","meaning":"hal / perkara","note":"Menominalkan tindakan atau menyebut hal secara umum."},{"word":"寂しい","reading":"さびしい","meaning":"kesepian","note":"Kata sifat i untuk perasaan sepi atau rindu.","matches":["寂しく"]},{"word":"ある","reading":"ある","meaning":"ada / terjadi","note":"Kata kerja Godan / Kelompok 1 untuk benda/kejadian.","verb_group":"Godan / Kelompok 1","matches":["ある","あって"]},{"word":"けど","reading":"けど","meaning":"tetapi / walaupun","note":"Bentuk kasual dari けれど."},{"word":"いる","reading":"いる","meaning":"ada / berada","note":"Kata kerja Ichidan / Kelompok 2 untuk manusia/hewan atau keadaan berlangsung.","verb_group":"Ichidan / Kelompok 2","matches":["いて","いる"]},{"word":"くれる","reading":"くれる","meaning":"memberi untuk pihak pembicara","note":"Kata kerja Ichidan / Kelompok 2. Memberi nuansa kebaikan yang diterima pembicara.","verb_group":"Ichidan / Kelompok 2","matches":["くれたら"]},{"word":"愛する","reading":"あいする","meaning":"mencintai","note":"Suru-verb / Kelompok 3.","verb_group":"Suru-verb / Kelompok 3"},{"word":"人","reading":"ひと","meaning":"orang","note":"Kata benda dasar yang sangat sering dipakai."},{"word":"どこ","reading":"どこ","meaning":"di mana","note":"Kata tanya lokasi."},{"word":"心","reading":"こころ","meaning":"hati","note":"Dalam lirik sering menunjuk perasaan terdalam."},{"word":"から","reading":"から","meaning":"dari / karena","note":"Partikel yang bisa menunjukkan asal atau sebab."},{"word":"笑う","reading":"わらう","meaning":"tertawa / tersenyum","note":"Kata kerja Godan / Kelompok 1.","verb_group":"Godan / Kelompok 1","matches":["笑え","笑って"]},{"word":"ように","reading":"ように","meaning":"agar / supaya","note":"Dipakai untuk harapan atau tujuan."},{"word":"少し","reading":"すこし","meaning":"sedikit","note":"Kata keterangan jumlah."},{"word":"くらい","reading":"くらい","meaning":"sekitar / kira-kira / bahkan","note":"Memberi nuansa perkiraan atau derajat."},{"word":"嫌","reading":"いや","meaning":"tidak suka / buruk / tidak menyenangkan","note":"Na-adjective. Dalam lirik: 嫌なこと = hal yang tidak menyenangkan."},{"word":"今日","reading":"きょう","meaning":"hari ini","note":"Kata waktu."},{"word":"終える","reading":"おえる","meaning":"mengakhiri / menyelesaikan","note":"Kata kerja Ichidan / Kelompok 2.","verb_group":"Ichidan / Kelompok 2","matches":["終えて"]},{"word":"ただ","reading":"ただ","meaning":"hanya / sekadar","note":"Membatasi makna: hanya itu saja."},{"word":"それ","reading":"それ","meaning":"itu","note":"Kata tunjuk untuk sesuatu yang dekat dengan lawan bicara atau sudah disebut."},{"word":"だけ","reading":"だけ","meaning":"saja / hanya","note":"Partikel pembatas."},{"word":"いい","reading":"いい","meaning":"baik / cukup","note":"Bisa berarti cukup atau tidak apa-apa tergantung konteks."},{"word":"こっち","reading":"こっち","meaning":"sini / pihakku","note":"Bentuk kasual dari こちら."},{"word":"いらない","reading":"いらない","meaning":"tidak perlu","note":"Bentuk negatif dari いる yang berarti membutuhkan.","matches":["いらない"]},{"word":"たまに","reading":"たまに","meaning":"sesekali","note":"Frekuensi tidak sering."},{"word":"疲れる","reading":"つかれる","meaning":"lelah","note":"Kata kerja Ichidan / Kelompok 2.","verb_group":"Ichidan / Kelompok 2","matches":["疲れたら"]},{"word":"帰る","reading":"かえる","meaning":"pulang","note":"Kata kerja Godan / Kelompok 1.","verb_group":"Godan / Kelompok 1","matches":["帰って"]},{"word":"おいで","reading":"おいで","meaning":"datanglah / pulanglah ke sini","note":"Ungkapan lembut untuk memanggil seseorang datang."},{"word":"あなた","reading":"あなた","meaning":"kamu","note":"Kata ganti orang kedua."},{"word":"好き","reading":"すき","meaning":"suka","note":"Na-adjective untuk rasa suka."},{"word":"もの","reading":"もの","meaning":"benda / hal","note":"Kata benda umum."},{"word":"作る","reading":"つくる","meaning":"membuat","note":"Kata kerja Godan / Kelompok 1.","verb_group":"Godan / Kelompok 1","matches":["作って"]},{"word":"待つ","reading":"まつ","meaning":"menunggu","note":"Kata kerja Godan / Kelompok 1.","verb_group":"Godan / Kelompok 1","matches":["待って"]},{"word":"人生","reading":"じんせい","meaning":"hidup / kehidupan","note":"Kehidupan manusia secara keseluruhan."},{"word":"一度","reading":"いちど","meaning":"sekali","note":"Jumlah/frekuensi satu kali."},{"word":"自分","reading":"じぶん","meaning":"diri sendiri","note":"Menunjuk diri sendiri."},{"word":"思う","reading":"おもう","meaning":"berpikir / merasa","note":"Kata kerja Godan / Kelompok 1.","verb_group":"Godan / Kelompok 1","matches":["思う","思って"]},{"word":"生きる","reading":"いきる","meaning":"hidup","note":"Kata kerja Ichidan / Kelompok 2.","verb_group":"Ichidan / Kelompok 2"},{"word":"本当","reading":"ほんとう","meaning":"sebenarnya / sungguh","note":"Sering ditulis ホント secara kasual.","matches":["本当","ホント"]},{"word":"出世","reading":"しゅっせ","meaning":"sukses karier / naik jabatan","note":"Sering berkaitan dengan kemajuan status pekerjaan."},{"word":"なんて","reading":"なんて","meaning":"hal seperti / semacam","note":"Memberi nuansa merendahkan atau mengecilkan topik."},{"word":"間違える","reading":"まちがえる","meaning":"salah / melakukan kesalahan","note":"Kata kerja Ichidan / Kelompok 2.","verb_group":"Ichidan / Kelompok 2","matches":["間違えた"]},{"word":"そのまま","reading":"そのまま","meaning":"apa adanya / tetap seperti itu","note":"Menggambarkan keadaan tanpa diubah."},{"word":"泣く","reading":"なく","meaning":"menangis","note":"Kata kerja Godan / Kelompok 1.","verb_group":"Godan / Kelompok 1","matches":["泣かない","泣き"]},{"word":"そこ","reading":"そこ","meaning":"di sana","note":"Kata tunjuk tempat."},{"word":"ほら","reading":"ほら","meaning":"lihatlah / coba lihat","note":"Ungkapan untuk menarik perhatian lawan bicara."},{"word":"かけがえのない","reading":"かけがえのない","meaning":"tidak tergantikan","note":"Ungkapan untuk sesuatu yang sangat berharga."},{"word":"大切","reading":"たいせつ","meaning":"penting / berharga","note":"Na-adjective yang menunjukkan nilai emosional atau pentingnya sesuatu."},{"word":"目","reading":"め","meaning":"mata","note":"Bagian tubuh; dalam lirik sering dipakai dengan 閉じる."},{"word":"閉じる","reading":"とじる","meaning":"menutup","note":"Kata kerja Ichidan / Kelompok 2.","verb_group":"Ichidan / Kelompok 2","matches":["閉じれば"]},{"word":"夜空","reading":"よぞら","meaning":"langit malam","note":"Gabungan 夜 + 空."},{"word":"映る","reading":"うつる","meaning":"terpantul / tampak","note":"Kata kerja Godan / Kelompok 1.","verb_group":"Godan / Kelompok 1"},{"word":"優しい","reading":"やさしい","meaning":"lembut / baik hati","note":"Kata sifat i.","matches":["優しい","優しさ"]},{"word":"想い出","reading":"おもいで","meaning":"kenangan","note":"Varian penulisan dari 思い出, bernuansa lebih emosional."},{"word":"たち","reading":"たち","meaning":"para / bentuk jamak","note":"Akhiran untuk membuat kelompok, seperti 僕達."},{"word":"桜","reading":"さくら","meaning":"bunga sakura","note":"Simbol musim semi, perpisahan, dan awal baru."},{"word":"散る","reading":"ちる","meaning":"berguguran / tersebar","note":"Kata kerja Godan / Kelompok 1.","verb_group":"Godan / Kelompok 1"},{"word":"度","reading":"たび","meaning":"setiap kali","note":"Dalam その度に berarti 'setiap kali itu terjadi'."},{"word":"門出","reading":"かどで","meaning":"awal perjalanan / keberangkatan","note":"Sering dipakai untuk perpisahan atau memulai babak baru."},{"word":"涙","reading":"なみだ","meaning":"air mata","note":"Dalam lagu sering melambangkan kesedihan, perpisahan, atau perasaan yang tidak tertahan."},{"word":"流す","reading":"ながす","meaning":"mengalirkan / menumpahkan","note":"Kata kerja Godan / Kelompok 1. Dalam 涙を流す berarti meneteskan air mata.","verb_group":"Godan / Kelompok 1","matches":["流した"]},{"word":"けれど","reading":"けれど","meaning":"tetapi / walaupun","note":"Penghubung kontras yang lebih lembut dari でも."},{"word":"笑いあう","reading":"わらいあう","meaning":"saling tertawa","note":"Kata kerja Godan / Kelompok 1; あう memberi makna saling.","verb_group":"Godan / Kelompok 1","matches":["笑いあえた"]},{"word":"僕達","reading":"ぼくたち","meaning":"kami / kita","note":"Bentuk jamak dari 僕."},{"word":"僕","reading":"ぼく","meaning":"aku / saya","note":"Kata ganti orang pertama bernuansa maskulin/kasual."},{"word":"包む","reading":"つつむ","meaning":"membungkus / menyelimuti","note":"Kata kerja Godan / Kelompok 1. Dalam lirik berarti melindungi atau menghangatkan.","verb_group":"Godan / Kelompok 1"},{"word":"一つ一つ","reading":"ひとつひとつ","meaning":"satu per satu","note":"Menekankan setiap hal secara individual."},{"word":"理由","reading":"りゆう","meaning":"alasan","note":"Alasan di balik tindakan/perasaan."},{"word":"忘れる","reading":"わすれる","meaning":"melupakan","note":"Kata kerja Ichidan / Kelompok 2.","verb_group":"Ichidan / Kelompok 2","matches":["忘れない"]},{"word":"あたたかい","reading":"あたたかい","meaning":"hangat","note":"Bisa fisik atau emosional. Di sini nuansanya kehangatan hati."},{"word":"優しさ","reading":"やさしさ","meaning":"kebaikan / kelembutan","note":"Bentuk kata benda dari 優しい."},{"word":"応える","reading":"こたえる","meaning":"membalas / merespons harapan","note":"Kata kerja Ichidan / Kelompok 2. Berbeda dari 答える yang fokus pada menjawab pertanyaan.","verb_group":"Ichidan / Kelompok 2","matches":["応えられて"]},{"word":"旅","reading":"たび","meaning":"perjalanan","note":"Perjalanan fisik atau perjalanan hidup."},{"word":"終わる","reading":"おわる","meaning":"berakhir","note":"Kata kerja Godan / Kelompok 1.","verb_group":"Godan / Kelompok 1"},{"word":"頃","reading":"ころ","meaning":"sekitar waktu / saat","note":"Menunjukkan waktu yang kurang spesifik."},{"word":"答え","reading":"こたえ","meaning":"jawaban","note":"Jawaban atas pertanyaan atau pencarian batin."},{"word":"見える","reading":"みえる","meaning":"terlihat / tampak","note":"Kata kerja Ichidan / Kelompok 2.","verb_group":"Ichidan / Kelompok 2","matches":["見えて"]},{"word":"来る","reading":"くる","meaning":"datang","note":"Kata kerja irregular / Kelompok 3.","verb_group":"Irregular / Kelompok 3","matches":["くる"]},{"word":"空","reading":"そら","meaning":"langit","note":"Dalam lagu sering menjadi simbol ruang yang menghubungkan banyak orang."},{"word":"下","reading":"した","meaning":"bawah","note":"この空の下 = di bawah langit ini."},{"word":"同じ","reading":"おなじ","meaning":"sama","note":"Na-adjective yang berarti sama."},{"word":"星","reading":"ほし","meaning":"bintang","note":"Objek langit yang sering menjadi simbol harapan."},{"word":"見上げる","reading":"みあげる","meaning":"menatap ke atas","note":"Kata kerja Ichidan / Kelompok 2.","verb_group":"Ichidan / Kelompok 2","matches":["見上げて"]},{"word":"悩む","reading":"なやむ","meaning":"cemas / bimbang / punya masalah","note":"Kata kerja Godan / Kelompok 1.","verb_group":"Godan / Kelompok 1","matches":["悩む"]},{"word":"僕ら","reading":"ぼくら","meaning":"kami / kita","note":"Bentuk jamak dari 僕 yang lebih kasual."},{"word":"夢","reading":"ゆめ","meaning":"mimpi","note":"Impian atau harapan masa depan."},{"word":"握る","reading":"にぎる","meaning":"menggenggam","note":"Kata kerja Godan / Kelompok 1.","verb_group":"Godan / Kelompok 1","matches":["握った"]},{"word":"まま","reading":"まま","meaning":"tetap dalam keadaan","note":"Menunjukkan keadaan yang dibiarkan terus berlangsung."},{"word":"泣き笑い","reading":"なきわらい","meaning":"menangis sambil tertawa","note":"Campuran perasaan sedih dan bahagia."},{"word":"支え合う","reading":"ささえあう","meaning":"saling menopang / saling mendukung","note":"Kata kerja Godan / Kelompok 1; 合う berarti saling.","verb_group":"Godan / Kelompok 1","matches":["支え合い"]},{"word":"信じる","reading":"しんじる","meaning":"percaya","note":"Kata kerja Ichidan / Kelompok 2.","verb_group":"Ichidan / Kelompok 2","matches":["信じて"]},{"word":"変わりゆく","reading":"かわりゆく","meaning":"terus berubah","note":"Bentuk puitis dari 変わっていく."},{"word":"日々","reading":"ひび","meaning":"hari-hari","note":"Bentuk berulang dari 日 yang berarti keseharian."},{"word":"不安","reading":"ふあん","meaning":"kecemasan / rasa tidak tenang","note":"Na-adjective/kata benda."},{"word":"色","reading":"いろ","meaning":"warna","note":"Secara kiasan bisa berarti nuansa perasaan."},{"word":"もたらす","reading":"もたらす","meaning":"membawa / menyebabkan","note":"Kata kerja Godan / Kelompok 1.","verb_group":"Godan / Kelompok 1","matches":["もたらそう"]},{"word":"とも","reading":"とも","meaning":"walaupun / sekalipun","note":"Dalam pola 〜ようとも berarti walaupun."},{"word":"染まる","reading":"そまる","meaning":"terwarnai / terpengaruh","note":"Kata kerja Godan / Kelompok 1.","verb_group":"Godan / Kelompok 1","matches":["染まらず"]},{"word":"今","reading":"いま","meaning":"sekarang","note":"Waktu saat ini."},{"word":"歩く","reading":"あるく","meaning":"berjalan","note":"Kata kerja Godan / Kelompok 1.","verb_group":"Godan / Kelompok 1","matches":["歩く"]},{"word":"意思","reading":"いし","meaning":"kemauan / kehendak","note":"Niat atau kemauan yang dimiliki seseorang."},{"word":"道しるべ","reading":"みちしるべ","meaning":"penunjuk arah / pedoman","note":"Dapat berarti petunjuk hidup secara kiasan."},{"word":"小さい","reading":"ちいさい","meaning":"kecil","note":"Bentuk 小さな dipakai sebelum kata benda, memberi nuansa 'kecil' atau 'masa kecil'.","matches":["小さな"],"verb_group":""},{"word":"宝","reading":"たから","meaning":"harta / sesuatu yang berharga","note":"Dalam lirik, 宝の地図 menggambarkan impian dan petualangan masa kecil.","matches":["宝"]},{"word":"地図","reading":"ちず","meaning":"peta","note":"宝の地図 berarti peta harta karun, simbol mimpi dan tujuan yang dicari.","matches":["地図"]},{"word":"頭","reading":"あたま","meaning":"kepala / pikiran","note":"頭の中 berarti di dalam kepala atau pikiran.","matches":["頭"]},{"word":"中","reading":"なか","meaning":"dalam / bagian dalam","note":"Dipakai dalam pola Nの中に untuk menyatakan lokasi di dalam sesuatu.","matches":["中"]},{"word":"浮かぶ","reading":"うかぶ","meaning":"muncul / mengambang / terbayang","note":"Kata kerja Godan/Kelompok 1. Dalam lirik berarti peta itu terbayang di pikiran.","verb_group":"Godan / Kelompok 1","matches":["浮かんで"]},{"word":"いつでも","reading":"いつでも","meaning":"kapan pun / selalu","note":"Menunjukkan sesuatu yang dilakukan kapan saja atau selalu ada dalam pikiran.","matches":["いつでも"]},{"word":"探す","reading":"さがす","meaning":"mencari","note":"Kata kerja Godan/Kelompok 1. 探した adalah bentuk lampau, 'telah mencari'.","verb_group":"Godan / Kelompok 1","matches":["探した"]},{"word":"キセキ","reading":"きせき","meaning":"keajaiban / mukjizat","note":"Ditulis katakana untuk memberi penekanan emosional. Bisa juga ditulis 奇跡.","matches":["キセキ"]},{"word":"場所","reading":"ばしょ","meaning":"tempat","note":"場所 dipakai untuk lokasi konkret maupun tempat yang bermakna secara emosional.","matches":["場所"]},{"word":"知らない","reading":"しらない","meaning":"tidak tahu / tidak dikenal","note":"Bentuk negatif dari 知る. Dalam lirik: 知らない誰か = seseorang yang tidak dikenal.","matches":["知らない"]},{"word":"誰か","reading":"だれか","meaning":"seseorang","note":"Gabungan 誰 + か, berarti seseorang yang tidak disebutkan secara spesifik.","matches":["誰か"]},{"word":"負ける","reading":"まける","meaning":"kalah","note":"Kata kerja Ichidan/Kelompok 2. 負けない berarti tidak kalah.","verb_group":"Ichidan / Kelompok 2","matches":["負けない"]},{"word":"ほこり","reading":"ほこり","meaning":"debu","note":"ほこりだらけ berarti penuh debu; dalam lirik memberi nuansa hari-hari yang kusam.","matches":["ほこり"]},{"word":"だらけ","reading":"だらけ","meaning":"penuh dengan / dipenuhi","note":"Dipakai untuk keadaan yang penuh sesuatu, sering bernuansa negatif.","matches":["だらけ"]},{"word":"いつの日か","reading":"いつのひか","meaning":"suatu hari nanti","note":"Ungkapan untuk masa depan yang belum pasti.","matches":["いつの日か"]},{"word":"すべて","reading":"すべて","meaning":"semuanya","note":"Menunjukkan keseluruhan tanpa sisa.","matches":["すべて"]},{"word":"時","reading":"とき","meaning":"waktu / saat","note":"Dalam lirik muncul sebagai 時に, 'pada waktu' atau 'kepada waktu'.","matches":["時に"]},{"word":"身","reading":"み","meaning":"diri / tubuh","note":"身を委せる berarti menyerahkan diri pada sesuatu.","matches":["身を"]},{"word":"委せる","reading":"まかせる","meaning":"menyerahkan / mempercayakan","note":"Bentuk lain dari 任せる. Kata kerja Ichidan/Kelompok 2.","verb_group":"Ichidan / Kelompok 2","matches":["委せる"]},{"word":"もしも","reading":"もしも","meaning":"seandainya / jika","note":"Dipakai untuk pengandaian yang emosional atau imajinatif.","matches":["もしも"]},{"word":"世界","reading":"せかい","meaning":"dunia","note":"Dalam lagu, 世界が変わる berarti dunia atau keadaan hidup berubah.","matches":["世界"]},{"word":"変わる","reading":"かわる","meaning":"berubah","note":"Kata kerja Godan/Kelompok 1. Dalam lirik dipakai untuk perubahan dunia.","verb_group":"Godan / Kelompok 1","matches":["変わる"]},{"word":"何も","reading":"なにも","meaning":"apa pun / tidak ada apa pun","note":"Sering dipakai bersama bentuk negatif: 何も知らない = tidak tahu apa pun.","matches":["何も"]},{"word":"私","reading":"わたし","meaning":"aku / saya","note":"Kata ganti orang pertama yang netral dan sopan.","matches":["私"]},{"word":"連れていく","reading":"つれていく","meaning":"membawa pergi / mengajak pergi","note":"Kata kerja Godan/Kelompok 1. 連れていって adalah bentuk permintaan: bawalah aku.","verb_group":"Godan / Kelompok 1","matches":["連れていって"]},{"word":"思い出","reading":"おもいで","meaning":"kenangan","note":"Kata kunci lagu ini; menggambarkan masa lalu yang ingin tetap hidup warnanya.","matches":["思い出"]},{"word":"色あせる","reading":"いろあせる","meaning":"memudar / kehilangan warna","note":"Kata kerja Ichidan/Kelompok 2. 色あせない berarti tidak memudar.","verb_group":"Ichidan / Kelompok 2","matches":["色あせない"]},{"word":"歌","reading":"うた","meaning":"lagu","note":"Sebagai kata benda, 歌 berarti lagu.","matches":["歌"]},{"word":"唄う","reading":"うたう","meaning":"bernyanyi","note":"Kata kerja Godan/Kelompok 1. Varian penulisan dari 歌う.","verb_group":"Godan / Kelompok 1","matches":["唄って"]},{"word":"夢見る","reading":"ゆめみる","meaning":"bermimpi / memimpikan","note":"Kata kerja Ichidan/Kelompok 2. Menunjukkan hati yang terus menyimpan mimpi.","verb_group":"Ichidan / Kelompok 2","matches":["夢見る"]},{"word":"あたためる","reading":"あたためる","meaning":"menghangatkan","note":"Kata kerja Ichidan/Kelompok 2. Dalam lirik, menghangatkan hati yang bermimpi.","verb_group":"Ichidan / Kelompok 2","matches":["あたためてた"]},{"word":"みんな","reading":"みんな","meaning":"semua orang / kita semua","note":"Dipakai untuk kelompok orang yang berbagi pengalaman bersama.","matches":["みんな"]},{"word":"真似","reading":"まね","meaning":"meniru / tiruan","note":"みんなで真似した berarti kita semua pernah menirukannya bersama.","matches":["真似"]},{"word":"秘密","reading":"ひみつ","meaning":"rahasia","note":"秘密のメロディー memberi nuansa kenangan masa kecil yang istimewa.","matches":["秘密"]},{"word":"メロディー","reading":"めろでぃー","meaning":"melodi","note":"Kata serapan dari bahasa Inggris 'melody'.","matches":["メロディー"]},{"word":"今度","reading":"こんど","meaning":"kali ini / lain kali","note":"Dalam lirik berarti kali ini semoga terdengar lebih baik.","matches":["今度"]},{"word":"上手","reading":"じょうず","meaning":"mahir / bagus / dengan baik","note":"上手に berarti dengan baik atau lebih indah.","matches":["上手"]},{"word":"聞こえる","reading":"きこえる","meaning":"terdengar","note":"Kata kerja Ichidan/Kelompok 2. Menunjukkan sesuatu bisa terdengar oleh telinga.","verb_group":"Ichidan / Kelompok 2","matches":["聞こえる"]},{"word":"ため息","reading":"ためいき","meaning":"helaan napas / keluhan napas","note":"ため息をつく berarti menghela napas, sering karena lelah atau sedih.","matches":["ため息"]},{"word":"つく","reading":"つく","meaning":"mengeluarkan / melakukan (napas/helaan)","note":"Kata kerja Godan/Kelompok 1. Dalam ため息つく berarti menghela napas.","verb_group":"Godan / Kelompok 1","matches":["ついて"]},{"word":"ばかり","reading":"ばかり","meaning":"hanya / terus-menerus","note":"Vてばかり menunjukkan tindakan yang dilakukan terus-menerus.","matches":["ばかり"]},{"word":"さえ","reading":"さえ","meaning":"bahkan","note":"Memberi penekanan: 夢さえ = bahkan mimpi pun.","matches":["さえ"]},{"word":"つかめる","reading":"つかめる","meaning":"bisa menggenggam / bisa meraih","note":"Bentuk potensial dari つかむ. Dalam lirik: belum bisa menggenggam mimpi.","verb_group":"Godan potensial","matches":["つかめない"]},{"word":"時代","reading":"じだい","meaning":"zaman / era","note":"時代が戻る berarti zaman atau masa bisa kembali.","matches":["時代"]},{"word":"戻る","reading":"もどる","meaning":"kembali","note":"Kata kerja Godan/Kelompok 1. Menggambarkan waktu yang kembali ke masa lalu.","verb_group":"Godan / Kelompok 1","matches":["戻る"]},{"word":"せつなさ","reading":"せつなさ","meaning":"rasa perih / sendu / pedih","note":"Nominalisasi dari せつない, menggambarkan perasaan sedih yang halus.","matches":["せつなさ"]},{"word":"追いつく","reading":"おいつく","meaning":"mengejar / menyusul","note":"Kata kerja Godan/Kelompok 1. 追いつかない berarti tidak sempat mengejar.","verb_group":"Godan / Kelompok 1","matches":["追いつかない"]}];
+  var GRAMMAR = [{"pattern":"Vていますか","meaning":"apakah sedang / apakah menjalani","example":"暮らしてますか / 食べていますか","romaji":"kurashitemasu ka / tabete imasu ka","explanation":"Bentuk ている + ますか dipakai untuk menanyakan keadaan atau kebiasaan yang sedang berlangsung."},{"pattern":"Vられている","meaning":"bisa / dalam keadaan mampu","example":"起きられている","romaji":"okirarete iru","explanation":"Bentuk potensial 起きられる + ている menunjukkan kemampuan atau keadaan yang masih berlangsung."},{"pattern":"Nも","meaning":"N juga","example":"野菜も","romaji":"yasai mo","explanation":"Partikel も menambahkan makna 'juga'."},{"pattern":"Vていませんか","meaning":"apakah tidak sedang...","example":"してませんか","romaji":"shitemasen ka","explanation":"Bentuk negatif sopan + か untuk bertanya dengan lembut."},{"pattern":"Vながら","meaning":"sambil melakukan","example":"言いながら","romaji":"ii nagara","explanation":"ながら menghubungkan dua tindakan yang berjalan bersamaan."},{"pattern":"あまり + Vない","meaning":"tidak terlalu...","example":"あまりムリしないで","romaji":"amari muri shinaide","explanation":"あまり sering dipakai bersama bentuk negatif untuk menyatakan 'tidak terlalu'."},{"pattern":"Vないで","meaning":"jangan melakukan / tanpa melakukan","example":"泣かないで / 忘れないで / ムリしないで","romaji":"nakanaide / wasurenaide / muri shinaide","explanation":"Bentuk negatif + で dapat menjadi larangan lembut atau 'tanpa melakukan'."},{"pattern":"Nになる","meaning":"menjadi N","example":"心配になる / 寂しくなる","romaji":"shinpai ni naru / sabishiku naru","explanation":"なる menunjukkan perubahan keadaan."},{"pattern":"VこともVこともある","meaning":"ada kalanya... dan ada kalanya...","example":"心配になることも寂しくなることもある","romaji":"shinpai ni naru koto mo sabishiku naru koto mo aru","explanation":"こともある menyatakan bahwa suatu hal bisa terjadi kadang-kadang."},{"pattern":"Vてくれたら","meaning":"kalau kamu melakukan untukku","example":"元気でいてくれたら","romaji":"genki de ite kuretara","explanation":"くれる memberi nuansa kebaikan yang diterima pembicara; たら menyatakan kondisi."},{"pattern":"疑問詞 + に + Vても","meaning":"di mana pun / kapan pun","example":"どこにいても","romaji":"doko ni ite mo","explanation":"疑問詞 + ても memberi makna 'apa pun/di mana pun/siapa pun'."},{"pattern":"Vますように","meaning":"semoga / agar","example":"笑えますように","romaji":"waraemasu you ni","explanation":"ように dipakai untuk harapan atau doa."},{"pattern":"Nがあっても","meaning":"walaupun ada N","example":"嫌なことがあっても","romaji":"iya na koto ga atte mo","explanation":"ても memberi makna 'walaupun'."},{"pattern":"Vたなら","meaning":"kalau sudah / apabila","example":"終えてくれたなら","romaji":"oete kureta nara","explanation":"なら menyatakan kondisi dengan nuansa 'kalau memang begitu'."},{"pattern":"ただ + Nだけ","meaning":"hanya itu saja","example":"ただそれだけ","romaji":"tada sore dake","explanation":"ただ dan だけ membatasi makna menjadi 'hanya'."},{"pattern":"Nだけでいい","meaning":"cukup hanya dengan N","example":"それだけでいい","romaji":"sore dake de ii","explanation":"でいい berarti sudah cukup dengan keadaan tersebut."},{"pattern":"Nはいらない","meaning":"tidak perlu N","example":"心配いらない","romaji":"shinpai iranai","explanation":"いらない berarti tidak membutuhkan."},{"pattern":"Vたら","meaning":"kalau / ketika","example":"疲れたら","romaji":"tsukaretara","explanation":"Bentuk lampau + ら membentuk kondisi."},{"pattern":"Vておいで","meaning":"datanglah / pulanglah ke sini","example":"帰っておいで","romaji":"kaette oide","explanation":"Ungkapan lembut untuk meminta seseorang datang atau pulang."},{"pattern":"Nの好きなもの","meaning":"hal yang disukai N","example":"あなたの好きなもの","romaji":"anata no suki na mono","explanation":"の menghubungkan pemilik/penjelas dengan 好きなもの."},{"pattern":"V辞書形 + のもいい","meaning":"melakukan V juga tidak apa-apa","example":"生きるのもいい","romaji":"ikiru no mo ii","explanation":"の menominalkan kata kerja; もいい menunjukkan penerimaan."},{"pattern":"Nなんて","meaning":"hal seperti N","example":"出世なんて","romaji":"shusse nante","explanation":"なんて memberi nuansa bahwa topiknya tidak perlu terlalu dibesar-besarkan."},{"pattern":"VてもVなくてもいい","meaning":"boleh melakukan atau tidak melakukan","example":"してもしなくてもいい","romaji":"shite mo shinakute mo ii","explanation":"Dua pilihan sama-sama diterima."},{"pattern":"Vたっていい","meaning":"meskipun melakukan, tidak apa-apa","example":"間違えたっていい","romaji":"machigaeta tte ii","explanation":"Bentuk kasual dari Vてもいい."},{"pattern":"そのままでいい","meaning":"apa adanya sudah cukup","example":"そのままでいい","romaji":"sonomama de ii","explanation":"Pola penerimaan terhadap keadaan tanpa harus berubah."},{"pattern":"そこにはほら","meaning":"lihatlah, di sana ada...","example":"そこにはほら","romaji":"soko ni wa hora","explanation":"には menandai lokasi/topik, ほら menarik perhatian pendengar."},{"pattern":"かけがえのない + N","meaning":"N yang tidak tergantikan","example":"かけがえのない 大切なもの","romaji":"kakegae no nai taisetsu na mono","explanation":"Ungkapan tetap untuk sesuatu yang sangat berharga."},{"pattern":"Vば","meaning":"kalau / saat","example":"目を閉じれば","romaji":"me wo tojireba","explanation":"Bentuk ba menyatakan kondisi atau saat sesuatu dilakukan."},{"pattern":"Nに映る","meaning":"terpantul/terlihat di N","example":"夜空に映る","romaji":"yozora ni utsuru","explanation":"に menandai tempat/permukaan munculnya bayangan atau gambaran."},{"pattern":"Nたち","meaning":"para N / kumpulan N","example":"想い出たち","romaji":"omoide tachi","explanation":"たち menjadikan kata benda bernuansa jamak atau kumpulan."},{"pattern":"その度にまた","meaning":"setiap kali itu terjadi, lagi","example":"桜散る その度にまた","romaji":"sakura chiru sono tabi ni mata","explanation":"その度に berarti setiap kali hal tersebut terjadi."},{"pattern":"Nの涙","meaning":"air mata karena/untuk N","example":"門出の涙","romaji":"kadode no namida","explanation":"の menghubungkan alasan/situasi dengan 涙."},{"pattern":"Vたけれど","meaning":"walaupun sudah V / tetapi","example":"流したけれど","romaji":"nagashita keredo","explanation":"けれど menghubungkan kontras dengan nada lembut."},{"pattern":"Vあう / V合う","meaning":"saling melakukan V","example":"笑いあえた / 支え合い","romaji":"warai aeta / sasae ai","explanation":"合う/あう menunjukkan tindakan yang dilakukan satu sama lain."},{"pattern":"Nがいた","meaning":"ada N / N pernah ada","example":"僕達がいた","romaji":"bokutachi ga ita","explanation":"いた adalah bentuk lampau dari いる untuk manusia/makhluk hidup."},{"pattern":"Nを包む","meaning":"menyelimuti/membungkus N","example":"あなたを包む","romaji":"anata wo tsutsumu","explanation":"を menandai objek yang diselimuti."},{"pattern":"一つ一つ","meaning":"satu per satu","example":"一つ一つ 流した涙","romaji":"hitotsu hitotsu nagashita namida","explanation":"Pengulangan angka menunjukkan setiap item secara individual."},{"pattern":"Nを忘れないで","meaning":"jangan lupakan N","example":"その理由を忘れないで","romaji":"sono wake wo wasurenaide","explanation":"Vないで di sini berupa larangan lembut."},{"pattern":"Nに応えられている","meaning":"mampu membalas/menjawab N","example":"人の優しさに応えられている","romaji":"hito no yasashisa ni kotaerarete iru","explanation":"応える digunakan untuk membalas kebaikan, harapan, atau perasaan."},{"pattern":"のだろうか","meaning":"apakah kira-kira / aku bertanya-tanya","example":"いるのだろうか","romaji":"iru no darou ka","explanation":"Memberi nuansa reflektif dan ragu-ragu."},{"pattern":"Nが終わる頃には","meaning":"saat N berakhir nanti","example":"この旅が終わる頃には","romaji":"kono tabi ga owaru koro ni wa","explanation":"頃には menunjukkan sekitar waktu suatu hal terjadi."},{"pattern":"Vてくる","meaning":"mulai terlihat/terjadi ke arah pembicara","example":"見えてくる","romaji":"miete kuru","explanation":"てくる menunjukkan perubahan yang mulai terasa atau mendekat."},{"pattern":"Nの下","meaning":"di bawah N","example":"この空の下","romaji":"kono sora no shita","explanation":"の menghubungkan langit dengan posisi di bawahnya."},{"pattern":"Nを見上げて","meaning":"menatap N ke atas","example":"同じ星見上げて","romaji":"onaji hoshi miagete","explanation":"を sering dihilangkan dalam lirik, tetapi maknanya tetap objek yang ditatap."},{"pattern":"Vたまま","meaning":"tetap dalam keadaan setelah V","example":"夢を握ったまま","romaji":"yume wo nigitta mama","explanation":"まま menyatakan keadaan yang dipertahankan."},{"pattern":"Vてく","meaning":"terus melakukan / bergerak ke depan","example":"信じてく","romaji":"shinjiteku","explanation":"Bentuk kasual dari ていく, menunjukkan tindakan berlanjut ke masa depan."},{"pattern":"Vようとも","meaning":"walaupun akan V","example":"もたらそうとも","romaji":"motarasou tomo","explanation":"Bentuk volitional + とも memberi makna 'sekalipun/walaupun'."},{"pattern":"Vずに","meaning":"tanpa melakukan V","example":"染まらずに","romaji":"somarazu ni","explanation":"Bentuk klasik/literer dari ないで."},{"pattern":"Nを道しるべに","meaning":"menjadikan N sebagai pedoman","example":"自分の意思 道しるべに","romaji":"jibun no ishi michi shirube ni","explanation":"に menunjukkan peran atau hasil: menjadikan sesuatu sebagai penunjuk arah."},{"pattern":"Nには","meaning":"pada / di / untuk N","example":"小さな頃には","romaji":"chiisana koro ni wa","explanation":"に menunjukkan waktu atau tempat, sedangkan は memberi penekanan topik: 'pada masa kecilku...'","matches":["頃には"]},{"pattern":"Nの中に","meaning":"di dalam N","example":"頭の中に","romaji":"atama no naka ni","explanation":"Pola ini menunjukkan lokasi sesuatu berada di bagian dalam sesuatu yang lain.","matches":["頭の中に"]},{"pattern":"Vていて","meaning":"sedang / dalam keadaan melakukan","example":"浮かんでいて","romaji":"ukande ite","explanation":"Bentuk ている menunjukkan keadaan yang berlangsung; ていて menghubungkan ke kalimat berikutnya.","matches":["浮かんでいて"]},{"pattern":"Vた + N","meaning":"N yang telah di-","example":"探したキセキの場所","romaji":"sagashita kiseki no basho","explanation":"Kata kerja bentuk lampau bisa menerangkan kata benda setelahnya, seperti 'tempat keajaiban yang dulu kucari'.","matches":["探したキセキの場所"]},{"pattern":"Vないように","meaning":"agar tidak / supaya tidak","example":"負けないよに / 色あせないように","romaji":"makenai you ni / iroasenai you ni","explanation":"Bentuk negatif + ように menyatakan tujuan agar sesuatu tidak terjadi.","matches":["負けない","色あせないように","追いつかないように"]},{"pattern":"Nだらけ","meaning":"penuh dengan N","example":"ほこりだらけ","romaji":"hokori darake","explanation":"だらけ menunjukkan keadaan penuh dengan sesuatu, biasanya bernuansa kurang baik.","matches":["ほこりだらけ"]},{"pattern":"Vるだけ","meaning":"hanya melakukan V","example":"身を委せるだけ","romaji":"mi wo makaseru dake","explanation":"だけ membatasi makna menjadi 'hanya'. Di sini berarti hanya menyerahkan diri pada waktu.","matches":["委せるだけ"]},{"pattern":"もしも〜なら","meaning":"seandainya / jika","example":"もしも世界が変わるのなら","romaji":"moshimo sekai ga kawaru no nara","explanation":"もしも membuat pengandaian terasa lebih emosional atau imajinatif.","matches":["もしも世界が変わるのなら","もしも時代が戻るのなら"]},{"pattern":"何も + negatif","meaning":"tidak ... apa pun","example":"何も知らない","romaji":"nani mo shiranai","explanation":"何も dipakai bersama bentuk negatif untuk menekankan 'tidak tahu apa pun'.","matches":["何も知らない"]},{"pattern":"Vていって","meaning":"tolong bawa / lakukan lalu pergi","example":"連れていって","romaji":"tsurete itte","explanation":"Dalam lirik, 連れていって adalah permintaan emosional: 'bawalah aku'.","matches":["連れていって"]},{"pattern":"Vてた","meaning":"bentuk kasual dari Vていた","example":"あたためてた","romaji":"atatameteta","explanation":"てた adalah bentuk percakapan dari ていた, menunjukkan keadaan atau kebiasaan yang berlangsung di masa lalu.","matches":["あたためてた"]},{"pattern":"Nで","meaning":"dengan / bersama / menggunakan","example":"みんなで","romaji":"minna de","explanation":"Partikel で dapat menunjukkan pelaku bersama: 'bersama-sama dengan semua orang'.","matches":["みんなで"]},{"pattern":"Vてばかり","meaning":"hanya terus V / V terus-menerus","example":"ため息ついてばかり","romaji":"tameiki tsuite bakari","explanation":"Bentuk ini menunjukkan tindakan yang sering atau terus dilakukan, sering bernuansa negatif.","matches":["ついてばかり"]},{"pattern":"Nさえ","meaning":"bahkan N","example":"夢さえ","romaji":"yume sae","explanation":"さえ memberi penekanan bahwa bahkan hal tersebut pun belum tercapai.","matches":["夢さえ"]},{"pattern":"Vないまま","meaning":"tetap tanpa V / dalam keadaan belum V","example":"夢さえつかめないまま","romaji":"yume sae tsukamenai mama","explanation":"まま menunjukkan keadaan yang tetap berlangsung tanpa perubahan.","matches":["つかめないまま"]},{"pattern":"Vた頃","meaning":"saat / ketika sudah V","example":"涙を知った頃","romaji":"namida wo shitta koro","explanation":"頃 menunjukkan masa atau saat ketika sesuatu terjadi.","matches":["知った頃"]}];
 
   var activeSong = null;
   var activeTab = "jp";
@@ -14460,13 +13409,17 @@ renderLevels();
   var youtubePlayer = null;
   var youtubeApiReady = false;
   var youtubeApiCallbacks = [];
+  var youtubeReadyForActiveSong = false;
   var isPlaying = false;
+  var progressTimer = null;
+  var isSeeking = false;
   var autoScrollOn = false;
-  var autoSpeedLevel = 0;
+  var autoSpeedIndex = Number(localStorage.getItem("mjeSongAutoScrollSpeedIndex") || 0);
+  var autoSpeedValues = [0.5, 1, 1.5, 2];
+  if(autoSpeedIndex < 0 || autoSpeedIndex >= autoSpeedValues.length) autoSpeedIndex = 0;
   var scrollRaf = null;
   var scrollLastTs = 0;
   var lyricZoom = Number(localStorage.getItem("mjeSongLyricZoom") || 200);
-  var playClickTimer = null;
 
   function q(id){return document.getElementById(id);}
   function qa(sel,root){return Array.prototype.slice.call((root||document).querySelectorAll(sel));}
@@ -14488,12 +13441,16 @@ renderLevels();
   function relabelDashboardAndMenu(){
     var dash=q("dashboardBunpouBtn");
     if(dash){
+      dash.classList.remove("coming-soon-card");
+      dash.removeAttribute("aria-disabled");
       var b=dash.querySelector(".dashboard-action-copy b");
       var small=dash.querySelector(".dashboard-action-copy small");
       var progress=dash.querySelector(".dashboard-card-progress");
+      var arrow=dash.querySelector(".dashboard-arrow");
       if(b)b.textContent="Belajar Lewat Lagu";
       if(small)small.textContent="Belajar bahasa Jepang lewat lagu, YouTube, lirik, romaji, arti, kosakata, dan pola kalimat.";
       if(progress)progress.textContent="Song Learning Lab";
+      if(arrow)arrow.textContent="→";
     }
     var menu=q("menuBunpouBtn");
     if(menu){
@@ -14513,6 +13470,7 @@ renderLevels();
   }
   function showDashboard(){
     stopAutoScroll();
+    stopYoutube();
     hideAllViews();
     var dashboard=q("dashboardView"), userbar=q("userbar");
     if(dashboard)dashboard.classList.remove("hidden");
@@ -14551,6 +13509,7 @@ renderLevels();
     activeTab="jp";
     stopAutoScroll();
     stopYoutube();
+    stopProgressTimer();
     var list=q("songListPane"), detail=q("songDetailPane");
     if(list)list.classList.remove("hidden");
     if(detail)detail.classList.add("hidden");
@@ -14571,7 +13530,9 @@ renderLevels();
     updateSongInfo();
     updateZoomControls();
     renderContent();
+    resetProgress();
     prepareYouTube(activeSong);
+    updateAutoScrollLabel();
     resetScroll();
   }
   function updateSongInfo(){
@@ -14604,18 +13565,38 @@ renderLevels();
   }
   function breakdownVocab(song){
     var lyrics=allText(song);
-    return VOCABULARY.filter(function(item){return itemMatchesLyrics(item, lyrics);})
-      .sort(function(a,b){
-        var ia=lyrics.indexOf((a.matches&&a.matches[0])||a.word); if(ia<0)ia=999999;
-        var ib=lyrics.indexOf((b.matches&&b.matches[0])||b.word); if(ib<0)ib=999999;
-        return ia-ib || a.word.localeCompare(b.word,"ja");
-      });
+    var seen={};
+    return VOCABULARY.filter(function(item){
+      var key=(item.word||"")+"|"+(item.reading||"");
+      if(seen[key])return false;
+      var ok=itemMatchesLyrics(item, lyrics);
+      if(ok)seen[key]=true;
+      return ok;
+    }).sort(function(a,b){
+      var am=(a.matches&&a.matches[0])||a.word, bm=(b.matches&&b.matches[0])||b.word;
+      var ia=lyrics.indexOf(am); if(ia<0)ia=999999;
+      var ib=lyrics.indexOf(bm); if(ib<0)ib=999999;
+      return ia-ib || String(a.word).localeCompare(String(b.word),"ja");
+    });
+  }
+  function grammarMatchesLyrics(item, lyrics){
+    var arr=[item.example,item.pattern].concat(item.matches||[]);
+    return arr.some(function(token){
+      if(!token)return false;
+      String(token).split(/[\/／,， ]+/).some(function(part){return part && lyrics.indexOf(part)>-1;});
+      if(lyrics.indexOf(token)>-1)return true;
+      return String(token).split(/[\/／,， ]+/).some(function(part){return part && lyrics.indexOf(part)>-1;});
+    });
   }
   function breakdownGrammar(song){
     var lyrics=allText(song);
+    var seen={};
     return GRAMMAR.filter(function(item){
-      var hay=(item.example||"")+" "+(item.pattern||"");
-      return hay.split(/[\/／,， ]+/).some(function(token){return token && lyrics.indexOf(token)>-1;}) || lyrics.indexOf(String(item.example||"").split(" ")[0])>-1;
+      var key=(item.pattern||"")+"|"+(item.example||"");
+      if(seen[key])return false;
+      var ok=grammarMatchesLyrics(item, lyrics);
+      if(ok)seen[key]=true;
+      return ok;
     });
   }
   function filterBreakdown(items){
@@ -14625,13 +13606,6 @@ renderLevels();
       var hay=Object.keys(item).map(function(k){return String(item[k]||"");}).join(" ").toLowerCase();
       return hay.indexOf(query)>-1;
     });
-  }
-  function renderSignal(level){
-    var bars="";
-    for(var i=1;i<=10;i++){
-      bars+='<i class="'+(i<=level?'on':'')+'"></i>';
-    }
-    return '<span class="song-signal" aria-label="Level auto scroll '+level+'">'+bars+'</span>';
   }
   function renderBreakdown(){
     var isVocab=activeBreakdownTab==="vocab";
@@ -14646,6 +13620,7 @@ renderLevels();
       '</div>';
     if(!items.length){
       html+='<div class="song-empty">Tidak ada hasil yang cocok.</div></div>';
+      window.__mjeCurrentBreakdownItems=[];
       return html;
     }
     html+='<div class="song-breakdown-list">';
@@ -14682,8 +13657,7 @@ renderLevels();
       btn.addEventListener("click",function(){
         var idx=Number(btn.getAttribute("data-breakdown-index"));
         var item=(window.__mjeCurrentBreakdownItems||[])[idx];
-        var kind=btn.getAttribute("data-breakdown-kind");
-        openFlash(kind,item);
+        openFlash(btn.getAttribute("data-breakdown-kind"), item);
       });
     });
   }
@@ -14691,20 +13665,21 @@ renderLevels();
     if(!item)return;
     var modal=q("songFlashModal");
     if(!modal)return;
-    q("songFlashType").textContent=kind==="vocab" ? "KOSAKATA" : "POLA KALIMAT";
+    var type=q("songFlashType"), title=q("songFlashTitle"), reading=q("songFlashReading"), meaning=q("songFlashMeaning"), example=q("songFlashExample"), note=q("songFlashNote");
     if(kind==="vocab"){
-      q("songFlashTitle").textContent=item.word || "";
-      q("songFlashReading").innerHTML=item.reading ? "<b>Reading:</b> "+esc(item.reading) : "";
-      q("songFlashMeaning").innerHTML=item.meaning ? "<b>Arti:</b> "+esc(item.meaning) : "";
-      var ex=item.verb_group ? "<b>Golongan:</b> "+esc(item.verb_group) : "";
-      q("songFlashExample").innerHTML=ex;
-      q("songFlashNote").textContent=item.note || "";
+      if(type)type.textContent="KOSAKATA";
+      if(title)title.textContent=item.word||"";
+      if(reading)reading.textContent=item.reading ? "Reading: "+item.reading : "";
+      if(meaning)meaning.textContent=item.meaning ? "Arti: "+item.meaning : "";
+      if(example)example.textContent=item.verb_group ? "Golongan: "+item.verb_group : "";
+      if(note)note.textContent=item.note || "";
     }else{
-      q("songFlashTitle").textContent=item.pattern || "";
-      q("songFlashReading").innerHTML=item.meaning ? "<b>Arti:</b> "+esc(item.meaning) : "";
-      q("songFlashMeaning").innerHTML=item.example ? "<b>Contoh:</b> "+esc(item.example) : "";
-      q("songFlashExample").innerHTML=item.romaji ? "<b>Romaji:</b> "+esc(item.romaji) : "";
-      q("songFlashNote").textContent=item.explanation || "";
+      if(type)type.textContent="POLA KALIMAT";
+      if(title)title.textContent=item.pattern||"";
+      if(reading)reading.textContent=item.meaning ? "Arti: "+item.meaning : "";
+      if(meaning)meaning.textContent=item.example ? "Contoh: "+item.example : "";
+      if(example)example.textContent=item.romaji ? "Romaji: "+item.romaji : "";
+      if(note)note.textContent=item.explanation || "";
     }
     modal.classList.remove("hidden");
   }
@@ -14713,34 +13688,50 @@ renderLevels();
     if(modal)modal.classList.add("hidden");
   }
   function youtubeIdFromUrl(url){
-    url=String(url||"").trim();
-    if(!url)return "";
-    var m=url.match(/[?&]v=([^&]+)/)||url.match(/youtu\.be\/([^?&]+)/)||url.match(/embed\/([^?&]+)/)||url.match(/shorts\/([^?&]+)/);
-    return m ? decodeURIComponent(m[1]) : "";
+    var value=String(url||"").trim();
+    if(!value)return "";
+    var match=value.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{6,})/);
+    if(match)return match[1];
+    try{
+      var parsed=new URL(value);
+      if(parsed.searchParams.get("v"))return parsed.searchParams.get("v");
+    }catch(_e){}
+    return "";
   }
-  function ensureYouTubeApi(cb){
-    if(window.YT && window.YT.Player){youtubeApiReady=true; cb(); return;}
-    youtubeApiCallbacks.push(cb);
-    if(window.__mjeYouTubeLoading)return;
-    window.__mjeYouTubeLoading=true;
-    var prev=window.onYouTubeIframeAPIReady;
+  function ensureYouTubeApi(callback){
+    if(youtubeApiReady && window.YT && window.YT.Player){callback(); return;}
+    youtubeApiCallbacks.push(callback);
+    if(document.getElementById("youtube-iframe-api"))return;
+    var script=document.createElement("script");
+    script.id="youtube-iframe-api";
+    script.src="https://www.youtube.com/iframe_api";
+    document.head.appendChild(script);
+    var previous=window.onYouTubeIframeAPIReady;
     window.onYouTubeIframeAPIReady=function(){
       youtubeApiReady=true;
-      if(typeof prev==="function")try{prev();}catch(_e){}
-      youtubeApiCallbacks.splice(0).forEach(function(fn){try{fn();}catch(_e){}});
+      if(typeof previous==="function")try{previous();}catch(_e){}
+      var callbacks=youtubeApiCallbacks.slice();
+      youtubeApiCallbacks.length=0;
+      callbacks.forEach(function(fn){try{fn();}catch(_e){}});
     };
-    var tag=document.createElement("script");
-    tag.src="https://www.youtube.com/iframe_api";
-    document.head.appendChild(tag);
   }
   function prepareYouTube(song){
     isPlaying=false;
+    youtubeReadyForActiveSong=false;
     updatePlayButton();
+    resetProgress();
+    updateProgressControls(false);
     var id=youtubeIdFromUrl(song && song.youtube_url);
     if(!id || song.source_type!=="youtube")return;
     ensureYouTubeApi(function(){
       if(youtubePlayer && youtubePlayer.loadVideoById){
-        try{youtubePlayer.loadVideoById({videoId:id,startSeconds:0}); youtubePlayer.pauseVideo();}catch(_e){}
+        try{
+          youtubePlayer.loadVideoById({videoId:id,startSeconds:0});
+          youtubePlayer.pauseVideo();
+          youtubeReadyForActiveSong=true;
+          updateProgressControls(true);
+          startProgressTimer();
+        }catch(_e){}
         return;
       }
       var host=q("songHiddenYoutubePlayer");
@@ -14752,10 +13743,18 @@ renderLevels();
           videoId:id,
           playerVars:{playsinline:1,controls:0,rel:0,modestbranding:1},
           events:{
-            onReady:function(e){try{e.target.pauseVideo();}catch(_e){}},
+            onReady:function(e){
+              try{e.target.pauseVideo();}catch(_e){}
+              youtubeReadyForActiveSong=true;
+              updateProgressControls(true);
+              startProgressTimer();
+            },
             onStateChange:function(e){
               isPlaying=(e.data===YT.PlayerState.PLAYING);
+              if(isPlaying)startAutoScroll();
+              else if(e.data===YT.PlayerState.PAUSED || e.data===YT.PlayerState.ENDED)stopAutoScroll(false);
               updatePlayButton();
+              updateProgress();
             }
           }
         });
@@ -14766,57 +13765,137 @@ renderLevels();
     if(!activeSong)return;
     if(activeSong.source_type!=="youtube" || !youtubeIdFromUrl(activeSong.youtube_url)){
       isPlaying=!isPlaying;
+      if(isPlaying)startAutoScroll(); else stopAutoScroll(false);
       updatePlayButton();
       return;
     }
     ensureYouTubeApi(function(){
-      if(!youtubePlayer || !youtubePlayer.playVideo){prepareYouTube(activeSong); setTimeout(togglePlayPause,600); return;}
+      if(!youtubePlayer || !youtubePlayer.playVideo){prepareYouTube(activeSong); setTimeout(togglePlayPause,650); return;}
       try{
         var state=youtubePlayer.getPlayerState ? youtubePlayer.getPlayerState() : -1;
-        if(state===1){youtubePlayer.pauseVideo(); isPlaying=false;}
-        else {youtubePlayer.playVideo(); isPlaying=true;}
+        if(state===1){
+          youtubePlayer.pauseVideo();
+          isPlaying=false;
+          stopAutoScroll(false);
+        }else{
+          youtubePlayer.playVideo();
+          isPlaying=true;
+          startAutoScroll();
+          startProgressTimer();
+        }
       }catch(_e){}
       updatePlayButton();
     });
   }
   function restartSong(){
+    resetScroll();
     if(youtubePlayer && youtubePlayer.seekTo){
-      try{youtubePlayer.seekTo(0,true); youtubePlayer.playVideo(); isPlaying=true;}catch(_e){}
+      try{youtubePlayer.seekTo(0,true); youtubePlayer.playVideo(); isPlaying=true; startAutoScroll();}catch(_e){}
     }else{
-      resetScroll();
       isPlaying=true;
+      startAutoScroll();
     }
+    setProgressValue(0);
+    updateTimeLabel(0);
     updatePlayButton();
   }
   function stopYoutube(){
     if(youtubePlayer && youtubePlayer.pauseVideo)try{youtubePlayer.pauseVideo();}catch(_e){}
     isPlaying=false;
     updatePlayButton();
+    stopProgressTimer();
+    resetProgress();
   }
   function updatePlayButton(){
     var btn=q("songPlayPauseBtn");
     if(btn)btn.textContent=isPlaying ? "⏸" : "▶";
   }
+  function formatTime(seconds){
+    seconds=Math.max(0, Math.floor(Number(seconds)||0));
+    var m=Math.floor(seconds/60), s=seconds%60;
+    return String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+  }
+  function updateTimeLabel(seconds){
+    var el=q("songCurrentTime");
+    if(el)el.textContent=formatTime(seconds);
+  }
+  function setProgressValue(value){
+    var range=q("songProgressRange");
+    if(range)range.value=String(Math.max(0, Math.min(100, Number(value)||0)));
+  }
+  function resetProgress(){
+    updateTimeLabel(0);
+    setProgressValue(0);
+  }
+  function updateProgressControls(enabled){
+    var range=q("songProgressRange");
+    var play=q("songPlayPauseBtn");
+    var restart=q("songRestartBtn");
+    var can=!!enabled;
+    if(range)range.disabled=!can;
+    if(play)play.disabled=!activeSong;
+    if(restart)restart.disabled=!activeSong;
+  }
+  function startProgressTimer(){
+    if(progressTimer)return;
+    progressTimer=setInterval(updateProgress,500);
+  }
+  function stopProgressTimer(){
+    if(progressTimer)clearInterval(progressTimer);
+    progressTimer=null;
+  }
+  function getDuration(){
+    try{return youtubePlayer && youtubePlayer.getDuration ? Number(youtubePlayer.getDuration())||0 : 0;}catch(_e){return 0;}
+  }
+  function getCurrentTime(){
+    try{return youtubePlayer && youtubePlayer.getCurrentTime ? Number(youtubePlayer.getCurrentTime())||0 : 0;}catch(_e){return 0;}
+  }
+  function updateProgress(){
+    if(!activeSong || !youtubePlayer || isSeeking)return;
+    var duration=getDuration();
+    var current=getCurrentTime();
+    updateTimeLabel(current);
+    if(duration>0)setProgressValue((current/duration)*100);
+  }
+  function seekFromRange(value){
+    if(!activeSong || !youtubePlayer || !youtubePlayer.seekTo)return;
+    var duration=getDuration();
+    if(duration<=0)return;
+    var pct=Math.max(0, Math.min(100, Number(value)||0));
+    var seconds=duration*pct/100;
+    try{youtubePlayer.seekTo(seconds,true);}catch(_e){}
+    updateTimeLabel(seconds);
+    setProgressValue(pct);
+  }
   function resetScroll(){
     var sc=q("songDetailScroll");
     if(sc)sc.scrollTop=0;
   }
+  function currentAutoSpeed(){
+    return autoSpeedValues[autoSpeedIndex] || 0.5;
+  }
   function speedPxPerSecond(){
-    return 10 + (autoSpeedLevel * 6);
+    return 22 * currentAutoSpeed();
+  }
+  function updateAutoScrollLabel(){
+    var label=q("songAutoScrollLabel");
+    if(label)label.textContent="Auto Scroll "+currentAutoSpeed()+"x";
+    var slow=q("songAutoSlowBtn"), fast=q("songAutoFastBtn");
+    if(slow)slow.disabled=autoSpeedIndex<=0;
+    if(fast)fast.disabled=autoSpeedIndex>=autoSpeedValues.length-1;
   }
   function startAutoScroll(){
-    if(!activeSong)return;
-    if(!autoSpeedLevel)autoSpeedLevel=1;
+    if(!activeSong || activeTab==="breakdown")return;
     autoScrollOn=true;
-    updateAutoButton();
+    updateAutoScrollLabel();
     scrollLastTs=0;
     if(scrollRaf)cancelAnimationFrame(scrollRaf);
     scrollRaf=requestAnimationFrame(autoStep);
   }
-  function stopAutoScroll(){
+  function stopAutoScroll(resetLevel){
     autoScrollOn=false;
-    autoSpeedLevel=0;
-    updateAutoButton();
+    if(resetLevel)autoSpeedIndex=0;
+    updateAutoScrollLabel();
     if(scrollRaf)cancelAnimationFrame(scrollRaf);
     scrollRaf=null;
     scrollLastTs=0;
@@ -14824,32 +13903,19 @@ renderLevels();
   function autoStep(ts){
     if(!autoScrollOn)return;
     var sc=q("songDetailScroll");
-    if(!sc){stopAutoScroll(); return;}
+    if(!sc){stopAutoScroll(false); return;}
     if(!scrollLastTs)scrollLastTs=ts;
     var delta=(ts-scrollLastTs)/1000;
     scrollLastTs=ts;
     sc.scrollTop += speedPxPerSecond()*delta;
-    if(sc.scrollTop + sc.clientHeight >= sc.scrollHeight - 2){stopAutoScroll(); return;}
+    if(sc.scrollTop + sc.clientHeight >= sc.scrollHeight - 2){stopAutoScroll(false); return;}
     scrollRaf=requestAnimationFrame(autoStep);
   }
-  function cycleAuto(){
-    if(!autoScrollOn){autoSpeedLevel=1; startAutoScroll(); return;}
-    autoSpeedLevel += 1;
-    if(autoSpeedLevel>10){stopAutoScroll(); return;}
-    updateAutoButton();
-  }
-  function updateAutoButton(){
-    var btn=q("songAutoScrollBtn");
-    if(!btn)return;
-    if(autoScrollOn && autoSpeedLevel>0){
-      btn.classList.add("active");
-      btn.innerHTML=renderSignal(autoSpeedLevel);
-      btn.title="Auto-scroll level "+autoSpeedLevel+" / klik untuk naik level";
-    }else{
-      btn.classList.remove("active");
-      btn.textContent="Auto";
-      btn.title="Auto-scroll";
-    }
+  function changeAutoSpeed(delta){
+    autoSpeedIndex=Math.max(0, Math.min(autoSpeedValues.length-1, autoSpeedIndex+delta));
+    localStorage.setItem("mjeSongAutoScrollSpeedIndex", String(autoSpeedIndex));
+    updateAutoScrollLabel();
+    if(!autoScrollOn && activeSong && activeTab!=="breakdown")startAutoScroll();
   }
   function clampZoom(v){return Math.max(100, Math.min(260, v));}
   function applyLyricZoom(){
@@ -14868,13 +13934,13 @@ renderLevels();
   function bindEvents(){
     relabelDashboardAndMenu();
     var dash=q("dashboardBunpouBtn");
-    if(dash)dash.addEventListener("click",function(e){e.preventDefault();showSongView();});
+    if(dash)dash.addEventListener("click",function(e){e.preventDefault();showSongView();},true);
     var menu=q("menuBunpouBtn");
-    if(menu)menu.addEventListener("click",function(e){e.preventDefault();showSongView();});
+    if(menu)menu.addEventListener("click",function(e){e.preventDefault();showSongView();},true);
     var back=q("bunpouBackBtn");
-    if(back)back.addEventListener("click",showDashboard);
+    if(back)back.addEventListener("click",function(e){e.preventDefault();showDashboard();});
     var backList=q("songBackListBtn");
-    if(backList)backList.addEventListener("click",showSongList);
+    if(backList)backList.addEventListener("click",function(e){e.preventDefault();showSongList();});
     var search=q("songSearchInput");
     if(search)search.addEventListener("input",renderList);
     var list=q("songListGrid");
@@ -14886,12 +13952,18 @@ renderLevels();
       btn.addEventListener("click",function(){setTab(btn.getAttribute("data-song-tab"));});
     });
     var play=q("songPlayPauseBtn");
-    if(play)play.addEventListener("click",function(){
-      if(playClickTimer){clearTimeout(playClickTimer); playClickTimer=null; restartSong(); return;}
-      playClickTimer=setTimeout(function(){playClickTimer=null; togglePlayPause();},220);
-    });
-    var auto=q("songAutoScrollBtn");
-    if(auto)auto.addEventListener("click",cycleAuto);
+    if(play)play.addEventListener("click",togglePlayPause);
+    var restart=q("songRestartBtn");
+    if(restart)restart.addEventListener("click",restartSong);
+    var slow=q("songAutoSlowBtn"), fast=q("songAutoFastBtn");
+    if(slow)slow.addEventListener("click",function(){changeAutoSpeed(-1);});
+    if(fast)fast.addEventListener("click",function(){changeAutoSpeed(1);});
+    var range=q("songProgressRange");
+    if(range){
+      ["pointerdown","mousedown","touchstart"].forEach(function(evt){range.addEventListener(evt,function(){isSeeking=true;},{passive:true});});
+      ["pointerup","mouseup","touchend","change"].forEach(function(evt){range.addEventListener(evt,function(){seekFromRange(range.value); isSeeking=false; updateProgress();},{passive:true});});
+      range.addEventListener("input",function(){seekFromRange(range.value);});
+    }
     var out=q("songZoomOutBtn"), inn=q("songZoomInBtn");
     if(out)out.addEventListener("click",function(){changeZoom(-20);});
     if(inn)inn.addEventListener("click",function(){changeZoom(20);});
@@ -14902,8 +13974,10 @@ renderLevels();
     bindEvents();
     renderList();
     updatePlayButton();
-    updateAutoButton();
+    updateAutoScrollLabel();
     updateZoomControls();
+    resetProgress();
+    updateProgressControls(false);
     window.addEventListener("pageshow",function(){relabelDashboardAndMenu(); renderList();});
   }
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",initialize,{once:true});
